@@ -15,4 +15,4 @@ Somos formados por 5 estudandates do curso de Engenharia de Software, Conheça a
 
 ## Acesse nossa documentação e saiba mais: 
 
-[Famintos Burguer](https://joaoeduardop.github.io/REQ-Eng.Software-UnB-Docs/)
+[Famintos Burguer](https://mdsreq-fga-unb.github.io/2024.2-T01-FamintosBurguer/)
