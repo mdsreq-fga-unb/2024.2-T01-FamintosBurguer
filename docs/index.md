@@ -1,11 +1,11 @@
 # <center>**Famintos Burguer 🍔**</center>
 
 _________________________________________________________________________________
-<center>
-![UNB](img/Unb.png)
-</center>
 
-                                 UNIVERSIDADE DE BRASÍLIA
+<figure markdown="span">
+  ![UNB](img/Unb.png)
+  <figcaption>UNIVERSIDADE DE BRASÍLIA</figcaption>
+</figure>
 _________________________________________________________________________________
 ## *Requisitos de Software*
 

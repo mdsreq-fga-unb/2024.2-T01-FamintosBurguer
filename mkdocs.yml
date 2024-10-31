@@ -9,6 +9,9 @@ markdown_extensions:
   - md_in_html  
   - toc:
       title: Tópicos
+  - attr_list
+  - md_in_html
+  - pymdownx.blocks.caption
 
 theme: 
   name: material
