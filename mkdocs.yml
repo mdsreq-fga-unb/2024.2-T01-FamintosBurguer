@@ -1,5 +1,8 @@
 site_name: Famintos Burguer   
 
+repo_name: "Famintos GitHub"
+repo_url: https://github.com/mdsreq-fga-unb/2024.2-T01-FamintosBurguer/tree/main
+
 nav:
   - Projeto e Documentação: index.md
   - Visão Do Produto E Projeto: ProdutoProjeto
@@ -12,31 +15,31 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
+  
 
 theme: 
+  icon:
+    repo: fontawesome/brands/github
   name: material
+  language: pt-BR
   palette:
       - scheme: default
         primary: yellow
         accent: amber
         toggle:
-          icon: material/brightness-7 
+          icon: material/toggle-switch-off-outline
           name: Switch to dark mode
 
-    # Palette toggle for dark mode
       - scheme: slate
         primary: indigo
         accent: light-blue
         toggle:
-          icon: material/brightness-4
+          icon: material/toggle-switch
           name: Switch to light mode
     
   logo: img/hamburguer.png
   favicon: img/hamburguer_icon.png
   highlightjs: true
-
-extra_css:
-  - stylesheets/extra.css
 
 plugins:
   - search
