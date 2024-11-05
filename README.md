@@ -1,6 +1,6 @@
 # REQ | UnB | Famintos Burguer 🍔
 
-Repositório para apresentação do projeto realizado pelo grupo **Famintos Burguer** da matéria de **Requisitos de Software** da Unb.
+Repositório para apresentação do projeto **Famintos Burguer** realizado pelo grupo **Burguer Code** da matéria de **Requisitos de Software** da Unb.
 
 ## 👥 Equipe
 
