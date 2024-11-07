@@ -4,7 +4,7 @@ ________________________________________________________________________________
 
 ## 1.1 Introdução ao Negócio e Contexto
 
-- ### Famintos Burger e sua Proposta de Valor
+- **Famintos Burger e sua Proposta de Valor**
     <div style="text-align: justify">
     Localizada em Sobradinho, Distrito Federal, a Famintos Burger é uma hamburgueria artesanal fundada
     por João Gabriel, que acumula as funções de proprietário e cozinheiro. A empresa atende clientes
@@ -13,7 +13,7 @@ ________________________________________________________________________________
     do caixa e do atendimento ao cliente.
     </div>
 
-- ### Desafios Operacionais e Necessidade de Solução Tecnológica
+- **Desafios Operacionais e Necessidade de Solução Tecnológica**
     <div style="text-align: justify">
     Com o aumento da demanda, a Famintos Burger enfrenta desafios na eficiência e gestão de seu food 
     truck, o que torna essencial a implementação de uma solução tecnológica. Essa ferramenta deve 
@@ -32,7 +32,7 @@ funcionamento eficiente do food truck de João Gabriel, especializado em hambúr
 Atualmente, João enfrenta diversos desafios, como descrito a seguir:
 </div>
 
-- ### Dificuldades no Registro de Pedidos:
+- **Dificuldades no Registro de Pedidos**
     <div style="text-align: justify">
     A irmã de João, responsável pelo caixa, registra manualmente os pedidos em papel. Esse processo
     exige tempo, o que causa filas e espera prolongada para os clientes, além de ser suscetível a erros,
@@ -41,7 +41,7 @@ Atualmente, João enfrenta diversos desafios, como descrito a seguir:
     uma vez que os erros nos pedidos são recorrentes e afetam a experiência geral no food truck.
     </div>
 
-- ### Gestão de Estoque Ineficiente:
+- **Gestão de Estoque Ineficiente**
     <div style="text-align: justify">
     O controle do estoque é feito de forma limitada e depende do aplicativo “Anota Aí”, que é um
     aplicativo de gestão para empreendimentos no ramo alimentício, contudo, neste caso, ele não está
@@ -52,7 +52,7 @@ Atualmente, João enfrenta diversos desafios, como descrito a seguir:
     percepção dos clientes e o potencial de venda.
     </div>
 
-- ### Controle Financeiro e Custos Elevados:
+- **Controle Financeiro e Custos Elevados**
     <div style="text-align: justify">
     João usa o aplicativo “Anota Aí”, que possui atualmente ferramentas para controle financeiro de
     empresas, mas o custo mensal desse serviço torna-se oneroso para ele como pequeno
@@ -64,7 +64,7 @@ Atualmente, João enfrenta diversos desafios, como descrito a seguir:
     fluxo de caixa, economizando custos e agregando eficiência ao processo.
     </div>
 
-- ### Diagrama de Ishikawa:
+- **Diagrama de Ishikawa**
     <figure markdown="span">
     ![Ishikawa](img/Ishikawa.png)
     </figure>
@@ -79,20 +79,20 @@ o desempenho do food truck e a satisfação dos clientes. A solução proposta d
 críticas:
 </div>
 
-- ### Automação do Registro de Pedidos: 
+- **Automação do Registro de Pedidos** 
     <div style="text-align: justify">
     A melhoria no fluxo de pedidos é vital para garantir que o
     atendimento seja ágil e com menor margem de erro, evitando filas e a necessidade de retrabalho.
     </div>
 
-- ### Controle Integrado de Estoque: 
+- **Controle Integrado de Estoque**
     <div style="text-align: justify">
     A integração do estoque ao processo de pedidos permitirá a
     atualização em tempo real dos ingredientes disponíveis, garantindo a continuidade dos itens no
     cardápio e aumentando a previsibilidade.
     </div>
 
-- ### Gestão Financeira Centralizada: 
+- **Gestão Financeira Centralizada**
     <div style="text-align: justify">
     Para reduzir custos e aprimorar a visão financeira, o sistema deve
     consolidar todas as operações financeiras em uma plataforma única, permitindo relatórios detalhados
@@ -112,7 +112,7 @@ ________________________________________________________________________________
 A Famintos Burger atende a três segmentos principais de clientes:
 </div>
 
-- ###  Moradores Locais e Frequentadores de Food Trucks: 
+- **Moradores Locais e Frequentadores de Food Trucks**
     <div style="text-align: justify">
     São clientes da região de Sobradinho e
     arredores, que buscam uma opção de fast-food artesanal, priorizando a qualidade dos ingredientes e o
@@ -120,7 +120,7 @@ A Famintos Burger atende a três segmentos principais de clientes:
     costuma frequentar o food truck pessoalmente, contribuindo para a clientela regular e fiel do negócio.
     </div>
 
-- ### Jovens e Jovens Adultos (18-35 anos): 
+- **Jovens e Jovens Adultos (18-35 anos)** 
     <div style="text-align: justify">
     Esse público representa uma faixa etária que busca lanches
     artesanais e rápidos, com uma experiência de sabor diferente do tradicional. São clientes que apreciam
@@ -128,7 +128,7 @@ A Famintos Burger atende a três segmentos principais de clientes:
     sabores e combinações, além de serem atraídos pelo ambiente informal de um food truck.
     </div>
 
-- ### Clientes de Delivery via iFood: 
+- **Clientes de Delivery via iFood**
     <div style="text-align: justify">
     Com o aumento da demanda por conveniência, a Famintos Burger
     atende também um número crescente de pedidos via iFood, atraindo clientes que preferem receber o

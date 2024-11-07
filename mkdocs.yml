@@ -4,8 +4,10 @@ repo_name: "Famintos GitHub"
 repo_url: https://github.com/mdsreq-fga-unb/2024.2-T01-FamintosBurguer/tree/main
 
 nav:
-  - Projeto e Documentação: index.md
+  - Home Page: index.md
+  - Projeto: projeto.md
   - Visão Do Produto E Projeto: ProdutoProjeto
+  - Atas Reuniões: Atas
 
 markdown_extensions:
   - tables
@@ -15,12 +17,20 @@ markdown_extensions:
   - attr_list
   - md_in_html
   - pymdownx.blocks.caption
-  
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
 
 theme: 
   icon:
     repo: fontawesome/brands/github
   name: material
+  custom_dir: docs/overrides
   language: pt-BR
   palette:
       - scheme: default
@@ -44,3 +54,7 @@ theme:
 plugins:
   - search
   - include_dir_to_nav
+  - glightbox
+
+extra_css:
+  - stylesheets/extra.css

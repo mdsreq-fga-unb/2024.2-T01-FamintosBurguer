@@ -1,0 +1,40 @@
+{#- This is the home page template. It is rendered on the index page.-#}
+{% extends "main.html" %}
+{% block tabs %}
+  {{ super() }}
+  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+  <section class="mdx-container">
+    <div class="md-grid md-typeset">
+      <div class="mdx-hero">
+        <div class="mdx-hero__image">
+          <img src="img/images.png" alt="" width="1600" height="800" draggable="false" class="rounded-edge">
+        </div>
+        <div style="display: flex; align-items: center; height: 10vh;">
+          <a href="{{ page.next_page.url | url }}" title="Página do Projeto" class="md-button md-button--primary" style="margin-right: 20px; border-radius: 10px;">
+              Projeto
+          </a>
+          <a href="{{ 'ProdutoProjeto/1_Cenário/' | url }}" title="Página de Documentação da Visão do Produto e Projeto" class="md-button md-button--primary" style="margin-right: 20px; border-radius: 10px;">
+              Documentação
+          </a>
+          <a href="{{ 'Atas/Reunioes' | url }}" title="Página de Documentação das Reuniões do Projeto" class="md-button md-button--primary" style="margin-right: 600px; border-radius: 10px;">
+            Reuniões
+          </a>
+          <a rel="me" href="https://www.instagram.com/famintosburgueer?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" style="margin-right: 15px">
+            <span class="twemoji instagram">
+              {% include ".icons/fontawesome/brands/instagram.svg" %}
+            </span>
+            <strong>Instagram</strong>
+          </a>
+          <a rel="me" href="https://api.whatsapp.com/send/?phone=5561982044888&text&type=phone_number&app_absent=0">
+            <span class="twemoji whatsapp">
+              {% include ".icons/fontawesome/brands/whatsapp.svg" %}
+            </span>
+            <strong>WhatsApp</strong>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}

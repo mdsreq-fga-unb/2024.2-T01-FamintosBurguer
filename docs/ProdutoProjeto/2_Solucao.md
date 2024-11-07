@@ -4,12 +4,12 @@ ________________________________________________________________________________
 
 ## 2.1 Objetivos do Produto
 
-- ### Objetivo do Produto
+- **Objetivo do Produto**
     <div style="text-align: justify">
     A proposta da solução é otimizar e modernizar as operações da Famintos Burger, proporcionando um sistema integrado que abrange a gestão de pedidos, estoque e finanças. O objetivo é eliminar registros manuais, reduzir erros e melhorar a precisão nos pedidos, visando aumentar a satisfação do cliente.
     </div>
 
-- ### Funcionalidades e Benefícios
+- **Funcionalidades e Benefícios**
     <div style="text-align: justify">
     O sistema permitirá o controle automático de estoque, com alertas para reposição de itens, e oferecerá recursos para a gestão financeira, incluindo a geração de relatórios detalhados. Esses recursos promoverão maior eficiência e segurança nas operações, ajudando a Famintos Burger a crescer de forma sustentável, mantendo a qualidade do atendimento.
     </div>
@@ -20,7 +20,7 @@ ________________________________________________________________________________
 A solução proposta para a Famintos Burger deve incluir as seguintes características principais:
 </div>
 
-- ### Sistema de Registro Digital de Pedidos:
+- **Sistema de Registro Digital de Pedidos**
     <div style="text-align: justify">
     Permite a anotação dos pedidos de forma rápida e precisa, eliminando a necessidade de registros manuais
     em papel. Isso reduzirá o risco de erros e facilitará a organização e visualização dos pedidos, otimizando
@@ -28,14 +28,14 @@ A solução proposta para a Famintos Burger deve incluir as seguintes caracterí
     Página 5 de 8
     </div>
 
-- ### Controle de Estoque Integrado:
+- **Controle de Estoque Integrado**
     <div style="text-align: justify">
     O sistema acompanhará o uso dos ingredientes e enviará alertas automáticos quando os itens estiverem
     próximos de acabar. Esse recurso permitirá que o cliente reponha o estoque com eficiência, evitando a
     indisponibilidade de produtos e garantindo a continuidade do atendimento.
     </div>
 
-- ### Gestão Financeira e Relatórios de Desempenho:
+- **Gestão Financeira e Relatórios de Desempenho**
     <div style="text-align: justify">
     Contará com uma funcionalidade de geração de relatórios financeiros detalhados, permitindo um
     acompanhamento fácil do fluxo de caixa e das vendas. Além disso, o sistema identificará os produtos
@@ -43,14 +43,14 @@ A solução proposta para a Famintos Burger deve incluir as seguintes caracterí
     lucratividade.
     </div>
 
-### Módulo de Fidelidade para Clientes:
-<div style="text-align: justify">
-Inclui o cadastro de clientes recorrentes e um sistema de recompensas que contabiliza automaticamente
-as compras realizadas, oferecendo brindes a cada dez pedidos. Essa funcionalidade incentiva a fidelização
-e melhora a experiência do cliente.
-Com essas características, a solução proporcionará uma operação mais eficiente e integrada, alinhando-se às
-necessidades de automação e melhoria na experiência de atendimento da Famintos Burger. 
-</div>
+- **Módulo de Fidelidade para Clientes**
+    <div style="text-align: justify">
+    Inclui o cadastro de clientes recorrentes e um sistema de recompensas que contabiliza automaticamente
+    as compras realizadas, oferecendo brindes a cada dez pedidos. Essa funcionalidade incentiva a fidelização
+    e melhora a experiência do cliente.
+    Com essas características, a solução proporcionará uma operação mais eficiente e integrada, alinhando-se às
+    necessidades de automação e melhoria na experiência de atendimento da Famintos Burger. 
+    </div>
 ___________________________________________________________________________________
 
 ## 2.3 Tecnologias a Serem Utilizadas
@@ -59,34 +59,42 @@ Para a construção da solução proposta para a Famintos Burger, será adotado 
 atendam aos requisitos de funcionalidade, desempenho e experiência do usuário.
 </div>
 
-- ### Frontend
+### *Frontend*
 
-    * Frameworks e Bibliotecas:
-        * **React.js** <br />
-                    Utilizado para a construção da interface interativa e responsiva, garantindo
-                    uma experiência de usuário rápida e intuitiva.
-        * **Electron.js** <br /> 
-                    Permitirá que o sistema seja implementado como um aplicativo desktop,
-                    facilitando o uso direto no food truck sem necessidade de conexão contínua com a web.
-                    o Ferramentas de Estilização:
-        * **CSS/HTML** <br />
-                    Para a estilização e estruturação da interface, criando um design
-                    personalizado e funcional para o usuário.
+* Frameworks e Bibliotecas:
+<div class="grid cards" markdown>
+- [:simple-react:](https://react.dev) __React -__ Utilizado para a construção da interface interativa e responsiva, garantindo
+uma experiência de usuário rápida e intuitiva.
+</div>
 
-- ### Backend
-    * Linguagem e Frameworks:
-        * **Node.js** <br /> 
-                    Servirá como o principal ambiente de desenvolvimento do backend,
-                    permitindo a criação de uma API eficiente e escalável para gerenciar o fluxo de dados
-                    entre o frontend, o controle de estoque e a gestão financeira.
+<div class="grid cards" markdown>
+- [:simple-electron:](https://www.electronjs.org) __Electron -__ Permitirá que o sistema seja implementado como um aplicativo desktop,
+facilitando o uso direto no food truck sem necessidade de conexão contínua com a web.
+o Ferramentas de Estilização.
+</div>
 
-- ### Banco de Dados
-    * Banco de Dados Relacional:
-        * **PostgreSQL** <br />
-                    Escolhido pela sua confiabilidade e suporte para operações complexas,
-                    permitirá o armazenamento e gerenciamento seguro dos dados de pedidos, clientes,
-                    estoque e financeiro.
+<div class="grid cards" markdown>
+- [:fontawesome-brands-css3:](https://www.w3.org/Style/CSS/Overview.en.html) __CSS -__ Para a estilização e estruturação da interface, criando um design
+personalizado e funcional para o usuário.
+</div>
 
+### *Backend*
+
+* Linguagem e Frameworks:
+<div class="grid cards" markdown>
+- [:fontawesome-brands-node-js:](https://nodejs.org/en) __Node.js -__ Servirá como o principal ambiente de desenvolvimento do backend,
+permitindo a criação de uma API eficiente e escalável para gerenciar o fluxo de dados
+entre o frontend, o controle de estoque e a gestão financeira.
+</div>
+
+### *Banco de Dados*
+
+* Banco de Dados Relacional:
+<div class="grid cards" markdown>
+-  [:simple-postgresql:](https://www.postgresql.org) __PostgreSQL -__ Escolhido pela sua confiabilidade e suporte para operações complexas,
+permitirá o armazenamento e gerenciamento seguro dos dados de pedidos, clientes,
+estoque e financeiro.
+</div>
 ___________________________________________________________________________________
 
 ## 2.4 Pesquisa de Mercado e Análise Competitiva
@@ -97,14 +105,14 @@ oferecem funcionalidades básicas de gerenciamento de pedidos e estoque, porém 
 a nova solução da Famintos Burger poderá superar.
 </div>
 
-- ### **Anota Aí:**
+- **Anota Aí:**
     <div style="text-align: justify">
     Esse aplicativo permite que pequenos empreendedores façam o controle manual de pedidos e o
     gerenciamento financeiro de forma simplificada. No entanto, sua assinatura mensal representa um custo
     significativo para pequenos negócios e não oferece um controle automatizado de estoque ou relatórios
     detalhados de vendas, o que limita a visibilidade estratégica para o crescimento do negócio.
     </div>
-- ### **iFood MarketPlace**
+- **iFood MarketPlace**
     <div style="text-align: justify">
     A plataforma iFood permite a integração dos pedidos para delivery com um sistema de relatórios de
     vendas. No entanto, as funcionalidades são voltadas principalmente ao atendimento do público de
@@ -112,24 +120,24 @@ a nova solução da Famintos Burger poderá superar.
     clientes. Além disso, o iFood cobra taxas de transação sobre cada pedido, o que pode reduzir a margem
     de lucro do empreendedor.
     </div>
-- ### **Diferenciais da Solução da Famintos Burger**
+- **Diferenciais da Solução da Famintos Burger**
     <div style="text-align: justify">
     A solução desenvolvida para a Famintos Burger se destaca por integrar funcionalidades customizadas e
     específicas para as operações do food truck, indo além das opções disponíveis para o cliente:
     </div>
-- ### **Centralização dos Processos de Pedido e Estoque**
+- **Centralização dos Processos de Pedido e Estoque**
     <div style="text-align: justify">
     Diferente de soluções básicas, o sistema reúne o registro digital de pedidos e o controle de estoque em
     uma plataforma única. Isso permite uma coordenação mais ágil entre pedidos e disponibilidade de
     insumos, minimizando erros operacionais.
     </div>
-- ### **Relatórios Financeiros Detalhados e Personalizados**
+- **Relatórios Financeiros Detalhados e Personalizados**
     <div style="text-align: justify">
     A ferramenta inclui funcionalidades de geração de relatórios financeiros que atendem a necessidades
     específicas do negócio, como análise de desempenho de vendas e fluxo de caixa. Esse diferencial
     possibilita decisões estratégicas e adaptações em tempo real para otimizar a operação.
     </div>
-- ### **Programa de Fidelidade Integrado**
+- **Programa de Fidelidade Integrado**
     <div style="text-align: justify">
     Com um sistema próprio de recompensas, a solução incentiva a fidelização dos clientes, oferecendo
     benefícios de longo prazo para consumidores recorrentes, algo que outras soluções de mercado raramente
@@ -147,7 +155,7 @@ ________________________________________________________________________________
 
 ## 2.5 Análise de Viabilidade
 
-- ### **Análise**
+- **Análise**
     <div style="text-align: justify">
     A solução proposta para a Famintos Burger apresenta uma viabilidade técnica elevada. A equipe planeja 
     utilizar tecnologias familiares e confiáveis, como React.js para o frontend e Node.js para o backend, 
@@ -162,7 +170,7 @@ ________________________________________________________________________________
     tecnologias que serão empregadas, assegurando a implementação das funcionalidades dentro do prazo estabelecido.
     </div>
 
-- ### **Viabilidade**
+- **Viabilidade**
     <div style="text-align: justify">
     Em relação à viabilidade financeira, o desenvolvimento do sistema representa um investimento inicial
     competitivo que elimina a necessidade de mensalidades recorrentes para aplicativos de terceiros,
@@ -184,21 +192,21 @@ Espera-se que a implementação do sistema de gerenciamento traga benefícios si
 Burger, melhorando tanto a eficiência operacional quanto os resultados de negócio:
 </div>
 
-- ### **Redução de Erros e Agilidade no Atendimento**
+- **Redução de Erros e Agilidade no Atendimento**
     Com a automação das anotações de pedidos, a solução
     reduzirá significativamente os erros e o tempo gasto na gestão manual, o que resultará em uma
     experiência de atendimento mais ágil e precisa para os clientes.
-- ### **Controle Financeiro e de Estoque**
+- **Controle Financeiro e de Estoque**
     A solução proporcionará um controle detalhado do fluxo de caixa e
     dos níveis de estoque, permitindo ao João Gabriel tomar decisões informadas sobre reposição de insumos
     e investimentos. A geração de relatórios financeiros simplificará a análise de custos e lucros, auxiliando
     na sustentabilidade financeira do negócio.
-- ### **Fidelização de Clientes**
+- **Fidelização de Clientes**
     Com a implementação de um sistema de fidelidade, a Famintos Burger poderá
     incentivar o retorno dos clientes, oferecendo um diferencial atrativo e aumentando a base de clientes
     frequentes.
-Página 8 de 8
-- ### **Economia com Aplicativos Terceirizados**
+
+- **Economia com Aplicativos Terceirizados**
     Ao substituir o custo mensal de aplicativos de gestão
     financeira e controle de pedidos por um sistema próprio, a solução permitirá ao negócio uma economia
     recorrente, além de um controle mais adaptado às necessidades específicas do food truck.<br />

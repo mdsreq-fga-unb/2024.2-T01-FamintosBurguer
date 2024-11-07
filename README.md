@@ -1,6 +1,11 @@
 # REQ | UnB | Famintos Burguer 🍔
 
-Repositório para Documentação do projeto **Famintos Burguer** da matéria de **Requisitos de Software** da Unb.
+![Banner](docs/img/FamintosBanner.png)
+
+<br>
+<br>
+
+Bem vindo ao Repositório para Documentação do projeto **Famintos Burguer** da matéria de **Requisitos de Software** da Unb.
 
 ## 👥 Equipe
 
