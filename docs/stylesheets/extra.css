@@ -44,7 +44,6 @@
     font-family: 'Roboto', sans-serif;
   }
   
-  
   .hero-title {
     font-size: 2.5em;
     color: #ff5722;
@@ -73,10 +72,15 @@
   .icon {
     margin-right: 8px;
   }
-  
-  .hero-image {
-    margin-top: 40px;
-    animation: zoomInImage 1.2s ease;
+
+  .hero-image img {
+    display: block;      /* Garante que a imagem se comporte como um bloco */
+    margin: 0 auto;      /* Centraliza a imagem */
+    width: 100%;         /* Ajusta a largura para ocupar o máximo do contêiner */
+    height: auto;        /* Mantém a proporção da imagem */
+    max-width: 1312px;    /* Limita a largura máxima em telas grandes */
+    border-radius: 15px; /* Arredonda as bordas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
   }
   
   .rounded-edge {
@@ -126,5 +130,14 @@
       font-size: 0.75em;  /* Fonte menor para caber melhor */
       width: 100%;        /* Ocupa toda a largura disponível */
       text-align: center;
+    }
+  }
+
+  @media screen and (max-height: 800px) {
+    .hero-image img {
+      width: 100%;        /* Ajusta a largura da imagem para 100% do contêiner */
+      height: auto;       /* Mantém a proporção da imagem */
+      max-width: 1000px;   /* Limita a largura máxima da imagem para telas menores */
+      margin: 0 auto;     /* Centraliza a imagem na tela */
     }
   }
