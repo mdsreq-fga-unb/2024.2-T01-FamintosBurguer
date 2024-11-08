@@ -30,7 +30,6 @@
       width: 100%;
     }
 
-    /* Container for social buttons aligned to the right */
     .social-container {
       margin-left: auto;
       display: flex;
@@ -40,14 +39,32 @@
 
     /* Responsive adjustments */
     @media screen and (max-width: 768px) {
+      .button-container {
+        justify-content: center; /* Centraliza os botões no mobile */
+      }
+
       .button-container a {
         margin-right: 10px;
-        padding: 10px 20px;
-        font-size: 0.9em;
+        padding: 8px 16px; /* Reduz o padding dos botões */
+        font-size: 0.8em; /* Reduz o tamanho da fonte */
       }
+
       .button-container a:last-child {
         margin-right: 0;
       }
+
+      .social-container {
+        margin-left: 0; /* Remove o alinhamento à direita */
+        justify-content: center; /* Centraliza os botões de redes sociais */
+        width: 100%;
+        gap: 5px; /* Reduz o espaçamento entre os botões */
+      }
+
+      .social-container a {
+        padding: 6px 12px; /* Reduz o padding dos botões de redes sociais */
+        font-size: 0.8em; /* Reduz o tamanho da fonte */
+      }
+
       .mdx-hero__image img {
         width: 100%;
         height: auto;
@@ -72,7 +89,6 @@
             Reuniões
           </a>
           
-          <!-- Social buttons container, aligned to the right -->
           <div class="social-container">
             <a rel="me" href="https://www.instagram.com/famintosburgueer?utm_source=ig_web_button_share_sheet&igshid=ZDNlZDc0MzIxNw%3D%3D">
               <span class="twemoji instagram">
