@@ -4,11 +4,11 @@ ________________________________________________________________________________
 
 ## 3.1 Estratégia Priorizada
 
-*Abordagem:* Dirigida a plano. 
+- **Abordagem:** Dirigida a plano. 
 
-*Ciclo de vida:* Iterativo. 
+- **Ciclo de vida:** Iterativo. 
 
-*Processo:* Espiral. 
+- **Processo:** Espiral. 
 
 ___________________________________________________________________________________
 
@@ -37,9 +37,12 @@ ________________________________________________________________________________
 
 ## 3.3 Justificativa
 
-<div style="text-align: justify">
-Escolhemos o Processo Espiral para o desenvolvimento do Famintos Burger pela flexibilidade e foco na mitigação de riscos a cada ciclo. Esse modelo é ideal para nosso projeto, que envolve funcionalidades críticas de controle de comandas, estoque e financeiro. Com o Espiral, podemos identificar problemas cedo e fazer ajustes conforme necessário, o que é fundamental para evitar falhas e nos adaptarmos aos requisitos ao longo do semestre. <br />
+- **Processo Espiral**
+    <div style="text-align: justify">
 
-O Processo Unificado foi considerado, mas o Espiral é menos rígido em termos de documentação, o que facilita a conciliação com nossos compromissos acadêmicos. A abordagem iterativa, com planejamento e análise de riscos, nos permite ajustar o sistema conforme avançamos e recebemos feedback, alinhando-se bem com nosso cronograma e as demandas do projeto. 
-</div>
+    Escolhemos o Processo Espiral para o desenvolvimento do Famintos Burger pela flexibilidade e foco na mitigação de riscos a cada ciclo. Esse modelo é ideal para nosso projeto, que envolve funcionalidades críticas de controle de comandas, estoque e financeiro. Com o Espiral, podemos identificar problemas cedo e fazer ajustes conforme necessário, o que é fundamental para evitar falhas e nos adaptarmos aos requisitos ao longo do semestre. <br />
+
+    O Processo Unificado foi considerado, mas o Espiral é menos rígido em termos de documentação, o que facilita a conciliação com nossos compromissos acadêmicos. A abordagem iterativa, com planejamento e análise de riscos, nos permite ajustar o sistema conforme avançamos e recebemos feedback, alinhando-se bem com nosso cronograma e as demandas do projeto. 
+
+    </div>
 ___________________________________________________________________________________

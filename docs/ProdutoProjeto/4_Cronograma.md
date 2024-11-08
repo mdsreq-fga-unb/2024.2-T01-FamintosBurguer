@@ -18,4 +18,24 @@ A partir da estratégia de desenvolvimento de software estabelecida, tem-se a se
 | Ciclo 6  | 23/01/25   | 30/01/25   | Sistema de fidelidade do cliente                                                          | Interface para definição de bônus e parâmetros para gratificação do cliente                                | Validação da funcionalidade de escolha do bônus e definição de frequência para gratificação.           |
 | Ciclo 7  | 04/02/25   | 13/02/25   | Finalização e ajustes finais para entrega do MVP. Preparação para apresentação completa.    | MVP funcional e pronto para a entrega final. Sistema de pedidos, controle de estoque e financeiro completos | Validação final do MVP, revisão das funcionalidades e feedback sobre a entrega final.                  |
 
+## Considerações Importantes para o Cronograma
+
+1. **Datas de Início e Fim Definidas com Intervalos de Revisão**  
+   Cada ciclo no cronograma está planejado para ser executado dentro de períodos claramente definidos, o que garante organização e permite que a equipe e o cliente acompanhem o progresso. Estes períodos incluem marcos para cada unidade, de acordo com o plano de trabalho estabelecido.
+
+2. **Período de Recesso Considerado**  
+   O recesso, programado entre 20/12/24 e 07/01/25, foi devidamente incorporado ao cronograma para que a equipe possa ajustar entregas e prazos sem afetar a continuidade do projeto.
+
+3. **Validação ao Final de Cada Ciclo**  
+   Após a conclusão de cada ciclo, haverá uma reunião de revisão com o cliente. Essa prática não só ajuda a alinhar expectativas e coletar feedback, mas também oferece uma oportunidade para refinar o backlog e fazer ajustes antes do início do próximo ciclo.
+
+4. **Entregas Parciais Focadas em Funcionalidades Principais**  
+   As funcionalidades mais essenciais, como o registro de pedidos, controle de estoque, controle financeiro e o sistema de fidelidade, são desenvolvidas e validadas em etapas ao longo dos ciclos. Isso permite que o cliente tenha uma visão clara do progresso e que o produto evolua continuamente em direção ao objetivo final, o MVP.
+
+5. **Tempo para Ajustes Finais**  
+   Os últimos ciclos são focados em ajustes e testes para refinar o sistema e garantir que todas as funcionalidades estejam alinhadas com as expectativas do cliente. Isso minimiza a necessidade de mudanças drásticas perto do final do projeto e aumenta a qualidade do produto entregue.
+
+6. **Planejamento Estruturado para Revisão e Correção de Erros**  
+   Com a estrutura do cronograma, há ciclos reservados especificamente para testes e otimizações. Isso evita que problemas críticos sejam detectados apenas na etapa final, permitindo correções com antecedência e mantendo a qualidade do sistema.
+
 ___________________________________________________________________________________
