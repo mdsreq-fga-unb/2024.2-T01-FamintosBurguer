@@ -114,3 +114,17 @@
     from { transform: scale(0.95); opacity: 0; }
     to { transform: scale(1); opacity: 1; }
   }
+
+  @media screen and (max-width: 713px) {
+    .hero-buttons {
+      flex-direction: column;
+      gap: 8px;  /* Reduz o espaço entre os botões */
+    }
+    
+    .hero-buttons a {
+      padding: 6px 10px;  /* Menor padding para evitar botões altos */
+      font-size: 0.75em;  /* Fonte menor para caber melhor */
+      width: 100%;        /* Ocupa toda a largura disponível */
+      text-align: center;
+    }
+  }

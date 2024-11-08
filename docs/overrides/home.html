@@ -1,4 +1,4 @@
-{# This is the home page template for MkDocs with Material theme. #}
+{# This is the home page template for MkDocs with Material theme. #} 
 {% extends "main.html" %}
 {% block content %}
 
@@ -12,20 +12,19 @@
 
 <section class="hero-image">
   <div class="hero-buttons">
-        <a href="{{ page.next_page.url | url }}" title="Página do Projeto" class="md-button md-button--primary">Projeto</a>
-        <a href="{{ 'ProdutoProjeto/1_Cenário/' | url }}" title="Documentação da Visão do Produto e Projeto" class="md-button md-button--primary">Documentação</a>
-        <a href="{{ 'Atas/Reunioes' | url }}" title="Documentação das Reuniões do Projeto" class="md-button md-button--primary">Reuniões</a>
-        <a rel="me" href="https://www.instagram.com/famintosburgueer?utm_source=ig_web_button_share_sheet&igshid=ZDNlZDc0MzIxNw%3D%3D">
-            <span class="twemoji instagram">{% include ".icons/fontawesome/brands/instagram.svg" %}</span>
-            <strong>Instagram</strong>
-        </a>
-        <a rel="me" href="https://api.whatsapp.com/send/?phone=5561982044888&text&type=phone_number&app_absent=0">
-            <span class="twemoji whatsapp">{% include ".icons/fontawesome/brands/whatsapp.svg" %}</span>
-            <strong>WhatsApp</strong>
-        </a>
-    </div>
+    <a href="{{ page.next_page.url | url }}" title="Página do Projeto" class="md-button md-button--primary">Projeto</a>
+    <a href="{{ 'ProdutoProjeto/1_Cenário/' | url }}" title="Documentação da Visão do Produto e Projeto" class="md-button md-button--primary">Documentação</a>
+    <a href="{{ 'Atas/Reunioes' | url }}" title="Documentação das Reuniões do Projeto" class="md-button md-button--primary">Reuniões</a>
+    <a rel="me" href="https://www.instagram.com/famintosburgueer?utm_source=ig_web_button_share_sheet&igshid=ZDNlZDc0MzIxNw%3D%3D">
+      <span class="twemoji instagram">{% include ".icons/fontawesome/brands/instagram.svg" %}</span>
+      <strong>Instagram</strong>
+    </a>
+    <a rel="me" href="https://api.whatsapp.com/send/?phone=5561982044888&text&type=phone_number&app_absent=0">
+      <span class="twemoji whatsapp">{% include ".icons/fontawesome/brands/whatsapp.svg" %}</span>
+      <strong>WhatsApp</strong>
+    </a>
+  </div>
 </section>
 
 {% endblock %}
-{% block footer %}
-{% endblock %}
+{% block footer %}{% endblock %}
