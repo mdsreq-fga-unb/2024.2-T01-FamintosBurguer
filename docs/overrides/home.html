@@ -1,112 +1,31 @@
-{#- This is the home page template. It is rendered on the index page.-#}
+{# This is the home page template for MkDocs with Material theme. #}
 {% extends "main.html" %}
-{% block tabs %}
-  {{ super() }}
-  <style>
-    .md-header { position: initial; }
-    .md-main__inner { margin: 0; }
-    .md-content { display: none; }
-    
-    /* Layout adjustments for desktop and mobile */
-    @media screen and (min-width: 60em) {
-      .md-sidebar--secondary { display: none; }
-    }
-    @media screen and (min-width: 76.25em) {
-      .md-sidebar--primary { display: none; }
-    }
+{% block content %}
 
-    .mdx-hero__image img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
-    }
+<style>
+  .md-header { position: initial; }
+</style>
 
-    .button-container {
-      display: flex;
-      flex-wrap: wrap;
-      align-items: center;
-      justify-content: left;
-      gap: 10px;
-      width: 100%;
-    }
+<header>
+  <img src="img/images.png" alt="Famintos Burger" width="1600" height="800" draggable="false" class="rounded-edge">
+</header>
 
-    .social-container {
-      margin-left: auto;
-      display: flex;
-      gap: 10px;
-      align-items: center;
-    }
-
-    /* Responsive adjustments */
-    @media screen and (max-width: 768px) {
-      .button-container {
-        justify-content: center; /* Centraliza os botões no mobile */
-      }
-
-      .button-container a {
-        margin-right: 10px;
-        padding: 8px 16px; /* Reduz o padding dos botões */
-        font-size: 0.8em; /* Reduz o tamanho da fonte */
-      }
-
-      .button-container a:last-child {
-        margin-right: 0;
-      }
-
-      .social-container {
-        margin-left: 0; /* Remove o alinhamento à direita */
-        justify-content: center; /* Centraliza os botões de redes sociais */
-        width: 100%;
-        gap: 5px; /* Reduz o espaçamento entre os botões */
-      }
-
-      .social-container a {
-        padding: 6px 12px; /* Reduz o padding dos botões de redes sociais */
-        font-size: 0.8em; /* Reduz o tamanho da fonte */
-      }
-
-      .mdx-hero__image img {
-        width: 100%;
-        height: auto;
-      }
-    }
-  </style>
-
-  <section class="mdx-container">
-    <div class="md-grid md-typeset">
-      <div class="mdx-hero">
-        <div class="mdx-hero__image">
-          <img src="img/images.png" alt="" width="1600" height="800" draggable="false" class="rounded-edge">
-        </div>
-        <div class="button-container">
-          <a href="{{ page.next_page.url | url }}" title="Página do Projeto" class="md-button md-button--primary">
-            Projeto
-          </a>
-          <a href="{{ 'ProdutoProjeto/1_Cenário/' | url }}" title="Página de Documentação da Visão do Produto e Projeto" class="md-button md-button--primary">
-            Documentação
-          </a>
-          <a href="{{ 'Atas/Reunioes' | url }}" title="Página de Documentação das Reuniões do Projeto" class="md-button md-button--primary">
-            Reuniões
-          </a>
-          
-          <div class="social-container">
-            <a rel="me" href="https://www.instagram.com/famintosburgueer?utm_source=ig_web_button_share_sheet&igshid=ZDNlZDc0MzIxNw%3D%3D">
-              <span class="twemoji instagram">
-                {% include ".icons/fontawesome/brands/instagram.svg" %}
-              </span>
-              <strong>Instagram</strong>
-            </a>
-            <a rel="me" href="https://api.whatsapp.com/send/?phone=5561982044888&text&type=phone_number&app_absent=0">
-              <span class="twemoji whatsapp">
-                {% include ".icons/fontawesome/brands/whatsapp.svg" %}
-              </span>
-              <strong>WhatsApp</strong>
-            </a>
-          </div>
-        </div>
-      </div>
+<section class="hero-image">
+  <div class="hero-buttons">
+        <a href="{{ page.next_page.url | url }}" title="Página do Projeto" class="md-button md-button--primary">Projeto</a>
+        <a href="{{ 'ProdutoProjeto/1_Cenário/' | url }}" title="Documentação da Visão do Produto e Projeto" class="md-button md-button--primary">Documentação</a>
+        <a href="{{ 'Atas/Reunioes' | url }}" title="Documentação das Reuniões do Projeto" class="md-button md-button--primary">Reuniões</a>
+        <a rel="me" href="https://www.instagram.com/famintosburgueer?utm_source=ig_web_button_share_sheet&igshid=ZDNlZDc0MzIxNw%3D%3D">
+            <span class="twemoji instagram">{% include ".icons/fontawesome/brands/instagram.svg" %}</span>
+            <strong>Instagram</strong>
+        </a>
+        <a rel="me" href="https://api.whatsapp.com/send/?phone=5561982044888&text&type=phone_number&app_absent=0">
+            <span class="twemoji whatsapp">{% include ".icons/fontawesome/brands/whatsapp.svg" %}</span>
+            <strong>WhatsApp</strong>
+        </a>
     </div>
-  </section>
+</section>
+
 {% endblock %}
-{% block content %}{% endblock %}
-{% block footer %}{% endblock %}
+{% block footer %}
+{% endblock %}

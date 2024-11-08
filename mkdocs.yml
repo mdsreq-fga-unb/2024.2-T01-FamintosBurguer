@@ -39,6 +39,7 @@ theme:
     - navigation.instant
     - navigation.top
     - navigation.tracking
+
   palette:
       - scheme: default
         primary: yellow

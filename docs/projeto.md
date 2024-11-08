@@ -23,7 +23,7 @@ ________________________________________________________________________________
 
 Nosso projeto visa criar um aplicativo desktop para empresas no ramo alimentício, será capaz de auxiliar nas demandas de pedidos, atendimento e acompanhamento das demandas desse tipo de empresa.
 
-Visite nosso repositório: [:simple-github:](https://github.com/mdsreq-fga-unb/2024.2-T01-FamintosBurguer){ .md-button--foo}
+Visite nosso repositório: [:simple-github:](https://github.com/mdsreq-fga-unb/2024.2-T01-FamintosBurguer)
 
 !!! note "Projeto em Andamento"
 
