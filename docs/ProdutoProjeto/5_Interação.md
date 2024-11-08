@@ -10,7 +10,7 @@ ________________________________________________________________________________
 |Desenvolvedor Frontend | Desenvolve a interface visual, design e garante a integração com o servidor.| Túlio Augusto   | Isaac Batista, Leticia Torres  |
 |Desenvolvedor Backend |Desenvolve a lógica do servidor, gerencia banco de dados e integrações.  |Isaac Batista  | William Bernardo, João Eduardo |
 |Analista de QA  |Planeja, executa testes e garante a qualidade do produto, identificando erros e possíveis melhorias.|João Eduardo | Isaac Batista 
-|Analista de Requisitos  |Levanta-se, documenta e comunica as necessidades do cliente, garantindo alinhamento entre equipe e produto. |William Bernardo |Leticia Torres, Isaac Batista 
+|Analista de Requisitos  |Levanta-se, documenta e comunica as necessidades do cliente, garantindo alinhamento entre equipe e produto. |William Bernardo |Leticia Torres
 
 ___________________________________________________________________________________
 
@@ -20,7 +20,7 @@ ________________________________________________________________________________
   
   - **WhatsApp:** Utilizado para a comunicação rápida e diária entre os membros da equipe, garantindo alinhamento contínuo ao longo da semana. É ideal para esclarecer dúvidas e lidar com questões pontuais, ajudando a manter o fluxo de trabalho em sincronia. 
 
-  - **Discord:** Usado para reuniões semanais tanto com a equipe. Torna fácil a resolução de bugs, discussões técnicas e tomada de decisão. Também torna a interação mais dinâmica, especialmente para a revisão de entregas e resolução de problemas emergenciais.
+  - **Discord:** Usado para reuniões semanais com a equipe. Torna fácil a resolução de bugs, discussões técnicas e tomada de decisão. Também torna a interação mais dinâmica, especialmente para a revisão de entregas e resolução de problemas emergenciais.
 
   - **Teams:** Utilizado para reuniões gravadas com o cliente e a equipe. Esta funcionalidade permite que todos acompanhem o conteúdo das reuniões e revisitem informações importantes quando necessário.
 

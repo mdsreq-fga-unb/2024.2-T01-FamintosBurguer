@@ -25,7 +25,6 @@ A solução proposta para a Famintos Burger deve incluir as seguintes caracterí
     Permite a anotação dos pedidos de forma rápida e precisa, eliminando a necessidade de registros manuais
     em papel. Isso reduzirá o risco de erros e facilitará a organização e visualização dos pedidos, otimizando
     o processo de atendimento e preparo dos lanches.
-    Página 5 de 8
     </div>
 
 - **Controle de Estoque Integrado**
