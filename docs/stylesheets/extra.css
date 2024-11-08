@@ -133,7 +133,7 @@
     }
   }
 
-  @media screen and (max-height: 800px) {
+  @media screen and (max-height: 879px) {
     .hero-image img {
       width: 100%;        /* Ajusta a largura da imagem para 100% do contêiner */
       height: auto;       /* Mantém a proporção da imagem */
