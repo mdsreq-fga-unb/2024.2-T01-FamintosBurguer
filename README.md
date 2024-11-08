@@ -1,9 +1,8 @@
-# REQ | UnB | Famintos Burguer 🍔
+# REQ-FGA0313-T01 | UnB | Famintos Burguer 🍔
 
 ![Banner](docs/img/FamintosBanner.png)
 
-<br>
-<br>
+## 📂 Repositório
 
 Bem vindo ao Repositório para Documentação do projeto **Famintos Burguer** da matéria de **Requisitos de Software** da Unb.
 

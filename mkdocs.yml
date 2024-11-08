@@ -32,6 +32,13 @@ theme:
   name: material
   custom_dir: docs/overrides
   language: pt-BR
+  features:
+    - content.code.annotate
+    - content.tabs.link
+    - header.autohide
+    - navigation.instant
+    - navigation.top
+    - navigation.tracking
   palette:
       - scheme: default
         primary: yellow

@@ -2,35 +2,91 @@
 {% extends "main.html" %}
 {% block tabs %}
   {{ super() }}
-  <style>.md-header{position:initial}.md-main__inner{margin:0}.md-content{display:none}@media screen and (min-width:60em){.md-sidebar--secondary{display:none}}@media screen and (min-width:76.25em){.md-sidebar--primary{display:none}}</style>
+  <style>
+    .md-header { position: initial; }
+    .md-main__inner { margin: 0; }
+    .md-content { display: none; }
+    
+    /* Layout adjustments for desktop and mobile */
+    @media screen and (min-width: 60em) {
+      .md-sidebar--secondary { display: none; }
+    }
+    @media screen and (min-width: 76.25em) {
+      .md-sidebar--primary { display: none; }
+    }
+
+    .mdx-hero__image img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .button-container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: left;
+      gap: 10px;
+      width: 100%;
+    }
+
+    /* Container for social buttons aligned to the right */
+    .social-container {
+      margin-left: auto;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .button-container a {
+        margin-right: 10px;
+        padding: 10px 20px;
+        font-size: 0.9em;
+      }
+      .button-container a:last-child {
+        margin-right: 0;
+      }
+      .mdx-hero__image img {
+        width: 100%;
+        height: auto;
+      }
+    }
+  </style>
+
   <section class="mdx-container">
     <div class="md-grid md-typeset">
       <div class="mdx-hero">
         <div class="mdx-hero__image">
           <img src="img/images.png" alt="" width="1600" height="800" draggable="false" class="rounded-edge">
         </div>
-        <div style="display: flex; align-items: center; height: 10vh;">
-          <a href="{{ page.next_page.url | url }}" title="Página do Projeto" class="md-button md-button--primary" style="margin-right: 20px; border-radius: 10px;">
-              Projeto
+        <div class="button-container">
+          <a href="{{ page.next_page.url | url }}" title="Página do Projeto" class="md-button md-button--primary">
+            Projeto
           </a>
-          <a href="{{ 'ProdutoProjeto/1_Cenário/' | url }}" title="Página de Documentação da Visão do Produto e Projeto" class="md-button md-button--primary" style="margin-right: 20px; border-radius: 10px;">
-              Documentação
+          <a href="{{ 'ProdutoProjeto/1_Cenário/' | url }}" title="Página de Documentação da Visão do Produto e Projeto" class="md-button md-button--primary">
+            Documentação
           </a>
-          <a href="{{ 'Atas/Reunioes' | url }}" title="Página de Documentação das Reuniões do Projeto" class="md-button md-button--primary" style="margin-right: 600px; border-radius: 10px;">
+          <a href="{{ 'Atas/Reunioes' | url }}" title="Página de Documentação das Reuniões do Projeto" class="md-button md-button--primary">
             Reuniões
           </a>
-          <a rel="me" href="https://www.instagram.com/famintosburgueer?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw%3D%3D" style="margin-right: 15px">
-            <span class="twemoji instagram">
-              {% include ".icons/fontawesome/brands/instagram.svg" %}
-            </span>
-            <strong>Instagram</strong>
-          </a>
-          <a rel="me" href="https://api.whatsapp.com/send/?phone=5561982044888&text&type=phone_number&app_absent=0">
-            <span class="twemoji whatsapp">
-              {% include ".icons/fontawesome/brands/whatsapp.svg" %}
-            </span>
-            <strong>WhatsApp</strong>
-          </a>
+          
+          <!-- Social buttons container, aligned to the right -->
+          <div class="social-container">
+            <a rel="me" href="https://www.instagram.com/famintosburgueer?utm_source=ig_web_button_share_sheet&igshid=ZDNlZDc0MzIxNw%3D%3D">
+              <span class="twemoji instagram">
+                {% include ".icons/fontawesome/brands/instagram.svg" %}
+              </span>
+              <strong>Instagram</strong>
+            </a>
+            <a rel="me" href="https://api.whatsapp.com/send/?phone=5561982044888&text&type=phone_number&app_absent=0">
+              <span class="twemoji whatsapp">
+                {% include ".icons/fontawesome/brands/whatsapp.svg" %}
+              </span>
+              <strong>WhatsApp</strong>
+            </a>
+          </div>
         </div>
       </div>
     </div>
