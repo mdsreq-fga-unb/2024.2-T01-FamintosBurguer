@@ -29,10 +29,10 @@ ________________________________________________________________________________
 ### Métodos e Frequência de Reuniões
   - **Reuniões de Acompanhamento (1 vezes por semana):** Realizadas em sessões rápidas de 15 minutos para acompanhamento do progresso individual de cada membro e resolução de obstáculos encontrados. A frequência de uma reunião semanal foi escolhida para manter a equipe alinhada sem comprometer a produtividade, considerando que nem todos os membros estão disponíveis diariamente. 
 
-  - **Reuniões de Revisão (A cada ciclos):** Após dois ciclos de iteração do projeto, será realizada uma reunião de revisão com o cliente. Durante esta reunião, as funcionalidades desenvolvidas serão apresentadas e o cliente terá a oportunidade de testar, validar e fornecer feedback direto sobre as entregas realizadas. 
+  - **Reuniões de Revisão (A cada ciclo):** Após dois ciclos de iteração do projeto, será realizada uma reunião de revisão com o cliente. Durante esta reunião, as funcionalidades desenvolvidas serão apresentadas e o cliente terá a oportunidade de testar, validar e fornecer feedback direto sobre as entregas realizadas. 
 
 ### Frequência de Interações com o Cliente
-  - **Reunião de Revisão (A cada ciclos):** O cliente será envolvido ao final de cada dois ciclos para validar as entregas, testar as funcionalidades e fornecer feedback detalhado. Esse ciclo contínuo de iteração garante que o produto esteja sempre alinhado com os requisitos e expectativas do cliente. 
+  - **Reunião de Revisão (A cada ciclo):** O cliente será envolvido ao final de cada dois ciclos para validar as entregas, testar as funcionalidades e fornecer feedback detalhado. Esse ciclo contínuo de iteração garante que o produto esteja sempre alinhado com os requisitos e expectativas do cliente. 
 ___________________________________________________________________________________
 
 ## 5.3 Processo de Validação
