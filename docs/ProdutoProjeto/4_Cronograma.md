@@ -7,16 +7,26 @@ hide:
 
 A partir da estratégia de desenvolvimento de software estabelecida, tem-se a seguinte proposta de cronograma, suas fases e resultados esperados:
 
-| Ciclo    | Início     | Fim        | Objetivo Principal                                                                         | Entregas Esperadas                                                                                          | Validação do Cliente                                                                                   |
+| Ciclo/Fase    | Início | Fim | Atividades Principais | Equipe envolvida | Validação do Cliente |
 |----------|------------|------------|--------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------|
-| Ciclo 0  | 29/10/24   | 12/11/24   | Levantamento completo de requisitos do sistema, análise do problema e necessidades.  <br>**Entrega 1**  | Documento de visão e produto, projeto prontos, GitHub Pages pronto                                         | Validação inicial do escopo e alinhamento das necessidades do cliente.                                 |
-| Ciclo 1  | 14/11/24   | 21/11/24   | Criação do protótipo da interface do sistema                                               | Protótipo de interface e wireframes principais                                                              | Feedback sobre usabilidade e layout                                                                    |
-| Ciclo 2  | 26/11/24   | 05/12/24   | Desenvolvimento e integração inicial                                                       | Tela inicial do sistema com navegação entre menus, criação/edição/exclusão e listagem dos itens do cardápio | Validação da interface inicial e navegação, feedback sobre a fluidez e uso do sistema.                 |
-| Ciclo 3  | 05/12/24   | 19/12/24   | Desenvolvimento da automação para o registro de pedidos, garantindo agilidade e controle. <br>**Entrega 2** | Sistema de registro de pedidos, incluindo interface para registrar, visualizar, editar e excluir pedidos    | Validação da funcionalidade de registro de pedidos e feedback sobre erros e agilidade.                 |
-| Ciclo 4  | 07/01/25   | 16/01/25   | Desenvolvimento de um módulo para controle básico de estoque integrado ao sistema de pedidos | Controle de estoque básico, com atualização em tempo real sobre a disponibilidade de ingredientes           | Validação do controle de estoque, integrando à interface de pedidos e feedback sobre a precisão.       |
-| Ciclo 5  | 16/01/25   | 21/01/25   | Implementação do controle financeiro básico, incluindo geração de relatórios de vendas e despesas <br> **Entrega 3** | Módulo de controle financeiro com relatórios sobre vendas, despesas e lucros                               | Validação da funcionalidade financeira, geração de relatórios e feedback sobre usabilidade.            |
-| Ciclo 6  | 23/01/25   | 30/01/25   | Sistema de fidelidade do cliente                                                          | Interface para definição de bônus e parâmetros para gratificação do cliente                                | Validação da funcionalidade de escolha do bônus e definição de frequência para gratificação.           |
-| Ciclo 7  | 04/02/25   | 13/02/25   | Finalização e ajustes finais para entrega do MVP. Preparação para apresentação completa.  <br>**Entrega 4** | MVP funcional e pronto para a entrega final. Sistema de pedidos, controle de estoque e financeiro completos | Validação final do MVP, revisão das funcionalidades e feedback sobre a entrega final.                  |
+| Planejamento Inicial  | 29/10/24   | 12/11/24   | Reunião de kick-off, levantamento inicial de requisitos, definição dos critérios de sucesso do projeto. | Equipe Completa | Validação inicial do escopo e alinhamento das necessidades do cliente |
+| **Ciclo 1:**<br> **Interface de Pedidos** | 14/11/24   | 17/12/24 | | | |
+| Planejamento | 15/11/24   | 15/11/24   | Refinamento de requisitos para a interface de pedidos. | Gerente de Projeto, Analistas de Requisitos, Equipe de QA | Revisão e aprovação do protótipo da interface de pedidos, garantindo que os requisitos atendam às necessidades operacionais e expectativas de usabilidade. |
+| Análise de Riscos | 18/11/24 | 18/11/24 | Avaliação de possíveis riscos técnicos e de requisitos. | Equipe completa | |
+| Desenvolvimento  | 19/11/24 | 02/12/24 | Design/Prototipação e Desenvolvimento da interface para cadastro de pedidos. | Equipes de Frontend e Backend | Feedback sobre usabilidade e layout, incluindo validação da arquitetura visual |
+| Testes e Avaliação | 04/12/24 | 16/12/24 | Testes de usabilidade e de integração para validação de requisitos funcionais. Correções necessárias. | Equipe de QA e Analistas de Requisitos | |
+| **Ciclo 2:**<br> **Dashboard Financeiro** | 17/12/24   | 21/01/25 | | | |
+| Planejamento | 06/01/25   | 07/01/25   | Levantamento de dados financeiros necessários, definição de métricas e layout do dashboard. | Gerente de Projeto, Analistas de Requisitos | A validação com o cliente incluiria a confirmação dos dados financeiros prioritários, aprovação das métricas e alinhamento do layout do dashboard para facilitar a tomada de decisões. |
+| Análise de Riscos | 07/01/25   | 08/01/25   | Avaliação de riscos de segurança e consistência de dados financeiros. | Equipe completa | |
+| Desenvolvimento | 09/01/25   | 14/01/25   | Desenvolvimento do dashboard financeiro com integração dos dados. | Equipes de Frontend e Backend | A validação com o cliente consistiria em verificar se o dashboard financeiro exibe os dados corretamente e se a integração com as fontes de dados é precisa e atualizada, garantindo a funcionalidade esperada. |
+| Testes e Avaliação   | 15/01/25   | 20/01/25   | Testes de segurança, consistência e precisão dos dados financeiros. | Equipe de QA e Analistas de Requisitos  | |
+| **Ciclo 3:**<br> **Gerenciamento de Estoque** | 21/01/25   | 07/02/25 | | | |
+| Planejamento | 22/01/25   | 23/01/25   | Definição de estrutura de dados para estoque, requisitos de integração com pedidos. | Gerente de Projeto, Analistas de Requisitos | A validação com o cliente incluiria a revisão da estrutura de dados do estoque e a confirmação de que os requisitos de integração com pedidos atendem às necessidades de gestão e rastreamento de inventário. |
+| Análise de Riscos | 23/01/25   | 24/01/25   | Análise de riscos relacionados a atualizações e inconsistências de estoque. | Equipe completa | |
+| Desenvolvimento | 24/01/25   | 30/01/25   | Implementação do sistema de estoque, integração com pedidos. | Equipes de Frontend e Backend | A validação com o cliente envolveria testar se o sistema de estoque atualiza corretamente com os pedidos realizados, assegurando a precisão dos níveis de estoque e o funcionamento integrado entre os módulos. |
+| Testes e Avaliação   | 31/01/25   | 07/02/25   | Testes de fluxo de estoque e consistência. | Equipe de QA e Analistas de Requisitos | |
+| **Entrega Final e Revisões** | 07/02/25   | 13/02/25 | | | |
+| Revisão Final e Documentação | 10/02/25   | 13/02/25   | Finalização e ajustes finais para entregar o MVP. Preparação para apresentação do sistema completo. | Equipe completa | A validação com o cliente nesta etapa envolveria a aprovação final do sistema completo, conferindo se todos os requisitos foram atendidos conforme o escopo acordado, e a confirmação de que a documentação final está completa e clara para a entrega oficial. |
 
 ## Considerações Importantes para o Cronograma
 
@@ -32,10 +42,7 @@ A partir da estratégia de desenvolvimento de software estabelecida, tem-se a se
 4. **Entregas Parciais Focadas em Funcionalidades Principais**  
    As funcionalidades mais essenciais, como o registro de pedidos, controle de estoque, controle financeiro e o sistema de fidelidade, são desenvolvidas e validadas em etapas ao longo dos ciclos. Isso permite que o cliente tenha uma visão clara do progresso e que o produto evolua continuamente em direção ao objetivo final, o MVP.
 
-5. **Tempo para Ajustes Finais**  
-   Os últimos ciclos são focados em ajustes e testes para refinar o sistema e garantir que todas as funcionalidades estejam alinhadas com as expectativas do cliente. Isso minimiza a necessidade de mudanças drásticas perto do final do projeto e aumenta a qualidade do produto entregue.
-
-6. **Planejamento Estruturado para Revisão e Correção de Erros**  
+5. **Planejamento Estruturado para Revisão e Correção de Erros**  
    Com a estrutura do cronograma, há ciclos reservados especificamente para testes e otimizações. Isso evita que problemas críticos sejam detectados apenas na etapa final, permitindo correções com antecedência e mantendo a qualidade do sistema.
 
 ___________________________________________________________________________________
