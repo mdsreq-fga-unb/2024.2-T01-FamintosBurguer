@@ -18,8 +18,4 @@ ________________________________________________________________________________
 
 2. **Preparação Prévia e Agenda Estruturada para Reuniões**:  
    Cada reunião agora contará com uma pauta definida e distribuída previamente entre os membros e o cliente. Essa agenda incluirá pontos prioritários e permitirá que todos tragam perguntas ou tópicos específicos para discussão, otimizando o tempo e evitando que dúvidas importantes sejam esquecidas.
-
-
-
 ___________________________________________________________________________________
-
