@@ -32,8 +32,11 @@ O Quadro, a seguir, apresenta algumas características que podem ser relacionada
 |Escalabilidade |Escalável para projetos maiores, mas com complexidade aumentada.| Altamente escalável, adequado para projetos de diferentes tamanhos e complexidades.| 
 |Suporte para Equipes de Desenvolvimento| Suporte a equipes através de documentação e estrutura clara.| Suporte a equipes organizadas em unidades de desenvolvimento, com foco na colaboração.| 
 
-
-___________________________________________________________________________________
+<p style="font-size: 12px">Referências: 
+    <a href="https://aprender3.unb.br/pluginfile.php/2976243/mod_folder/content/0/Unidade%201%20-%20Aula%20-%20Aborgadens%2C%20Ciclos%20de%20Vida%20e%20Processo.pdf">Slides do Professor,</a> 
+    <a href="https://awari.com.br/desenvolvimento-de-software-espiral-entendendo-a-metodologia/">Awari,</a>
+    <a href="https://www.estrategiaconcursos.com.br/blog/engenharia-software-processo-unificado-rup/">Estrategia Concursos</a> 
+    </p>_______________________________
 
 ## 3.3 Justificativa
 
