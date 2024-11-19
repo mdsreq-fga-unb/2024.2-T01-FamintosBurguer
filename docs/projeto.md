@@ -33,9 +33,17 @@ ________________________________________________________________________________
 
 Nossa equipe é composta por 5 estudandates do curso de Engenharia de Software, Conheça os membros da equipe de desenvolvimento logo abaixo:
 
-| ![Camera](img/ProfilePic_D.png#only-light) ![Camera](img/ProfilePic_L.png#only-dark)     | [<img src="https://avatars.githubusercontent.com/u/118384776?v=4" class="rounded-image" >]() | [<img src="https://avatars.githubusercontent.com/u/78875892?v=4" class="rounded-image">]() | [<img src="https://avatars.githubusercontent.com/u/86434947?v=4" class="rounded-image" >]()  | [<img src="https://avatars.githubusercontent.com/u/122989234?v=4" class="rounded-image">]()| [<img src="https://avatars.githubusercontent.com/u/124713089?v=4" class="rounded-image" >]() |
-|:---------:|:------------------------------------------------------------------------------:|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|
-| **Nome**  | [Isaac Batista Pessoa De Moraes](https://github.com/isaacbatista26) | [João Eduardo Pereira Rabelo](https://github.com/JoaoEduardoP) | [Letícia Torres Soares Martins](https://github.com/leticiatmartins) | [Tulio Augusto Celeri](https://github.com/TulioCeleri) | [William Bernardo Da Silva](https://github.com/willxbernardo) |
-| **Cargo** | Gerente BackEnd | Gerente de QA | Gerente de Projeto | Gerente FrontEnd | Gerente Requisitos |
+| ![Camera](img/ProfilePic_D.png#only-light) ![Camera](img/ProfilePic_L.png#only-dark)     | [<img src="https://avatars.githubusercontent.com/u/118384776?v=4" class="rounded-image" width=68 height=68>]() | [<img src="https://avatars.githubusercontent.com/u/78875892?v=4" class="rounded-image width=68 height=68">]() | [<img src="https://avatars.githubusercontent.com/u/86434947?v=4" class="rounded-image" width=68 height=68 >]()  | [<img src="https://avatars.githubusercontent.com/u/122989234?v=4" class="rounded-image" width=68 height=68>]()| [<img src="https://avatars.githubusercontent.com/u/124713089?v=4" class="rounded-image" width=68 height=68 >]() | [<img src="https://avatars.githubusercontent.com/u/98045972?v=4" class="rounded-image"  width=68 height=68 >]() |
+|:---------:|:------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------:|
+| **Nome**  | [Isaac Batista Pessoa De Moraes](https://github.com/isaacbatista26) | [João Eduardo Pereira Rabelo](https://github.com/JoaoEduardoP) | [Letícia Torres Soares Martins](https://github.com/leticiatmartins) | [Tulio Augusto Celeri](https://github.com/TulioCeleri) | [William Bernardo Da Silva](https://github.com/willxbernardo) | [Lucas Meireles](https://github.com/Katuner) |
+| **Cargo** | Gerente BackEnd | Gerente de QA | Gerente de Projeto | Gerente FrontEnd | Gerente Requisitos | Desenvolvedor|
+
 
 _________________________________________________________________________________
+
+
+```bash
+git clone https://github.com/mdsreq-fga-unb/2024.2-T01-FamintosBurguer.git
+
+git checkout documentacao
+```
