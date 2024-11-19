@@ -5,7 +5,8 @@
 ## 2.1 Objetivos do Produto  
 
 ### **Objetivo Principal:**  
-Desenvolver um sistema integrado para a *Famintos Burger* que modernize e otimize suas operações, abrangendo a gestão de pedidos, estoque e finanças. O objetivo é eliminar processos manuais, reduzir erros operacionais e melhorar a eficiência, visando aumentar a satisfação do cliente e promover o crescimento sustentável do negócio.
+Desenvolver um sistema integrado para a Famintos Burger, com o objetivo de eliminar processos manuais, reduzir erros operacionais e melhorar a eficiência que seria, aumentar a satisfação do cliente promovendo o crescimento sustentável do negócio, otimizando suas operações, abrangendo a gestão de pedidos, estoque e finanças.
+
 
 ### **Objetivos Específicos:**  
 1. **Gestão de Pedidos**:  
