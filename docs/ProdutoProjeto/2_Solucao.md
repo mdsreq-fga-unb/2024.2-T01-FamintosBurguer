@@ -1,18 +1,31 @@
-# 2. Solução Proposta
+# 2. Solução Proposta  
 
-___________________________________________________________________________________
+---
 
-## 2.1 Objetivos do Produto
+## 2.1 Objetivos do Produto  
 
-- **Objetivo do Produto**
-    <div style="text-align: justify">
-    A proposta da solução é otimizar e modernizar as operações da Famintos Burger, proporcionando um sistema integrado que abrange a gestão de pedidos, estoque e finanças. O objetivo é eliminar registros manuais, reduzir erros e melhorar a precisão nos pedidos, visando aumentar a satisfação do cliente.
-    </div>
+### **Objetivo Principal:**  
+Desenvolver um sistema integrado para a *Famintos Burger* que modernize e otimize suas operações, abrangendo a gestão de pedidos, estoque e finanças. O objetivo é eliminar processos manuais, reduzir erros operacionais e melhorar a eficiência, visando aumentar a satisfação do cliente e promover o crescimento sustentável do negócio.
 
-- **Funcionalidades e Benefícios**
-    <div style="text-align: justify">
-    O sistema permitirá o controle automático de estoque, com alertas para reposição de itens, e oferecerá recursos para a gestão financeira, incluindo a geração de relatórios detalhados. Esses recursos promoverão maior eficiência e segurança nas operações, ajudando a Famintos Burger a crescer de forma sustentável, mantendo a qualidade do atendimento.
-    </div>
+### **Objetivos Específicos:**  
+1. **Gestão de Pedidos**:  
+   - Automatizar o registro de pedidos para eliminar o uso de papel, reduzir erros e acelerar o atendimento aos clientes.
+
+2. **Gestão de Estoque**:  
+   - Implementar um controle automático de estoque com alertas para reposição, garantindo a disponibilidade de itens e evitando a retirada de produtos do cardápio.  
+
+3. **Gestão Financeira**:  
+   - Fornecer ferramentas para o acompanhamento detalhado das finanças, incluindo geração de relatórios personalizados sobre vendas, despesas e lucros.  
+
+4. **Satisfação do Cliente**:  
+   - Melhorar a experiência do cliente ao reduzir tempos de espera e garantir maior precisão nos pedidos.
+
+### **Funcionalidades e Benefícios:**  
+O sistema oferecerá:  
+- Controle de estoque atualizado em tempo real, com notificações para reposição de itens.  
+- Relatórios financeiros detalhados para facilitar a tomada de decisões estratégicas.  
+- Uma interface simplificada para agilizar as operações e melhorar a produtividade.  
+
 ___________________________________________________________________________________
 
 ## 2.2 Características da Solução
