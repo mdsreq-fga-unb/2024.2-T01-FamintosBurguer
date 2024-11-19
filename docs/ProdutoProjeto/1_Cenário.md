@@ -25,11 +25,10 @@ ________________________________________________________________________________
 ___________________________________________________________________________________
 
 ## 1.2 Identificação da Oportunidade ou Problema
-
+**Problema Identificado: Ineficiências Operacionais e de Gestão Financeira**
 <div style="text-align: justify">
-O projeto é necessário para solucionar problemas operacionais e financeiros que têm impactado o
-funcionamento eficiente do food truck de João Gabriel, especializado em hambúrgueres e outros lanches.<br />
-Atualmente, João enfrenta diversos desafios, como descrito a seguir:
+O projeto é necessário para resolver ineficiências operacionais e de gestão financeira que prejudicam a execução das atividades diárias, comprometendo a produtividade, a agilidade e a qualidade do serviço oferecido. Esses problemas também dificultam a gestão eficaz dos recursos financeiros, impactando diretamente a experiência dos clientes e o desempenho do food truck. </br>
+Atualmente, João enfrenta diversos desafios, conforme descrito a seguir:
 </div>
 
 - **Dificuldades no Registro de Pedidos**
