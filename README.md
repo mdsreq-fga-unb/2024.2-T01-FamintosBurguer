@@ -15,7 +15,7 @@ Somos formados por 5 estudandates do curso de Engenharia de Software, Conheça a
 | **Nome**  | [Isaac Batista Pessoa De Moraes](https://https://github.com/isaacbatista26) | [João Eduardo Pereira Rabelo](https://github.com/JoaoEduardoP) | [Letícia Torres Soares Martins](https://github.com/leticiatmartins) | [Tulio Augusto Celeri](https://github.com/TulioCeleri) | [William Bernardo Da Silva](https://github.com/willxbernardo) | [Lucas Meireles](https://github.com/Katuner) |
 | **Cargo** | Gerente BackEnd | Gerente de QA | Gerente de Projeto | Gerente FrontEnd | Gerente Requisitos | Desenvolvedor |
 
-##  Guia para Configuração do Ambiente de Documentação
+##  💻 Guia para Configuração do Ambiente de Documentação
 
 ### 1. Clone o Repositório de Documentação
 Antes de iniciar, você precisa clonar a branch de documentação para obter os arquivos do MkDocs necessários. Execute os comandos abaixo:
