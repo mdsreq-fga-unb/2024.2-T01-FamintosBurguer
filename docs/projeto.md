@@ -40,10 +40,3 @@ Nossa equipe é composta por 5 estudandates do curso de Engenharia de Software, 
 
 
 _________________________________________________________________________________
-
-
-```bash
-git clone https://github.com/mdsreq-fga-unb/2024.2-T01-FamintosBurguer.git
-
-git checkout documentacao
-```
