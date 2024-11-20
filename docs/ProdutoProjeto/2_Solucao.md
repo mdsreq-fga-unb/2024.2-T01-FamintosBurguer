@@ -9,16 +9,16 @@ Desenvolver um sistema integrado para a Famintos Burger, com o objetivo de elimi
 
 
 ### **Objetivos Específicos:**  
-1. **Gestão de Pedidos**:  
+ **Gestão de Pedidos**:  
    - Automatizar o registro de pedidos para eliminar o uso de papel, reduzir erros e acelerar o atendimento aos clientes.
 
-2. **Gestão de Estoque**:  
+**Gestão de Estoque**:  
    - Implementar um controle automático de estoque com alertas para reposição, garantindo a disponibilidade de itens e evitando a retirada de produtos do cardápio.  
 
-3. **Gestão Financeira**:  
+**Gestão Financeira**:  
    - Fornecer ferramentas para o acompanhamento detalhado das finanças, incluindo geração de relatórios personalizados sobre vendas, despesas e lucros.  
 
-4. **Satisfação do Cliente**:  
+**Satisfação do Cliente**:  
    - Melhorar a experiência do cliente ao reduzir tempos de espera e garantir maior precisão nos pedidos.
 
 ### **Funcionalidades e Benefícios:**  
