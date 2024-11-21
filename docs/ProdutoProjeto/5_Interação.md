@@ -9,8 +9,8 @@ ________________________________________________________________________________
 |Gerente de Projeto   |Coordena o projeto, facilita a comunicação entre cliente e equipe e controla prazos para garantir o sucesso do projeto.  |  Leticia Torres| - |
 |Desenvolvedor Frontend | Desenvolve a interface visual, design e garante a integração com o servidor.| Túlio Augusto   | Isaac Batista, Leticia Torres  |
 |Desenvolvedor Backend |Desenvolve a lógica do servidor, gerencia banco de dados e integrações.  |Isaac Batista  | William Bernardo, João Eduardo |
-|Analista de QA  |Planeja, executa testes e garante a qualidade do produto, identificando erros e possíveis melhorias.|João Eduardo | Isaac Batista 
-|Analista de Requisitos  |Levanta-se, documenta e comunica as necessidades do cliente, garantindo alinhamento entre equipe e produto. |William Bernardo |Leticia Torres
+|Analista de QA  |Planeja, executa testes e garante a qualidade do produto, identificando erros e possíveis melhorias.|João Eduardo | Toda a equipe 
+|Analista de Requisitos  |Levanta-se, documenta e comunica as necessidades do cliente, garantindo alinhamento entre equipe e produto. |William Bernardo |Toda a equipe
 
 ___________________________________________________________________________________
 
