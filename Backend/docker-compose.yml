@@ -1,0 +1,41 @@
+services:
+  famintos-api:
+    container_name: famintos-api
+    image: famintos-api:dev
+    build:
+      context: .
+      target: development
+    volumes:
+      - .:/app
+      - /app/node_modules
+    ports:
+      - 4444:4444
+    command: npm run start:dev
+    environment:
+      NODE_ENV: development
+      SERVER_PORT: 4444
+      DB_DATABASE: famintos
+      DB_CONNECTION_STRING: postgres://famintos_root:j5m966qp7jiypfda@famintos-pg:5432/famintos
+    networks:
+      - famintos-connect
+
+  famintos-pg:
+    container_name: famintos-pg
+    image: postgres:latest
+    environment:
+      POSTGRES_USER: famintos_root
+      POSTGRES_PASSWORD: j5m966qp7jiypfda
+      POSTGRES_DB: famintos
+    ports:
+      - 5432:5432
+    volumes:
+      - ~/docker/volumes/FamintosApi_PG:/var/lib/postgresql/data
+    networks:
+      - famintos-connect
+    logging:
+      driver: none
+
+networks:
+  famintos-connect:
+    driver: bridge
+
