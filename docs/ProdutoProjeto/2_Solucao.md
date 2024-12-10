@@ -5,27 +5,36 @@
 ## 2.1 Objetivos do Produto  
 
 ### **Objetivo Principal:**  
+<div style="text-align: justify">
 Desenvolver um sistema integrado para a Famintos Burger, com o objetivo de eliminar processos manuais, reduzir erros operacionais e melhorar a eficiência que seria, aumentar a satisfação do cliente promovendo o crescimento sustentável do negócio, otimizando suas operações, abrangendo a gestão de pedidos, estoque e finanças.
-
+</div>
 
 ### **Objetivos Específicos:**  
- **Gestão de Pedidos**:  
-   - Automatizar o registro de pedidos para eliminar o uso de papel, reduzir erros e acelerar o atendimento aos clientes.
+- **Gestão de Pedidos**:  
+    <div style="text-align: justify">
+    Automatizar o registro de pedidos para eliminar o uso de papel, reduzir erros e acelerar o atendimento aos clientes.
+    </div>
 
-**Gestão de Estoque**:  
-   - Implementar um controle automático de estoque com alertas para reposição, garantindo a disponibilidade de itens e evitando a retirada de produtos do cardápio.  
+- **Gestão de Estoque**:  
+    <div style="text-align: justify">
+    Implementar um controle automático de estoque com alertas para reposição, garantindo a disponibilidade de itens e evitando a retirada de produtos do cardápio.  
+    </div>
 
-**Gestão Financeira**:  
-   - Fornecer ferramentas para o acompanhamento detalhado das finanças, incluindo geração de relatórios personalizados sobre vendas, despesas e lucros.  
+- **Gestão Financeira**:  
+    <div style="text-align: justify">
+    Fornecer ferramentas para o acompanhamento detalhado das finanças, incluindo geração de relatórios personalizados sobre vendas, despesas e lucros.  
+    </div>
 
-**Satisfação do Cliente**:  
-   - Melhorar a experiência do cliente ao reduzir tempos de espera e garantir maior precisão nos pedidos.
+- **Satisfação do Cliente**:  
+    <div style="text-align: justify">
+    Melhorar a experiência do cliente ao reduzir tempos de espera e garantir maior precisão nos pedidos.
+    </div>
 
 ### **Funcionalidades e Benefícios:**  
-O sistema oferecerá:  
-- Controle de estoque atualizado em tempo real, com notificações para reposição de itens.  
-- Relatórios financeiros detalhados para facilitar a tomada de decisões estratégicas.  
-- Uma interface simplificada para agilizar as operações e melhorar a produtividade.  
+- **O sistema oferecerá:**  
+    * Controle de estoque atualizado em tempo real, com notificações para reposição de itens.
+    * Relatórios financeiros detalhados para facilitar a tomada de decisões estratégicas.  
+    * Uma interface simplificada para agilizar as operações e melhorar a produtividade.  
 
 ___________________________________________________________________________________
 
@@ -104,9 +113,7 @@ entre o frontend, o controle de estoque e a gestão financeira.
 
 * Banco de Dados Relacional:
 <div class="grid cards" markdown>
--  [:simple-postgresql:](https://www.postgresql.org) __PostgreSQL -__ Escolhido pela sua confiabilidade e suporte para operações complexas,
-permitirá o armazenamento e gerenciamento seguro dos dados de pedidos, clientes,
-estoque e financeiro.
+-  [:simple-sqlite:](https://www.sqlite.org) __SQLite -__ Escolhido pela sua maneabilidade e falicidade de manutenção, além de boa performance para projetos não tão complexos, conforme o que estamos trabalhando, lidando apenas com dados de itens, pedidos, estoque e financeiro.
 </div>
 ___________________________________________________________________________________
 
