@@ -4,7 +4,7 @@
 
 ## 📂 Repositório
 
-Bem vindo ao Repositório para apresentação do projeto **Famintos Burguer** realizado pelo grupo **Burger Code** da matéria de **Requisitos de Software** da Unb.
+Bem vindo ao Repositório para desenvolvimento do projeto **Famintos Burguer** realizado pelo grupo **Burger Code** da matéria de **Requisitos de Software** da Unb.
 
 ## 👥 Equipe
 
