@@ -1,13 +1,21 @@
+import 'reflect-metadata'
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
 import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import * as database from './database/database'
 import icon from '../../resources/icon.png?asset'
+import { AppDataSource } from './config/database'
+import { registerPedidoHandlers } from './ipc/pedidoshandlers'
 
 // Inicialize o banco de dados quando o app iniciar
-app.whenReady().then(() => {
-  console.log(app.getPath('userData'))
-  database.inicializaTabelas()
+app.on('ready', () => {
+  AppDataSource.initialize()
+    .then(() => {
+      console.log('Banco de dados inicializado!')
+      registerPedidoHandlers()
+    })
+    .catch((error) => console.error('Erro ao inicializar o banco:', error))
+
+  // Resto da inicialização da janela principal do Electron
 })
 
 function createWindow(): void {
