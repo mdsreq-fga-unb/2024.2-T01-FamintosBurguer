@@ -2,7 +2,10 @@ import { ElectronAPI } from '@electron-toolkit/preload'
 
 declare global {
   interface Window {
-    electron: ElectronAPI
+    electronAPI: {
+      cadastrarPedido: (pedidoData: any) => Promise<any>
+    }
     api: unknown
   }
 }
+export {}
