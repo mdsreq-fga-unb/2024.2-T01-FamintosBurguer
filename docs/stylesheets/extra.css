@@ -78,7 +78,7 @@
     margin: 0 auto;      /* Centraliza a imagem */
     width: 100%;         /* Ajusta a largura para ocupar o máximo do contêiner */
     height: auto;        /* Mantém a proporção da imagem */
-    max-width: 1312px;    /* Limita a largura máxima em telas grandes */
+    max-width: 1312px;   /* Limita a largura máxima em telas grandes */
     border-radius: 15px; /* Arredonda as bordas */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
   }
@@ -137,7 +137,7 @@
     .hero-image img {
       width: 100%;        /* Ajusta a largura da imagem para 100% do contêiner */
       height: auto;       /* Mantém a proporção da imagem */
-      max-width: 1000px;   /* Limita a largura máxima da imagem para telas menores */
+      max-width: 1000px;  /* Limita a largura máxima da imagem para telas menores */
       margin: 0 auto;     /* Centraliza a imagem na tela */
     }
   }

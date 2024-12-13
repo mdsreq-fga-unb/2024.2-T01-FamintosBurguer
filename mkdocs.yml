@@ -6,7 +6,7 @@ repo_url: https://github.com/mdsreq-fga-unb/2024.2-T01-FamintosBurguer/tree/main
 nav:
   - Home Page: index.md
   - Projeto: projeto.md
-  - Visão Do Produto E Projeto: ProdutoProjeto
+  - Documentação do Projeto: ProdutoProjeto
   - Atas Reuniões: Atas
 
 markdown_extensions:
