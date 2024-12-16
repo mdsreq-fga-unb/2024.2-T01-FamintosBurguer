@@ -13,21 +13,21 @@ nav:
     - 2. Visao Produto Projeto:
         - 1. Cenário Atual Do Cliente e Do Negócio: ProdutoProjeto/2. Visao Produto Projeto/1_Cenário.md
         - 2. Solução Proposta: ProdutoProjeto/2. Visao Produto Projeto/2_Solucao.md
-        - 3. Estratégias De Engenharia De Software: ProdutoProjeto\2. Visao Produto Projeto\3_Estrategia.md
-        - 4. Cronograma e Entregas: ProdutoProjeto\2. Visao Produto Projeto\4_Cronograma.md
-        - 5. Interação Entre Equipe e Cliente: ProdutoProjeto\2. Visao Produto Projeto\5_Interação.md
+        - 3. Estratégias De Engenharia De Software: ProdutoProjeto/2. Visao Produto Projeto/3_Estrategia.md
+        - 4. Cronograma e Entregas: ProdutoProjeto/2. Visao Produto Projeto/4_Cronograma.md
+        - 5. Interação Entre Equipe e Cliente: ProdutoProjeto/2. Visao Produto Projeto/5_Interação.md
         - 7. DoR e DoD:
-          - ProdutoProjeto\2. Visao Produto Projeto\7. DoR e DoD\DoR.md
-          - ProdutoProjeto\2. Visao Produto Projeto\7. DoR e DoD\DoD.md
+          - ProdutoProjeto/2. Visao Produto Projeto/7. DoR e DoD/DoR.md
+          - ProdutoProjeto/2. Visao Produto Projeto/7. DoR e DoD/DoD.md
         - 8. Backlog Projeto:
-          - ProdutoProjeto\2. Visao Produto Projeto\8. Backlog Projeto\1_Requisitos.md
-          - ProdutoProjeto\2. Visao Produto Projeto\8. Backlog Projeto\2_Temas.md
-          - ProdutoProjeto\2. Visao Produto Projeto\8. Backlog Projeto\3_Epicos.md
-          - ProdutoProjeto\2. Visao Produto Projeto\8. Backlog Projeto\4_User Stories.md
-          - ProdutoProjeto\2. Visao Produto Projeto\8. Backlog Projeto\5_Backlog.md
-          - ProdutoProjeto\2. Visao Produto Projeto\8. Backlog Projeto\6_MVP.md
-        - 9. Lições Aprendidas: ProdutoProjeto\2. Visao Produto Projeto\9_Lições.md
-        - 10. Referências Bibliográficas: ProdutoProjeto\2. Visao Produto Projeto\10_Referências.md
+          - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/1_Requisitos.md
+          - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/2_Temas.md
+          - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/3_Epicos.md
+          - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/4_User Stories.md
+          - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/5_Backlog.md
+          - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/6_MVP.md
+        - 9. Lições Aprendidas: ProdutoProjeto/2. Visao Produto Projeto/9_Lições.md
+        - 10. Referências Bibliográficas: ProdutoProjeto/2. Visao Produto Projeto/10_Referências.md
   - Atas Reuniões: Atas
 
 markdown_extensions:
