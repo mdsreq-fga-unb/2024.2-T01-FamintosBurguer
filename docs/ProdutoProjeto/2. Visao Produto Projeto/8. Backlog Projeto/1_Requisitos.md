@@ -3,10 +3,10 @@ hide:
   - toc
 ---
 
-# 1. Requisitos do Projeto
+# 8.1. Requisitos do Projeto
 ___________________________________________________________________________________
 
-## 1.1. Requisitos Funcionais (RF)
+## 8.1.1. Requisitos Funcionais (RF)
 
 <div style="text-align: justify">
 Os Requisitos Funcionais e Não Funcionais definem as características e restrições do sistema Famintos Burger. Os Requisitos Funcionais detalham as funcionalidades que o sistema deve oferecer, como o gerenciamento de cardápios, pedidos e promoções.</br> 
@@ -43,7 +43,7 @@ ________________________________________________________________________________
 
 ___________________________________________________________________________________
 
-## 1.2. Requisitos Não Funcionais (RNF)
+## 8.1.2. Requisitos Não Funcionais (RNF)
 
 | **ID**   | **Descrição**                                                               |
 |----------|-----------------------------------------------------------------------------|

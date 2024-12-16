@@ -3,10 +3,10 @@ hide:
   - toc
 ---
 
-# 4. User Stories do Projeto
+# 8.4. User Stories do Projeto
 ___________________________________________________________________________________
 
-## 4.1. User Stories
+## 8.4.1. User Stories
 
 <div style="text-align: justify">
 As User Stories do projeto Famintos Burger descrevem de forma clara as necessidades e expectativas dos atendentes, principais usuários do sistema. Elas detalham quem é o usuário, o que ele deseja fazer e o motivo, ajudando a equipe de desenvolvimento a compreender as funcionalidades sob a perspectiva do usuário final.</br>
