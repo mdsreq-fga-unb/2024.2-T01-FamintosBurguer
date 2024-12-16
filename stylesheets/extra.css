@@ -1,0 +1,143 @@
+:root {
+    --base-border-radius: 0.5rem;
+}
+
+.md-typeset .md-button {
+    border-radius: var(--base-border-radius);
+}
+
+.rounded-image {
+    border-radius: 50%; /* Arredonda a imagem */
+    object-fit: cover; /* Garante que a imagem preencha o círculo */
+}
+
+.rounded-edge {
+    border-radius: 10px; /* Arredonda as bordas */
+}
+
+.md-search__form {
+    border-radius: var(--base-border-radius);
+}
+  
+.md-post--excerpt {
+    background-color: var(--md-accent-fg-color--transparent);
+    box-shadow: 0 0 0 1rem var(--md-accent-fg-color--transparent);
+    border-radius: var(--base-border-radius);
+}
+  
+.md-typeset table:not([class]) {
+    border-radius: var(--base-border-radius);
+}
+
+.md-typeset .grid.cards > ul > li {
+    border-radius: var(--base-border-radius);
+}
+.md-typeset .grid.cards > ul > li:hover {
+    box-shadow: 0 0 0.2rem #ffffff40;
+}
+
+/* Reseta margens e aplica uma fonte */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  .hero-title {
+    font-size: 2.5em;
+    color: #ff5722;
+    margin-bottom: 10px;
+    animation: slideIn 1.5s ease-out;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+    animation: fadeIn 2s ease-in-out;
+  }
+  
+  .hero-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    animation: zoomIn 1.2s ease-in;
+  }
+  
+  .button:hover {
+    transform: scale(1.1);
+  }
+  
+  .icon {
+    margin-right: 8px;
+  }
+
+  .hero-image img {
+    display: block;      /* Garante que a imagem se comporte como um bloco */
+    margin: 0 auto;      /* Centraliza a imagem */
+    width: 100%;         /* Ajusta a largura para ocupar o máximo do contêiner */
+    height: auto;        /* Mantém a proporção da imagem */
+    max-width: 1312px;   /* Limita a largura máxima em telas grandes */
+    border-radius: 15px; /* Arredonda as bordas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adiciona sombra */
+  }
+  
+  .rounded-edge {
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+  }
+  
+  .rounded-edge:hover {
+    transform: scale(1.05);
+  }
+  
+  footer {
+    margin-top: 40px;
+    color: #777;
+    font-size: 0.9em;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes slideIn {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+  
+  @keyframes zoomIn {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes zoomInImage {
+    from { transform: scale(0.95); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+
+  @media screen and (max-width: 713px) {
+    .hero-buttons {
+      flex-direction: column;
+      gap: 8px;  /* Reduz o espaço entre os botões */
+    }
+    
+    .hero-buttons a {
+      padding: 6px 10px;  /* Menor padding para evitar botões altos */
+      font-size: 0.75em;  /* Fonte menor para caber melhor */
+      width: 100%;        /* Ocupa toda a largura disponível */
+      text-align: center;
+    }
+  }
+
+  @media screen and (max-height: 879px) {
+    .hero-image img {
+      width: 100%;        /* Ajusta a largura da imagem para 100% do contêiner */
+      height: auto;       /* Mantém a proporção da imagem */
+      max-width: 1000px;  /* Limita a largura máxima da imagem para telas menores */
+      margin: 0 auto;     /* Centraliza a imagem na tela */
+    }
+  }
