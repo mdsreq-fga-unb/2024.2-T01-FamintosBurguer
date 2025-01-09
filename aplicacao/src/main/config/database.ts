@@ -8,11 +8,13 @@ import { Ingrediente } from '../entity/ingredientes'
 import path from 'path'
 import { app } from 'electron'
 
+const dbPath = path.join(app.getPath('userData'), 'app-database.sqlite');
+
 // Define a fonte de dados (DataSource)
 export const AppDataSource = new DataSource({
   type: 'sqlite',
-  database: path.join(app.getPath('userData'), 'app-database.sqlite'), // Caminho do banco
-  synchronize: true, // Cria automaticamente tabelas com base nas entidades
+  database: path.join(dbPath), // Caminho do banco
+  synchronize: true, // Cria automaticamente tabelas com base nas entidades // Ajustar para banco de dados em Produção
   logging: false, // Ative para depuração
-  entities: [Pedido, ItensPedido, Alimento, IngredientesAlimento, Ingrediente] // Adicione suas entidades aqui
+  entities: [Pedido, ItensPedido, Alimento, IngredientesAlimento, Ingrediente], // Adicione suas entidades aqui
 })

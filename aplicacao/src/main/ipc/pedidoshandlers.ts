@@ -1,24 +1,10 @@
 import { ipcMain } from 'electron'
-import { AppDataSource } from '../config/database'
-import { Pedido } from '../entity/pedido'
+import { ipcLogger } from '../index' // Função que loga eventos IPC
+import * as pedido from '../models/pedidos'
 
-// Função para registrar os manipuladores IPC
 export function registerPedidoHandlers() {
-  const pedidoRepository = AppDataSource.getRepository(Pedido)
-
-  ipcMain.handle('get-pedidos', async () => {
-    return await pedidoRepository.find() // Busca todos os usuários
-  })
-
-  ipcMain.handle('cadastrar-pedido', async (__event, pedidoData) => {
-    try {
-      const repository = AppDataSource.getRepository(Pedido)
-      const novoPedido = repository.create(pedidoData)
-      const pedidoSalvo = await repository.save(novoPedido)
-      return pedidoSalvo // Retorna o pedido salvo para o frontend
-    } catch (error) {
-      console.error('Erro ao salvar pedido:', error)
-      throw error
-    }
-  })
+  ipcMain.handle('get-pedidos', ipcLogger('get-pedidos', pedido.getPedidos))
+  ipcMain.handle('cadastrar-pedido', ipcLogger('cadastrar-pedido', (__event, pedidoData) => pedido.cadastrarPedido(pedidoData)))
+  ipcMain.handle('update-pedido', ipcLogger('update-pedido', (__event, id, pedidoData) => pedido.updatePedido(id, pedidoData)))
+  ipcMain.handle('delete-pedido', ipcLogger('delete-pedido', (__event, id) => pedido.deletePedido(id)))
 }

@@ -1,0 +1,7 @@
+{
+    "watch": ["src", "config", "entity"],
+    "ext": "ts,js,json",
+    "exec": "npm run dev",
+    "ignore": ["node_modules"]
+  }
+  
