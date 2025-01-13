@@ -12,9 +12,8 @@ const userDataPath = typeof app !== 'undefined' ? app.getPath('userData') : './t
 
 export const AppDataSource = new DataSource({
   type: 'sqlite',
-  database: path.join(userDataPath, 'teste-database.sqlite'),
+  database: path.join(userDataPath, 'famintos-teste.sqlite'),
   synchronize: true,
-  logging: false,
   entities: [Pedido, ItensPedido, Alimento, IngredientesAlimento, Ingrediente],
 });
 

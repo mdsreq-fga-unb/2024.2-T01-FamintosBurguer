@@ -20,7 +20,10 @@
     "build:unpack": "npm run build && electron-builder --dir",
     "build:win": "npm run build && electron-builder --win",
     "build:mac": "electron-vite build && electron-builder --mac",
-    "build:linux": "electron-vite build && electron-builder --linux"
+    "build:linux": "electron-vite build && electron-builder --linux",
+    "typeorm:generate": "ts-node ./node_modules/typeorm/cli.js migration:generate src/main/migrations/SyncDatabase -d ./src/main/config/database.ts",
+    "typeorm:run": "ts-node ./node_modules/typeorm/cli.js migration:run -d ./src/main/config/database.ts",
+    "typeorm:revert": "ts-node ./node_modules/typeorm/cli.js migration:revert -d ./src/main/config/database.ts"
   },
   "dependencies": {
     "@electron-toolkit/preload": "^3.0.1",
@@ -41,6 +44,7 @@
     "@types/react-dom": "^18.3.0",
     "@types/supertest": "^6.0.2",
     "@vitejs/plugin-react": "^4.3.1",
+    "cross-env": "^7.0.3",
     "electron": "^31.0.2",
     "electron-builder": "^24.13.3",
     "electron-mocha": "^13.0.1",
@@ -55,7 +59,9 @@
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5",
     "ts-node": "^10.9.2",
+    "tsconfig-paths": "^4.2.0",
     "typescript": "^5.5.2",
-    "vite": "^5.3.1"
+    "vite": "^5.3.1",
+    "vite-tsconfig-paths": "^5.1.4"
   }
 }
