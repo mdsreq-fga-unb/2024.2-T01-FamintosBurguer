@@ -1,9 +1,9 @@
-import { MigrationInterface, QueryRunner } from "typeorm";
+const { MigrationInterface, QueryRunner } = require("typeorm");
 
-export class SyncDatabase1736807143482 implements MigrationInterface {
-    name = 'SyncDatabase1736807143482'
+module.exports = class SyncDatabase1736868562070 {
+    name = 'SyncDatabase1736868562070';
 
-    public async up(queryRunner: QueryRunner): Promise<void> {
+    async up(queryRunner) {
         await queryRunner.query(`CREATE TABLE "ingredientes" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" text NOT NULL)`);
         await queryRunner.query(`CREATE TABLE "ingredientesalimento" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" text NOT NULL, "quantidade" integer NOT NULL, "valor" integer NOT NULL, "custom" boolean NOT NULL, "observacao" text NOT NULL, "alimentoId" integer, "ingredienteId" integer, "pedidoId" integer, CONSTRAINT "REL_91bed45d0ae9fe636309449b94" UNIQUE ("pedidoId"))`);
         await queryRunner.query(`CREATE TABLE "alimento" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" text NOT NULL, "valor" integer NOT NULL, "observacao" text NOT NULL)`);
@@ -19,7 +19,7 @@ export class SyncDatabase1736807143482 implements MigrationInterface {
         await queryRunner.query(`ALTER TABLE "temporary_itenspedido" RENAME TO "itenspedido"`);
     }
 
-    public async down(queryRunner: QueryRunner): Promise<void> {
+    async down(queryRunner) {
         await queryRunner.query(`ALTER TABLE "itenspedido" RENAME TO "temporary_itenspedido"`);
         await queryRunner.query(`CREATE TABLE "itenspedido" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "quantidade" integer NOT NULL, "custom" boolean NOT NULL, "observacao" text NOT NULL, "pedidoId" integer, "alimentoId" integer)`);
         await queryRunner.query(`INSERT INTO "itenspedido"("id", "quantidade", "custom", "observacao", "pedidoId", "alimentoId") SELECT "id", "quantidade", "custom", "observacao", "pedidoId", "alimentoId" FROM "temporary_itenspedido"`);
@@ -34,5 +34,4 @@ export class SyncDatabase1736807143482 implements MigrationInterface {
         await queryRunner.query(`DROP TABLE "ingredientesalimento"`);
         await queryRunner.query(`DROP TABLE "ingredientes"`);
     }
-
-}
+};

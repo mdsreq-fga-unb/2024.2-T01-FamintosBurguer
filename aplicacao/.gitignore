@@ -5,3 +5,4 @@ out
 *.log*
 build
 famintos.sqlite
+famintos-teste.sqlite

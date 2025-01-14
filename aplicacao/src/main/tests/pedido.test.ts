@@ -1,32 +1,9 @@
-import * as path from 'path';
 import request from 'supertest';
-import { app } from 'electron';
-import { DataSource } from 'typeorm';
-import { Pedido } from '../entity/pedido';
-import { ItensPedido } from '../entity/itenspedido';
-import { Alimento } from '../entity/alimentos';
-import { IngredientesAlimento } from '../entity/ingredientesalimento';
-import { Ingrediente } from '../entity/ingredientes';
 
-const userDataPath = typeof app !== 'undefined' ? app.getPath('userData') : './test-data'; // Caminho simulado para testes
-
-export const AppDataSource = new DataSource({
-  type: 'sqlite',
-  database: path.join(userDataPath, 'famintos-teste.sqlite'),
-  synchronize: true,
-  entities: [Pedido, ItensPedido, Alimento, IngredientesAlimento, Ingrediente],
-});
+const BASE_URL = 'http://localhost:3000'; // Atualize conforme necessário
 
 describe('Testando CRUD de Pedidos', () => {
   let pedidoId: number;
-
-  beforeAll(async () => {
-    await AppDataSource.initialize();
-  });
-
-  afterAll(async () => {
-    await AppDataSource.destroy();
-  });
 
   test('Criar um Novo Pedido', async () => {
     const pedido = {
@@ -39,7 +16,7 @@ describe('Testando CRUD de Pedidos', () => {
       status: 'Pendente',
     };
 
-    const response = await request('http://localhost:3000')
+    const response = await request(BASE_URL)
       .post('/pedidos')
       .send(pedido);
 
@@ -52,7 +29,7 @@ describe('Testando CRUD de Pedidos', () => {
   });
 
   test('Listar Pedidos', async () => {
-    const response = await request('http://localhost:3000').get('/pedidos');
+    const response = await request(BASE_URL).get('/pedidos');
 
     expect(response.status).toBe(200);
     expect(Array.isArray(response.body)).toBe(true);
@@ -70,7 +47,7 @@ describe('Testando CRUD de Pedidos', () => {
       status: 'Concluído',
     };
 
-    const response = await request('http://localhost:3000')
+    const response = await request(BASE_URL)
       .put(`/pedidos/${pedidoId}`)
       .send(pedidoAtualizado);
 
@@ -79,7 +56,7 @@ describe('Testando CRUD de Pedidos', () => {
   });
 
   test('Excluir um Pedido', async () => {
-    const response = await request('http://localhost:3000').delete(`/pedidos/${pedidoId}`);
+    const response = await request(BASE_URL).delete(`/pedidos/${pedidoId}`);
 
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('message', 'Pedido deletado com sucesso!');

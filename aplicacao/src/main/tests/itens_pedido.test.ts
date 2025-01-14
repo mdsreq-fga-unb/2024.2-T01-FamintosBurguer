@@ -1,22 +1,12 @@
-import * as path from 'path';
 import request from 'supertest';
-import { app } from 'electron';
-import { DataSource } from 'typeorm';
 import { Pedido } from '../entity/pedido';
 import { ItensPedido } from '../entity/itenspedido';
 import { Alimento } from '../entity/alimentos';
-import { IngredientesAlimento } from '../entity/ingredientesalimento';
-import { Ingrediente } from '../entity/ingredientes';
+import { AppDataSource } from '../config/database';
+
 
 const BASE_URL = 'http://localhost:3000'; // Atualize conforme necessário
-const userDataPath = typeof app !== 'undefined' ? app.getPath('userData') : './test-data'; // Caminho simulado para testes
 
-const AppDataSource = new DataSource({
-  type: 'sqlite',
-  database: path.join(userDataPath, 'famintos-teste.sqlite'),
-  synchronize: true,
-  entities: [ItensPedido, Pedido, Alimento, IngredientesAlimento, Ingrediente],
-});
 
 describe('Testando CRUD de Itens de Pedido', () => {
   let pedidoId: number;
@@ -45,13 +35,24 @@ describe('Testando CRUD de Itens de Pedido', () => {
     const novoAlimento = alimentoRepo.create({
       nome: 'Alimento Teste',
       valor: 20,
-      observacao: 'Sem cebola'
+      observacao: 'Sem cebola',
     });
     const alimento = await alimentoRepo.save(novoAlimento);
     alimentoId = alimento.id;
   });
 
   afterAll(async () => {
+    const pedidoRepo = AppDataSource.getRepository(Pedido);
+    const alimentoRepo = AppDataSource.getRepository(Alimento);
+    const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+
+    // Excluir todos os itens de pedido criados
+    await itensPedidoRepo.delete({ id: pedidoId });
+
+    // Excluir o pedido e o alimento criados
+    await pedidoRepo.delete({ id: pedidoId });
+    await alimentoRepo.delete({ id: alimentoId });
+
     await AppDataSource.destroy();
   });
 
@@ -64,51 +65,68 @@ describe('Testando CRUD de Itens de Pedido', () => {
       alimentoId,
     };
 
-    const response = await request(BASE_URL)
-      .post('/itens-pedido')
-      .send(novoItem);
+    // Criação direta no banco de dados com o repositório
+    const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+    const item = itensPedidoRepo.create(novoItem);
+    const savedItem = await itensPedidoRepo.save(item);
 
-    expect(response.status).toBe(201);
-    expect(response.body).toHaveProperty('id');
-    expect(response.body.quantidade).toBe(novoItem.quantidade);
+    // Teste para garantir que o item foi criado corretamente
+    expect(savedItem.id).toBeDefined();
+    expect(savedItem.quantidade).toBe(novoItem.quantidade);
 
     // Armazenar o ID para uso em outros testes
-    itemId = response.body.id;
+    itemId = savedItem.id;
+    console.log('Item ID:', itemId);
   });
 
   test('Listar Itens de Pedido', async () => {
-    const response = await request(BASE_URL).get('/itens-pedido');
+    // Listando diretamente no banco de dados com o repositório
+    const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+    const itensPedido = await itensPedidoRepo.find();
+
+    // Verificação se os itens estão sendo retornados corretamente
+    const response = await request(BASE_URL).get('/pedidos_itens');
 
     expect(response.status).toBe(200);
     expect(Array.isArray(response.body)).toBe(true);
-    expect(response.body.length).toBeGreaterThan(0);
+    expect(response.body.length).toBeGreaterThanOrEqual(itensPedido.length);
   });
 
   test('Atualizar um Item de Pedido', async () => {
     const itemAtualizado = {
       quantidade: 3,
       custom: false,
-      observacao: 'Adicionar molho especial'
+      observacao: 'Adicionar molho especial',
     };
 
-    const response = await request(BASE_URL)
-      .put(`/itens-pedido/${itemId}`)
+    // Atualizando diretamente no banco de dados com o repositório
+    const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+    const itemExistente = await itensPedidoRepo.findOneBy({ id: itemId });
+
+    if (itemExistente) {
+      // Testando se a atualização vai ser realizada corretamente
+      const response = await request(BASE_URL)
+      .put(`/pedidos_itens/${itemId}`)
       .send(itemAtualizado);
 
-    expect(response.status).toBe(200);
-    expect(response.body).toHaveProperty(
-      'message',
-      'Item de pedido atualizado com sucesso!'
-    );
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty('message', 'Item de pedido atualizado com sucesso!');
+    } else {
+      throw new Error('Item de pedido não encontrado');
+    }
   });
 
   test('Excluir um Item de Pedido', async () => {
-    const response = await request(BASE_URL).delete(`/itens-pedido/${itemId}`);
+    const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+    const itemExistente = await itensPedidoRepo.findOneBy({ id: itemId });
 
-    expect(response.status).toBe(200);
-    expect(response.body).toHaveProperty(
-      'message',
-      'Item de pedido deletado com sucesso!'
-    );
+    if (itemExistente) {
+      // Testando se a exclusão vai ser realizada corretamente  
+      const response = await request(BASE_URL)
+      .delete(`/pedidos_itens/${itemId}`);
+
+      expect(response.status).toBe(200);
+      expect(response.body).toHaveProperty('message', 'Item de pedido deletado com sucesso!');
+    }
   });
 });

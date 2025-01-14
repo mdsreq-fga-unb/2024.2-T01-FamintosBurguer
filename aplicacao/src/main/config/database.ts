@@ -12,7 +12,7 @@ export const AppDataSource = new DataSource({
   type: 'sqlite',
   database: databasePath,
   synchronize: false,
-  logging: true,
-  migrations: ['src/main/migrations/*.ts'], // Caminho correto para as migrations
+  logging: false,
+  migrations: ['src/main/migrations/*.js'], // Caminho correto para as migrations
   entities: [Pedido, ItensPedido, Alimento, IngredientesAlimento, Ingrediente],
 });
