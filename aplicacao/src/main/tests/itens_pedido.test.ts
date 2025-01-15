@@ -76,7 +76,6 @@ describe('Testando CRUD de Itens de Pedido', () => {
 
     // Armazenar o ID para uso em outros testes
     itemId = savedItem.id;
-    console.log('Item ID:', itemId);
   });
 
   test('Listar Itens de Pedido', async () => {
