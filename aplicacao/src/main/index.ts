@@ -1,20 +1,35 @@
 import 'reflect-metadata'
 import { app, shell, BrowserWindow, ipcMain } from 'electron'
-import { join } from 'path'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
-import icon from '../../resources/icon.png?asset'
 import { AppDataSource } from './config/database'
 import { registerPedidoHandlers } from './ipc/pedidoshandlers'
+import { registerItensPedidoHandlers } from './ipc/itenspedidoshandlers'
+import icon from '../../resources/icon.png?asset'
+import path from 'path'
+import * as express from './config/express'
+
+// Desabilita o autofill do Electron
+app.commandLine.appendSwitch('disable-features', 'Autofill')
+app.commandLine.appendSwitch('disable-features', 'AutofillServerCommunication')
+
+// Configuração do Express para Ambiente de Desenvolvimento/Testes
+if (process.env.NODE_ENV === 'development') {
+  express.Express()
+}
 
 // Inicialize o banco de dados quando o app iniciar
 app.on('ready', () => {
-  AppDataSource.initialize()
+  if (!AppDataSource.isInitialized) {
+    AppDataSource.initialize()
     .then(() => {
       console.log('Banco de dados inicializado!')
       registerPedidoHandlers()
+      registerItensPedidoHandlers()
+
+      // Adicionar aqui os demais handlers
     })
     .catch((error) => console.error('Erro ao inicializar o banco:', error))
-
+  } 
   // Resto da inicialização da janela principal do Electron
 })
 
@@ -27,7 +42,7 @@ function createWindow(): void {
     autoHideMenuBar: false,
     ...(process.platform === 'linux' ? { icon } : {}),
     webPreferences: {
-      preload: join(__dirname, '../preload/index.js'),
+      preload: path.join(__dirname, '../preload/index.js'),
       sandbox: false
     }
   })
@@ -46,7 +61,7 @@ function createWindow(): void {
   if (is.dev && process.env['ELECTRON_RENDERER_URL']) {
     mainWindow.loadURL(process.env['ELECTRON_RENDERER_URL'])
   } else {
-    mainWindow.loadFile(join(__dirname, '../renderer/index.html'))
+    mainWindow.loadFile(path.join(__dirname, '../renderer/index.html'))
   }
 }
 
@@ -87,3 +102,18 @@ app.on('window-all-closed', () => {
 
 // In this file you can include the rest of your app"s specific main process
 // code. You can also put them in separate files and require them here.
+
+// Função genérica para monitorar e capturar erros
+export function ipcLogger(eventName: string, handler: Function) {
+  return async (event: any, ...args: any[]) => {
+    console.log(`[IPC] Evento recebido: ${eventName}`, { args })
+    try {
+      const result = await handler(event, ...args)
+      console.log(`[IPC] Evento ${eventName} processado com sucesso.`)
+      return result
+    } catch (error) {
+      console.error(`[IPC] Erro no evento ${eventName}:`, error)
+      throw error // Repassa o erro para o cliente IPC
+    }
+  }
+}

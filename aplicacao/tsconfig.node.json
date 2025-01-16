@@ -1,13 +1,16 @@
 {
   "extends": "@electron-toolkit/tsconfig/tsconfig.node.json",
-  "include": ["electron.vite.config.*", "src/main/**/*", "src/preload/**/*"],
+  "include": ["electron.vite.config.*", "src/main/**/*", "src/**/*", "src/preload/**/*"],
+  "exclude": ["node_modules", "dist"],
   "compilerOptions": {
     "composite": true,
-    "types": ["electron-vite/node"],
+    "types": ["electron-vite/node", "jest"],
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "strictPropertyInitialization": false,
-    "target": "ESNext",
-    "module": "CommonJS"
-  }
+    "target": "ES2021",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "strict": true
+  },
 }

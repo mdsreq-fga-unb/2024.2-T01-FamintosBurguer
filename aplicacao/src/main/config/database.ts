@@ -1,14 +1,18 @@
-import 'reflect-metadata'
-import { Pedido } from '../entity/pedido'
-import { DataSource } from 'typeorm'
-import path from 'path'
-import { app } from 'electron'
+import 'reflect-metadata';
+import { DataSource } from 'typeorm';
+import { Pedido } from '../entity/pedido';
+import { ItensPedido } from '../entity/itenspedido';
+import { Alimento } from '../entity/alimentos';
+import { IngredientesAlimento } from '../entity/ingredientesalimento';
+import { Ingrediente } from '../entity/ingredientes';
+import databasePath from '../config/config'
 
 // Define a fonte de dados (DataSource)
 export const AppDataSource = new DataSource({
   type: 'sqlite',
-  database: path.join(app.getPath('userData'), 'app-database.sqlite'), // Caminho do banco
-  synchronize: true, // Cria automaticamente tabelas com base nas entidades
-  logging: false, // Ative para depuração
-  entities: [Pedido] // Adicione suas entidades aqui
-})
+  database: databasePath,
+  synchronize: false,
+  logging: false,
+  migrations: ['src/main/migrations/*.js'], // Caminho correto para as migrations
+  entities: [Pedido, ItensPedido, Alimento, IngredientesAlimento, Ingrediente],
+});

@@ -4,7 +4,16 @@ const { ipcRenderer } = require('electron')
 
 // Custom APIs for renderer
 const api = {
-  cadastrarPedido: (pedidoData) => ipcRenderer.invoke('cadastrar-pedido', pedidoData)
+  // Pedido
+  cadastrarPedido: (pedidoData) => ipcRenderer.invoke('cadastrar-pedido', pedidoData),
+  UpdatePedido: (id, pedidoData) => ipcRenderer.invoke('update-pedido', id, pedidoData),
+  deletePedido: (id) => ipcRenderer.invoke('delete-pedido', id),
+  getPedidos: () => ipcRenderer.invoke('get-pedidos'),
+  // Itens do Pedidos 
+  cadastrarItensPedido: (pedidoData) => ipcRenderer.invoke('cadastrar-itens-pedido', pedidoData),
+  UpdateItensPedido: (id, pedidoData) => ipcRenderer.invoke('update-itens-pedido', id, pedidoData),
+  deleteItensPedido: (id) => ipcRenderer.invoke('delete-itens-pedido', id),
+  getItensPedidos: () => ipcRenderer.invoke('get-itens-pedidos')
 }
 // Use `contextBridge` APIs to expose Electron APIs to
 // renderer only if context isolation is enabled, otherwise
@@ -13,7 +22,7 @@ if (process.contextIsolated) {
   try {
     // Expondo a API padrão do Electron Toolkit
     contextBridge.exposeInMainWorld('electronAPI', {
-      cadastrarPedido: (pedidoData) => ipcRenderer.invoke('cadastrar-pedido', pedidoData)
+      api: electronAPI
     })
 
     // Expondo sua API customizada
@@ -28,7 +37,3 @@ if (process.contextIsolated) {
   // @ts-ignore (define in dts)
   window.api = api
 }
-
-contextBridge.exposeInMainWorld('electronAPI', {
-  cadastrarPedido: (pedidoData) => ipcRenderer.invoke('cadastrar-pedido', pedidoData)
-})

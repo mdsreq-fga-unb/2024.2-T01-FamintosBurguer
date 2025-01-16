@@ -4,3 +4,5 @@ out
 .DS_Store
 *.log*
 build
+famintos.sqlite
+famintos-teste.sqlite
