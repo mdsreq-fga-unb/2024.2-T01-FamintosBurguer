@@ -14,22 +14,22 @@ const Sidebar = () => (
         🏠 Home
       </Link>
       <Link
-        to="/profile"
+        to="/cardapio"
         className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
       >
-        👤 Profile
+        📋 Cardápio
       </Link>
       <Link
-        to="/settings"
+        to="/pedidos"
         className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
       >
-        ⚙️ Settings
+        📦 Pedidos
       </Link>
       <Link
         to="/pedido"
         className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
       >
-        📦 Pedidos
+        ⚙️ Teste Banco de Dados
       </Link>
     </nav>
     <footer className="mt-auto text-sm text-center text-gray-300">
