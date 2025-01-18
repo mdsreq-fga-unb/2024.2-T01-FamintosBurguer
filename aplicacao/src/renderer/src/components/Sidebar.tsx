@@ -2,14 +2,39 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Sidebar = () => (
-  <div className="w-64 h-screen bg-gray-800 text-white fixed top-0 left-0 flex flex-col p-4">
-    <h1 className="text-2xl font-bold mb-8">FamintosBurguer🍔</h1>
-    <nav className="flex flex-col gap-4">
-      <Link to="/" className="hover:bg-gray-700 p-2 rounded">Home</Link>
-      <Link to="/profile" className="hover:bg-gray-700 p-2 rounded">Profile</Link>
-      <Link to="/settings" className="hover:bg-gray-700 p-2 rounded">Settings</Link>
-      <Link to="/pedido" className="hover:bg-gray-700 p-2 rounded">Pedidos</Link>
+  <div className="w-64 h-screen bg-gradient-to-b from-purple-600 to-purple-800 text-white fixed top-0 left-0 flex flex-col p-6 shadow-lg">
+    <h1 className="text-2xl font-bold mb-10 text-center tracking-wide break-words">
+      FamintosBurguer 🍔
+    </h1>
+    <nav className="flex flex-col gap-6">
+      <Link
+        to="/"
+        className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
+      >
+        🏠 Home
+      </Link>
+      <Link
+        to="/profile"
+        className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
+      >
+        👤 Profile
+      </Link>
+      <Link
+        to="/settings"
+        className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
+      >
+        ⚙️ Settings
+      </Link>
+      <Link
+        to="/pedido"
+        className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
+      >
+        📦 Pedidos
+      </Link>
     </nav>
+    <footer className="mt-auto text-sm text-center text-gray-300">
+      © 2025 FamintosBurguer. All rights reserved.
+    </footer>
   </div>
 );
 
