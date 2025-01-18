@@ -5,19 +5,19 @@ import Home from "./pages/Home";
 import Cardapio from "./pages/Cardapio";
 import Pedidos from "./pages/Pedidos";
 import PedidoForm from "./pages/TesteBancodeDados";
-import Formulario from "./pages/Formulario"; // Importando a nova página
+import Formulario from "./pages/Formulario";
 
 const App = () => (
   <Router>
     <div className="flex">
       <Sidebar />
-      <div className="flex-1 pl-64 p-4">
+      <div className="flex-1 ml-64 p-4"> {/* Ajuste de largura */}
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cardapio" element={<Cardapio />} />
           <Route path="/pedidos" element={<Pedidos />} />
           <Route path="/pedido" element={<PedidoForm />} />
-          <Route path="/formulario" element={<Formulario />} /> {/* Nova rota */}
+          <Route path="/formulario" element={<Formulario />} />
         </Routes>
       </div>
     </div>
@@ -25,4 +25,5 @@ const App = () => (
 );
 
 export default App;
+
 
