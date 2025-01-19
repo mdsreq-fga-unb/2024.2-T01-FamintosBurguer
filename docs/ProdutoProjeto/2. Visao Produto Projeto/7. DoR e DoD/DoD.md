@@ -10,9 +10,6 @@ Lista de critérios que define quando um item ou incremento está completamente 
 - **O código está coberto por testes?**  
   Testes unitários, de integração e, quando aplicável, de aceitação devem ter sido implementados e aprovados.
 
-- **A funcionalidade foi validada pelo PO?**  
-  O Product Owner deve validar a entrega e garantir que os critérios de aceitação foram atendidos.
-
 - **A documentação foi atualizada?**  
   Documentação técnica e/ou de usuário deve estar completa e revisada.
 
