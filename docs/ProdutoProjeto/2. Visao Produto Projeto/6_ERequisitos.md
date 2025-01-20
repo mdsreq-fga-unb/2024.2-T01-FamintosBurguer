@@ -10,7 +10,7 @@ A partir das informações apresentadas na seção 3 deste documento, as ativida
 
 ### Análise e Consenso:
 - **Prototipagem**: A prototipagem será aplicada para visualizar rapidamente as soluções propostas e garantir que os requisitos de maior impacto sejam discutidos e validados. Isso permitirá que ajustes sejam feitos antes de se comprometer com a implementação.
-- **User Story Mapping (USM)**: Usaremos o USM para mapear as histórias de usuários e compreender as interações entre diferentes funcionalidades. Essa técnica promove o consenso entre as equipes sobre as prioridades e os objetivos.
+- **Brainstorming Estruturado**: Utilizaremos o Brainstorming Estruturado para reunir ideias e identificar requisitos de maneira colaborativa e organizada. Essa técnica promove o alinhamento inicial entre as equipes e facilita a priorização dos requisitos.
 
 ### Declaração de Requisitos:
 - **Documentação Inicial**: A documentação será criada para formalizar os requisitos iniciais do projeto. Um Documento de Visão de Produto será elaborado para alinhar os objetivos do projeto com as expectativas do cliente e stakeholders.
@@ -26,7 +26,7 @@ A partir das informações apresentadas na seção 3 deste documento, as ativida
 
 ### Organização e Atualização de Requisitos:
 - **Revisão Contínua dos Requisitos**: A técnica de revisão contínua será aplicada ao longo do desenvolvimento para garantir que os requisitos sejam mantidos atualizados à medida que o projeto avança.
-- **Timeboxing**: A técnica de timeboxing será usada para garantir que os requisitos sejam priorizados e revisados dentro de um período de tempo limitado, otimizando os ciclos de desenvolvimento e ajustando as expectativas conforme o progresso.
+- **Kanban**: A técnica de Kanban será utilizada para visualizar e gerenciar as tarefas relacionadas ao projeto, permitindo ajustes contínuos e identificação de gargalos ao longo do desenvolvimento.
 
 ## 6.2 Engenharia de Requisitos e o Espiral
 
@@ -35,10 +35,10 @@ A partir das informações apresentadas na seção 3 deste documento, as ativida
 | Identificação de Objetivos       | Elicitação e Descoberta                     | Entrevistas com Stakeholders           | Entrevistas                                   | Levantamento inicial das necessidades e expectativas do cliente                                          |
 |                                  | Mapa de Atividades, Técnicas e Resultados  | Criação de um mapa visual              | Mapeamento de requisitos e atividades         | Representação clara das conexões entre os requisitos e as atividades planejadas                          |
 |                                  | Declaração de Requisitos                   | Documentação inicial                   | Documento de Visão de Produto                 | Escopo preliminar e alinhamento dos objetivos do projeto                                                 |
-| Análise de Riscos                | Análise e Consenso                          | Discussão e revisão de riscos          | Prototipagem, User Story Mapping (USM)        | Redução de riscos relacionados a ambiguidades nos requisitos                                             |
+| Análise de Riscos                | Análise e Consenso                          | Discussão e revisão de riscos          | Prototipagem, Brainstorming Estruturado       | Redução de riscos relacionados a ambiguidades nos requisitos                          |
 |                                  | Verificação e Validação                     | Validação inicial                      | Checklists                                   | Identificação de falhas potenciais nos requisitos e garantia de consistência                             |
-| Desenvolvimento e testes         | Organização e Atualização                   | Revisão contínua dos requisitos        | Mapeamento de Requisitos e Timeboxing         | Priorização eficaz e alinhamento contínuo com as metas do projeto, mantendo o ritmo dentro do prazo      |
+| Desenvolvimento e testes         | Organização e Atualização                   | Revisão contínua dos requisitos        | Mapeamento de Requisitos e Kanban         | Priorização eficaz e alinhamento contínuo com as metas do projeto, mantendo visibilidade e flexibilidade      |
 | Planejamento                     | Declaração                                  | Detalhamento dos requisitos            | User Story                                    | Requisitos detalhados para orientar as próximas fases                                                    |
 |                                  | Verificação e Validação                     | Feedback do cliente                    | Checklists e reuniões de validação            | Alinhamento dos requisitos definidos com as expectativas do cliente                                      |
-|                                  | Organização e Atualização                   | Atualização do backlog                 | Timeboxing                                   | Estruturação e priorização para ciclos iterativos                                                        |
+|                                  | Organização e Atualização                   | Atualização do backlog                 | Kanban                                        | Visualizar e gerenciar as tarefas relacionadas ao projeto                                                      |
 |                                  | Representação                               | Criação de protótipos                  | Prototipagem                                  | Representação concreta de requisitos abstratos, facilitando ajustes e validações                         |
