@@ -23,5 +23,6 @@ ________________________________________________________________________________
 |   T-03     |   E-05     | Personalizar lanches e combos                                  |   
 |   T-04     |   E-06     | Imprimir comandas com detalhes                                 |
 |   T-04     |   E-07     | Gerenciar promoções e preços                                   |
+|   T-04     |   E-08     | Compatibilidade e Escalabilidade do Sistema                    |
 
 ___________________________________________________________________________________
