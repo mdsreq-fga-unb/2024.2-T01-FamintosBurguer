@@ -34,12 +34,4 @@ ________________________________________________________________________________
 |   E-04  | US-15  |Como atendente, eu quero rastrear pedidos por cliente para compreender melhor seus hábitos de consumo.                                               |
 |   E-04  | US-16  |Como atendente, eu quero consultar o histórico de pedidos realizados para fins de análise e acompanhamento.                                          |
 |   E-04  | US-17  |Como atendente, eu quero filtrar o histórico de pedidos por período para realizar análises específicas.                                              |
-|   E-02  | US-18  |Como atendente, eu quero que o sistema tenha uma interface intuitiva para facilitar a navegação e uso.                                               |
-|   E-03  | US-19  |Como atendente, eu quero que os dados sejam atualizados automaticamente para acessar informações sempre atuais.                                      |
-|   E-01  | US-20  |Como atendente, eu quero que o sistema calcule e exiba o preço total dinamicamente durante as alterações no pedido para acompanhar o custo em tempo real.     |
-|   E-03  | US-21  |Como atendente, eu quero ver um resumo atualizado do pedido do cliente para revisar antes de finalizar.                                              |
-|   E-06  | US-22  |Como atendente, eu quero que o sistema seja compatível com as impressoras da empresa para imprimir comandas sem erros.                               |
-|   E-08  | US-23  |Como atendente, eu quero que o sistema suporte o aumento de dados e pedidos sem perda de desempenho para atender à demanda.                          |
-|   E-08  | US-24  |Como atendente, eu quero que o sistema funcione em todos os sistemas operacionais compatíveis para garantir flexibilidade.                           |
-
 ___________________________________________________________________________________

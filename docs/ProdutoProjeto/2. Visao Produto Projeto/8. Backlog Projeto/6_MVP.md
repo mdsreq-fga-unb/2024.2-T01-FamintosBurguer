@@ -34,16 +34,9 @@ Além das métricas mencionadas, levamos em conta os seguintes fatores:
 | **US-4**     | Como atendente, eu quero cadastrar lanches e ingredientes no cardápio para gerenciar as opções disponíveis aos clientes. | P = 1,56 (Alta) | Sim |
 | **US-5**     | Como atendente, eu quero editar lanches cadastrados para corrigir ou alterar informações conforme necessidade. | P = 1,5 (Alta) | Sim |
 | **US-12**    | Como atendente, eu quero imprimir comandas detalhadas para facilitar o preparo dos pedidos na cozinha. | P = 1,47 (Moderada) | Sim |
-| **US-22**    | Como atendente, eu quero que o sistema seja compatível com as impressoras da empresa para imprimir comandas sem erros. | P = 1,37 (Moderada) | Sim |
 | **US-10**    | Como atendente, eu quero personalizar lanches conforme minhas preferências para criar uma experiência única. | P = 1,35 (Moderada) | Sim |
-| **US-20**    | Como atendente, eu quero que o sistema calcule e exiba o preço total dinamicamente durante as alterações no pedido para acompanhar o custo em tempo real. | P = 1,31 (Moderada) | Sim |
-| **US-18**    | Como atendente, eu quero que o sistema tenha uma interface intuitiva para facilitar a navegação e uso. | P = 1,29 (Moderada) | Sim |
 | **US-7**     | Como atendente, eu quero consultar pedidos em tempo real para acompanhar o status de preparação e entrega. | P = 1,26 (Moderada) | Sim |
-| **US-19**    | Como atendente, eu quero que os dados sejam atualizados automaticamente para acessar informações sempre atuais. | P = 1,25 (Moderada) | Sim |
 | **US-17**    | Como atendente, eu quero filtrar o histórico de pedidos por período para realizar análises específicas. | P = 1,23 (Moderada) | Sim |
-| **US-21**    | Como atendente, eu quero ver um resumo atualizado do pedido do cliente para revisar antes de finalizar. | P = 1,12 (Moderada) | Sim |
-| **US-23**    | Como atendente, eu quero que o sistema suporte o aumento de dados e pedidos sem perda de desempenho para atender à demanda. | P = 0,88 (Baixa) | Não |
-| **US-24**    | Como atendente, eu quero que o sistema funcione em todos os sistemas operacionais compatíveis para garantir flexibilidade. | P = 0,85 (Baixa) | Não |
 | **US-8**     | Como atendente, eu quero cancelar pedidos registrados para corrigir erros ou atender solicitações dos clientes. | P = 0,83 (Baixa) | Não |
 | **US-13**    | Como atendente, eu quero criar combos personalizados para oferecer opções combinadas aos clientes. | P = 0,66 (Baixa) | Não |
 | **US-6**     | Como atendente, eu quero remover lanches e ingredientes do cardápio para manter o cardápio atualizado. | P = 0,62 (Baixa) | Não |

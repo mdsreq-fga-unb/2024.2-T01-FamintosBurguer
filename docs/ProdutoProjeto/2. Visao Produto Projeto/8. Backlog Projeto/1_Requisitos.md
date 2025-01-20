@@ -41,19 +41,15 @@ ________________________________________________________________________________
 | RF21    | Filtrar histórico de pedidos por período.                      |
 | RF22    | Editar status de pagamento do pedido.                          |
 
-___________________________________________________________________________________
+_________________________________________________________________________________
 
 ## 8.1.2. Requisitos Não Funcionais (RNF)
 
-| **ID**   | **Descrição**                                                               |
-|----------|-----------------------------------------------------------------------------|
-| RNF01    | Garantir interface intuitiva e fácil de usar.                               |
-| RNF02    | Atualizar dados automaticamente em tempo real.                              |
-| RNF03    | Adotar estrutura modular para facilitar manutenção e expansão.              |
-| RNF04    | Calcular e exibir preço total dinamicamente durante alterações no pedido.   |
-| RNF05    | Exibir resumo atualizado do pedido em tempo real.                           |
-| RNF06    | Garantir compatibilidade com impressoras utilizadas pela empresa.           |
-| RNF07    | Suportar aumento de dados e pedidos sem perda de desempenho.                |
-| RNF08    | Garantir funcionamento em sistemas operacionais compatíveis com o cliente.  |
+| **ID**   | **Descrição**                                                                           |
+|----------|-----------------------------------------------------------------------------------------
+| RNF01    | Garantir funcionamento no sistema Windows 10 e 11.                                      |
+| RNF02    | Atualizar dados automaticamente em tempo real.                                          |
+| RNF03    | Garantir compatibilidade com a impressora Epson utilizadas pela empresa.                |
+| RNF04    | Suportar uma quantidade de 200 clientes e pedidos cadastrados sem perda de desempenho.  |
 
 ___________________________________________________________________________________
