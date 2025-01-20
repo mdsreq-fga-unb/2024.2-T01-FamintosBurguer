@@ -20,7 +20,7 @@ ________________________________________________________________________________
 |   T-01     |   E-02     | Visualizar o cardápio e seus destaques                         |   
 |   T-02     |   E-03     | Realizar pedidos e acompanhar status em tempo real             |
 |   T-02     |   E-04     | Histórico e rastreamento de pedidos                            |
-|   T-03     |   E-05     | Personalizar lanches e combos                                  |   
+|   T-03     |   E-05     | Permitir que os clientes customizem ingredientes, quantidades e combinações de lanches e combos                                  |   
 |   T-04     |   E-06     | Imprimir comandas com detalhes                                 |
 |   T-04     |   E-07     | Gerenciar promoções e preços                                   |
 |   T-04     |   E-08     | Compatibilidade e Escalabilidade do Sistema                    |
