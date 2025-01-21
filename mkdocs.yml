@@ -31,6 +31,10 @@ nav:
         - 9. Lições Aprendidas: ProdutoProjeto/2. Visao Produto Projeto/9_Lições.md
         - 10. Referências Bibliográficas: ProdutoProjeto/2. Visao Produto Projeto/10_Referências.md
   - Atas Reuniões: Atas
+  - Estudo de Caso:
+      - PBB: 'ProdutoProjeto/Estudo de caso/PBB.md'
+      - USM: 'ProdutoProjeto/Estudo de caso/USM.md'
+
 
 markdown_extensions:
   - tables

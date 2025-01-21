@@ -46,3 +46,29 @@ Aprendemos a organizar o backlog de maneira eficaz, classificando as funcionalid
    A equipe enfrentou desafios ao dividir as tarefas entre os membros e estabelecer a ordem de prioridade das atividades. A falta de alinhamento inicial gerou sobrecarga em alguns membros 
 2. **Solução:** 
    Realizamos uma redistribuição mais equilibrada das tarefas, levando em consideração as habilidades e a disponibilidade de cada integrante. Além disso, utilizamos ferramentas de organização, como Trello e listas de tarefas, para visualizar o progresso e definir atividades prioritárias de forma mais clara.
+
+___________________________________________________________________________________
+
+## 9.3. Unidade 3
+
+### Principais Aprendizados
+
+Na Unidade 3, o foco principal foi no aprofundamento e aplicação de duas importantes técnicas de gerenciamento de requisitos: **Product Backlog Building (PBB)** e **User Story Mapping (USM)**. Essas técnicas desempenham um papel crucial na organização e priorização de requisitos, especialmente em projetos ágeis.
+
+## Product Backlog Building (PBB)
+O PBB é uma abordagem estruturada para a construção de um backlog de produto eficaz. Aprendemos que o PBB facilita a identificação e priorização das funcionalidades mais importantes, promovendo um alinhamento claro entre os objetivos do negócio e as entregas de valor. As principais lições incluíram:
+
+- **Segmentação Clara de Funcionalidades**: O PBB nos ajudou a dividir grandes funcionalidades em partes menores e mais manejáveis, tornando o backlog mais compreensível e prático.
+- **Prioridade Baseada no Valor**: A técnica enfatiza a entrega de valor ao cliente, o que nos ensinou a focar em itens que oferecem maior impacto no curto prazo.
+
+## User Story Mapping (USM)
+O USM foi outra técnica central abordada, proporcionando uma visão visual do produto do ponto de vista do usuário. As principais lições aprendidas foram:
+
+- **Visualização do Fluxo do Usuário**: O mapeamento de histórias nos permitiu entender melhor o fluxo de atividades dos usuários, destacando como as diferentes funcionalidades interagem.
+- **Identificação de MVP (Minimum Viable Product)**: O USM facilitou a identificação de um MVP ao mostrar quais histórias de usuário são essenciais para uma primeira entrega funcional.
+- **Engajamento de Stakeholders**: A técnica ajudou a envolver stakeholders de forma mais eficaz, pois a representação visual do produto tornou mais fácil para todos entenderem e contribuírem com o processo de priorização.
+
+## Conclusão
+A combinação de PBB e USM na Unidade 3 trouxe uma nova perspectiva sobre a importância de uma abordagem organizada e centrada no usuário para a construção de produtos. A aplicação dessas técnicas ajudou a melhorar a clareza, eficiência e colaboração na equipe de projeto, garantindo que os esforços estejam sempre alinhados com as necessidades do usuário e os objetivos do negócio.
+
+___________________________________________________________________________________
