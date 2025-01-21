@@ -36,12 +36,12 @@ O **Professor Participante** é aquele que se dedica ao desenvolvimento de seus 
 ### Aluno
 O **Aluno** é o principal beneficiário da plataforma, sendo o foco do processo educativo. A EduConnect busca facilitar o seu aprendizado, proporcionando um ambiente colaborativo e interativo, onde ele pode acessar conteúdos, interagir com professores e acompanhar seu próprio progresso.
 
-![Aluno](../img/aluno.png)
+![Aluno](../img/alunos.png)
 
 ### Pais/Responsáveis
 Os **Pais ou Responsáveis** têm a missão de acompanhar o desenvolvimento dos alunos fora do ambiente escolar. A EduConnect oferece a eles uma visão clara do desempenho acadêmico e do comportamento de seus filhos, facilitando a comunicação entre a escola e a família.
 
-![Pais/Responsáveis](../img/pais.png)
+![Pais/Responsáveis](../img/Pais.png)
 
 ### Especialista Externo
 O **Especialista Externo** traz conhecimento técnico e especializado para a escola. Esse perfil pode incluir consultores pedagógicos, psicólogos ou outros profissionais que contribuem para o desenvolvimento das práticas educacionais e a implementação de novas metodologias.
