@@ -22,7 +22,7 @@ _______________________________
 ### Carlos - O Técnico de Campo
 Carlos é responsável por realizar manutenções e reparos em equipamentos variados. Ele enfrenta dificuldades como a falta de acesso ao histórico dos equipamentos e ferramentas adequadas para diagnósticos. Isso resulta em atrasos e visitas improdutivas, prejudicando a percepção de confiabilidade da TechFix.
 
-![Tecnico de Campo](../img/TecCampo.png)
+![Tecnico de Campo](../img/tecCampo.png)
 
 ### Mariana - A Atendente
 Mariana gerencia solicitações e organiza os agendamentos. A falta de informações centralizadas leva a erros de agenda e retrabalho, aumentando a insatisfação dos clientes e o estresse em sua rotina.
