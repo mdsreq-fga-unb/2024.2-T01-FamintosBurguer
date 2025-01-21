@@ -26,32 +26,32 @@ Cada persona da EduConnect tem necessidades e objetivos específicos. Abaixo est
 ### Professor Coordenador
 O **Professor Coordenador** tem a responsabilidade de planejar e coordenar as atividades acadêmicas, garantindo que o currículo seja seguido adequadamente e que os alunos recebam a orientação necessária. Ele é um elo importante entre os demais professores e a administração escolar.
 
-![Professor Coordenador](../img/Professor_Coordenador.png)
+![Professor Coordenador](../img/professorC.png)
 
 ### Professor Participante
 O **Professor Participante** é aquele que se dedica ao desenvolvimento de seus alunos, incentivando a participação ativa e o envolvimento nas atividades escolares. Ele busca constantemente melhorar a experiência de aprendizagem e contribuir para o crescimento acadêmico e pessoal dos alunos.
 
-![Professor Participante](../img/Professor_participante.png)
+![Professor Participante](../img/professorP.png)
 
 ### Aluno
 O **Aluno** é o principal beneficiário da plataforma, sendo o foco do processo educativo. A EduConnect busca facilitar o seu aprendizado, proporcionando um ambiente colaborativo e interativo, onde ele pode acessar conteúdos, interagir com professores e acompanhar seu próprio progresso.
 
-![Aluno](../img/Aluno.png)
+![Aluno](../img/aluno.png)
 
 ### Pais/Responsáveis
 Os **Pais ou Responsáveis** têm a missão de acompanhar o desenvolvimento dos alunos fora do ambiente escolar. A EduConnect oferece a eles uma visão clara do desempenho acadêmico e do comportamento de seus filhos, facilitando a comunicação entre a escola e a família.
 
-![Pais/Responsáveis](../img/Pais.png)
+![Pais/Responsáveis](../img/pais.png)
 
 ### Especialista Externo
 O **Especialista Externo** traz conhecimento técnico e especializado para a escola. Esse perfil pode incluir consultores pedagógicos, psicólogos ou outros profissionais que contribuem para o desenvolvimento das práticas educacionais e a implementação de novas metodologias.
 
-![Especialista Externo](../img/especialista.png)
+![Especialista Externo](../img/externo.png)
 
 ### Coordenador Pedagógico
 O **Coordenador Pedagógico** é responsável por apoiar os professores, oferecendo treinamento e orientação sobre metodologias de ensino. Ele também auxilia na implementação de novas práticas pedagógicas e avalia o impacto das ações educacionais na aprendizagem dos alunos.
 
-![Coordenador Pedagógico](../img/coordenador_pedagogico.png)
+![Coordenador Pedagógico](../img/pedagogico.png)
 
 ___________________________________________________________________________________
 
