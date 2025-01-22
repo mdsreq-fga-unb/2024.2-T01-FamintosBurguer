@@ -34,4 +34,5 @@ ________________________________________________________________________________
 |   E-04  | US-15  |Como atendente, eu quero rastrear pedidos por cliente para compreender melhor seus hábitos de consumo.                                               |
 |   E-04  | US-16  |Como atendente, eu quero consultar o histórico de pedidos realizados para fins de análise e acompanhamento.                                          |
 |   E-04  | US-17  |Como atendente, eu quero filtrar o histórico de pedidos por período para realizar análises específicas.                                              |
+
 ___________________________________________________________________________________
