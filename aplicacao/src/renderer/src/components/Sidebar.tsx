@@ -1,41 +1,47 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom'
+import Logo from '../assets/navbar/Logo.svg'
+import Home from '../assets/navbar/Home.svg'
+import Discount from '../assets/navbar/Discount.svg'
+import Dashboard from '../assets/navbar/Dashboard.svg'
+import Notification from '../assets/navbar/Notification.svg'
+import Setting from '../assets/navbar/Setting.svg'
 
-const Sidebar = () => (
-  <div className="w-64 h-screen bg-gradient-to-b from-purple-600 to-purple-800 text-white fixed top-0 left-0 flex flex-col p-6 shadow-lg">
-    <h1 className="text-2xl font-bold mb-10 text-center tracking-wide break-words">
-      FamintosBurguer 🍔
-    </h1>
-    <nav className="flex flex-col gap-6">
+const Sidebar = (): JSX.Element => (
+  <div className="bg-[#1F1D2B] w-[100px] h-screen bg- items-center text-white fixed top-0 left-0 flex flex-col p-6 shadow-lg">
+    <nav className="w-16 flex flex-col justify-center items-center py-4 space-y-10">
+      <img src={Logo} alt="img" />
       <Link
         to="/"
-        className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
+        className="group relative flex justify-center items-center w-12 h-12 rounded-full transition-all duration-0 hover:outline hover:outline-2 hover:outline-[#EA7C69]"
       >
-        🏠 Home
+        <img className="" src={Home} alt="img" />
       </Link>
       <Link
         to="/cardapio"
-        className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
+        className="group relative flex justify-center items-center w-12 h-12 rounded-full transition-all duration-0 hover:outline hover:outline-2 hover:outline-[#EA7C69]"
       >
-        📋 Cardápio
+        <img src={Discount} alt="img" />
       </Link>
       <Link
-        to="/pedidos"
-        className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
+        to="/historico"
+        className="group relative flex justify-center items-center w-12 h-12 rounded-full transition-all duration-0 hover:outline hover:outline-2 hover:outline-[#EA7C69]"
       >
-        📦 Pedidos
+        <img src={Dashboard} alt="Dashboard Icon" />
       </Link>
       <Link
-        to="/pedido"
-        className="flex items-center gap-3 text-lg font-medium hover:bg-purple-700 p-3 rounded transition-all duration-300 ease-in-out hover:scale-105"
+        to="/notificacoes"
+        className="group relative flex justify-center items-center w-12 h-12 rounded-full transition-all duration-0 hover:outline hover:outline-2 hover:outline-[#EA7C69]"
       >
-        ⚙️ Teste Banco de Dados
+        <img src={Notification} alt="img" />
+      </Link>
+      <Link
+        to="/configuracoes"
+        className="group relative flex justify-center items-center w-12 h-12 rounded-full transition-all duration-0 hover:outline hover:outline-2 hover:outline-[#EA7C69]"
+      >
+        <img src={Setting} alt="img" />
       </Link>
     </nav>
-    <footer className="mt-auto text-sm text-center text-gray-300">
-      © 2025 FamintosBurguer. All rights reserved.
-    </footer>
   </div>
-);
+)
 
-export default Sidebar;
+export default Sidebar
