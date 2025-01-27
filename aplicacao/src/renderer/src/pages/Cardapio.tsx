@@ -1,22 +1,45 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate } from 'react-router-dom'
 
-const Cardapio = () => {
-  const navigate = useNavigate();
+const Cardapio = (): JSX.Element => {
+  const navigate = useNavigate()
 
-  const handleAddItem = () => {
-    navigate("/formulario");
-  };
+  const handleAddItem = (): void => {
+    navigate('/formulario')
+  }
 
   const items = [
-    { id: 1, name: "Hambúrguer Clássico", description: "Um hambúrguer suculento com queijo e alface.", price: "R$ 20,00" },
-    { id: 2, name: "Batata Frita", description: "Porção crocante de batata frita.", price: "R$ 10,00" },
-    { id: 3, name: "Milkshake de Chocolate", description: "Delicioso milkshake cremoso.", price: "R$ 15,00" },
-    { id: 4, name: "Salada Caesar", description: "Uma salada leve e refrescante.", price: "R$ 12,00" },
-    { id: 5, name: "Suco de Laranja", description: "Suco natural de laranja.", price: "R$ 8,00" },
-    { id: 6, name: "Frango Grelhado", description: "Filé de frango grelhado com molho especial.", price: "R$ 25,00" },
-    
-  ];
+    {
+      id: 1,
+      name: 'Hambúrguer Clássico',
+      description: 'Um hambúrguer suculento com queijo e alface.',
+      price: 'R$ 20,00'
+    },
+    {
+      id: 2,
+      name: 'Batata Frita',
+      description: 'Porção crocante de batata frita.',
+      price: 'R$ 10,00'
+    },
+    {
+      id: 3,
+      name: 'Milkshake de Chocolate',
+      description: 'Delicioso milkshake cremoso.',
+      price: 'R$ 15,00'
+    },
+    {
+      id: 4,
+      name: 'Salada Caesar',
+      description: 'Uma salada leve e refrescante.',
+      price: 'R$ 12,00'
+    },
+    { id: 5, name: 'Suco de Laranja', description: 'Suco natural de laranja.', price: 'R$ 8,00' },
+    {
+      id: 6,
+      name: 'Frango Grelhado',
+      description: 'Filé de frango grelhado com molho especial.',
+      price: 'R$ 25,00'
+    }
+  ]
 
   return (
     <div className="w-full h-full pt-16">
@@ -51,7 +74,7 @@ const Cardapio = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Cardapio;
+export default Cardapio

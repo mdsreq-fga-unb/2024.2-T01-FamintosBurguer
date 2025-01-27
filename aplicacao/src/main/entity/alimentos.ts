@@ -9,15 +9,18 @@ export class Alimento {
   @Column('text')
   nome: string
 
+  @Column('text')
+  tipo: string
+
   @Column('integer')
   valor: number
 
-  @Column('text')
+  @Column('text', { nullable: true })
   observacao: string
 
   @OneToMany(() => IngredientesAlimento, (ingredientesalimento) => ingredientesalimento.alimento)
-  ingredientesalimento: IngredientesAlimento[]; // Relacionamento com Postagens
+  ingredientesalimento: IngredientesAlimento[]
 
   @OneToMany(() => ItensPedido, (itenspedido) => itenspedido.alimento)
-  itenspedido: ItensPedido[]; // Relacionamento com Postagens
+  itenspedido: ItensPedido[]
 }

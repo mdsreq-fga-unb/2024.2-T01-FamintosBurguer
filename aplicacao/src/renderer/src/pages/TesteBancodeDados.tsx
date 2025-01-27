@@ -1,12 +1,26 @@
 import React, { useState } from 'react'
 
-function PedidoForm() {
+// Declare the electronAPI property on the window object
+declare global {
+  interface Window {
+    electronAPI: {
+      cadastrarPedido: (pedidoData: {
+        cliente: string
+        item: string
+        quantidade: number
+        observacoes: string
+      }) => Promise<{ id: string }>
+    }
+  }
+}
+
+function PedidoForm(): JSX.Element {
   const [cliente, setCliente] = useState('')
   const [item, setItem] = useState('')
   const [quantidade, setQuantidade] = useState(1)
   const [observacoes, setObservacoes] = useState('')
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault()
 
     const pedidoData = {
