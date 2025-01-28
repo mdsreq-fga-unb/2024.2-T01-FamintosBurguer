@@ -14,6 +14,7 @@ interface SideBarDireitaProps {
   handleDecreaseQuantity: (id: number) => void;
   handleRemoveItem: (id: number) => void;
   handleObservationChange: (id: number, observation: string) => void;
+  pedidoId: string; // Novo prop para o ID do pedido
 }
 
 const SideBarDireita: React.FC<SideBarDireitaProps> = ({
@@ -22,10 +23,13 @@ const SideBarDireita: React.FC<SideBarDireitaProps> = ({
   handleDecreaseQuantity,
   handleRemoveItem,
   handleObservationChange,
+  pedidoId, // Recebendo o ID do pedido
 }) => {
   return (
     <div className="w-1/4 bg-[#1F1D2B] text-white p-6 fixed right-0 top-0 h-screen overflow-y-auto">
-      <h2 className="text-2xl font-bold mb-4">Pedido</h2>
+      <h2 className="text-2xl font-bold mb-4">
+        Pedido <span className="text-sm text-gray-400">#{pedidoId}</span>
+      </h2>
       <div className="grid grid-cols-4 gap-4 font-semibold mb-4">
         <span>Itens</span>
         <span className="text-center">Qtd</span>

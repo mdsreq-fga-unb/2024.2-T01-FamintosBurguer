@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SideBarDireita from '../components/SideBarDireita';
 
@@ -12,6 +12,18 @@ const Cardapio = (): JSX.Element => {
     quantity: number;
     observation: string;
   }[]>([]);
+
+  const [pedidoId, setPedidoId] = useState<string>(''); // Estado para armazenar o ID do pedido
+
+  // Função para gerar um ID único para o pedido com até 5 dígitos (entre 0 e 99999)
+  const generatePedidoId = (): string => {
+    return Math.floor(Math.random() * 100000).toString(); // Gera um número aleatório entre 0 e 99999
+  };
+
+  // Gera o ID do pedido ao montar o componente
+  useEffect(() => {
+    setPedidoId(generatePedidoId());
+  }, []);
 
   const handleAddItem = (): void => {
     navigate('/formulario');
@@ -110,6 +122,7 @@ const Cardapio = (): JSX.Element => {
         handleDecreaseQuantity={handleDecreaseQuantity}
         handleRemoveItem={handleRemoveItem}
         handleObservationChange={handleObservationChange}
+        pedidoId={pedidoId} // Passando o ID do pedido como prop
       />
     </div>
   );
