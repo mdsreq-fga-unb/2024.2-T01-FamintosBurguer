@@ -26,16 +26,12 @@ const SideBarDireita: React.FC<SideBarDireitaProps> = ({
   pedidoId,
 }) => {
   return (
-    <div className="w-full sm:w-1/4 bg-[#1F1D2B] text-white p-6 sm:fixed sm:right-0 sm:top-0 sm:h-screen overflow-y-auto">
+    <div className="w-full sm:w-1/3 bg-[#1F1D2B] text-white p-6 sm:fixed sm:right-0 sm:top-0 sm:h-screen overflow-y-auto">
       <h2 className="text-2xl font-bold mb-4">
         Pedido <span className="text-sm text-gray-400">#{pedidoId}</span>
       </h2>
 
-      {/* 
-        Cabeçalho das colunas:
-        Se quiser aparecer apenas quando for 4 colunas, deixe 'xl:grid'. 
-        Se preferir mostrar antes, mude para 'sm:grid' ou 'lg:grid', etc.
-      */}
+      {/* Cabeçalho das colunas (aparece apenas em telas grandes, xl). */}
       <div className="hidden xl:grid grid-cols-4 gap-4 font-semibold mb-4">
         <span>Itens</span>
         <span className="text-center">Qtd</span>
@@ -83,7 +79,6 @@ const SideBarDireita: React.FC<SideBarDireitaProps> = ({
               </button>
 
               <textarea
-                // Em telas menores, ocupa 1 coluna; em telas sm e xl, ocupa a linha completa
                 className="col-span-1 sm:col-span-2 xl:col-span-4 bg-gray-800 text-white rounded-lg p-2 mt-2 resize-none"
                 rows={2}
                 placeholder="Adicione observações (ex: retirar a alface)"
