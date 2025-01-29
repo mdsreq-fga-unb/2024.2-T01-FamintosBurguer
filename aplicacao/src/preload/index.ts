@@ -31,6 +31,8 @@ const api = {
     ipcRenderer.invoke('delete-itens-pedido', id),
   getItensPedidos: (): Promise<ItensPedido[]> =>
     ipcRenderer.invoke('get-itens-pedidos'),
+  getItensMaisPedidos: (): Promise<ItensPedido[]> =>
+    ipcRenderer.invoke('get-itens-mais-pedidos'),
   getItemIdPedidos: (id): Promise<ItensPedido[]> =>
     ipcRenderer.invoke('get-item-id-pedidos', id),
   getItensPedidoId: (pedidoId): Promise<ItensPedido[]> =>

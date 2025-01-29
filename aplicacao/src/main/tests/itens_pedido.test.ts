@@ -1,4 +1,5 @@
 import request from 'supertest';
+import * as pedidosItens from '../service/pedidos_itens';
 import { Pedido } from '../entity/pedido';
 import { ItensPedido } from '../entity/itenspedido';
 import { Alimento } from '../entity/alimentos';
@@ -160,5 +161,123 @@ describe('Testando CRUD de Itens de Pedido', () => {
       expect(response.status).toBe(200);
       expect(response.body).toHaveProperty('message', 'Item de pedido deletado com sucesso!');
     }
+  });
+});
+
+describe('Testando a função getAlimentosMaisPedidos', () => {
+  let pedidoId: number;
+  let alimentoId1: number;
+  let alimentoId2: number;
+  let itemIds: number[] = []; // Array para armazenar os IDs dos itens de pedido criados
+
+  beforeAll(async () => {
+    await AppDataSource.initialize();
+
+    // Criação de entidades relacionadas para testes
+    const pedidoRepo = AppDataSource.getRepository(Pedido);
+    const alimentoRepo = AppDataSource.getRepository(Alimento);
+    const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+
+    // Cria um pedido
+    const novoPedido = pedidoRepo.create({
+      cliente: 'Cliente Teste',
+      desconto: 10,
+      total: 100,
+      subtotal: 90,
+      data: '2024-12-01',
+      pagamento: 'Cartão',
+      status: 'Pendente',
+    });
+    const pedido = await pedidoRepo.save(novoPedido);
+    pedidoId = pedido.id;
+
+    // Cria dois alimentos
+    const novoAlimento1 = alimentoRepo.create({
+      nome: 'Alimento Teste 1',
+      valor: 20,
+      tipo: 'Principal',
+      observacao: 'Sem cebola',
+    });
+    const alimento1 = await alimentoRepo.save(novoAlimento1);
+    alimentoId1 = alimento1.id;
+
+    const novoAlimento2 = alimentoRepo.create({
+      nome: 'Alimento Teste 2',
+      valor: 30,
+      tipo: 'Sobremesa',
+      observacao: 'Com chocolate',
+    });
+    const alimento2 = await alimentoRepo.save(novoAlimento2);
+    alimentoId2 = alimento2.id;
+
+    // Cria itens de pedido para os alimentos e armazena os IDs
+    const novoItem1 = itensPedidoRepo.create({
+      quantidade: 2,
+      custom: true,
+      observacao: 'Sem cebola',
+      pedido: pedido,
+      alimento: alimento1,
+    });
+    const savedItem1 = await itensPedidoRepo.save(novoItem1);
+    itemIds.push(savedItem1.id); // Armazena o ID do item criado
+
+    const novoItem2 = itensPedidoRepo.create({
+      quantidade: 3,
+      custom: false,
+      observacao: 'Com chocolate',
+      pedido: pedido,
+      alimento: alimento2,
+    });
+    const savedItem2 = await itensPedidoRepo.save(novoItem2);
+    itemIds.push(savedItem2.id); // Armazena o ID do item criado
+
+    const novoItem3 = itensPedidoRepo.create({
+      quantidade: 1,
+      custom: true,
+      observacao: 'Sem cebola',
+      pedido: pedido,
+      alimento: alimento1,
+    });
+    const savedItem3 = await itensPedidoRepo.save(novoItem3);
+    itemIds.push(savedItem3.id); // Armazena o ID do item criado
+  });
+
+  afterAll(async () => {
+    const pedidoRepo = AppDataSource.getRepository(Pedido);
+    const alimentoRepo = AppDataSource.getRepository(Alimento);
+    const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+
+    // Exclui apenas os itens de pedido criados durante o teste
+    await itensPedidoRepo.delete(itemIds);
+
+    // Exclui o pedido e os alimentos criados
+    await pedidoRepo.delete({ id: pedidoId });
+    await alimentoRepo.delete({ id: alimentoId1 });
+    await alimentoRepo.delete({ id: alimentoId2 });
+
+    await AppDataSource.destroy();
+  });
+
+  test('Deve retornar os alimentos mais pedidos', async () => {
+    // Chama a função diretamente
+    const alimentosMaisPedidos = await pedidosItens.getAlimentosMaisPedidos();
+
+    // Verifica se o resultado é um array
+    expect(Array.isArray(alimentosMaisPedidos)).toBe(true);
+
+    // Verifica se os alimentos mais pedidos estão no formato esperado
+    alimentosMaisPedidos.forEach((item) => {
+      expect(item).toEqual(
+        expect.objectContaining({
+          alimentoId: expect.any(Number),
+          totalPedidos: expect.any(Number), // Aceita tanto string quanto number
+        }),
+      );
+    });
+
+    // Verifica se o alimento mais pedido está no topo
+    const alimentoMaisPedido = alimentosMaisPedidos[0];
+    expect(alimentoMaisPedido.alimentoId).toBe(alimentoId1); // Alimento 1 foi pedido 2 vezes
+    expect(alimentoMaisPedido.totalPedidos).toBe(2); // Total de pedidos para o alimento 1
   });
 });

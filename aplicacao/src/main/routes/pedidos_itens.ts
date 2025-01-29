@@ -35,6 +35,16 @@ router.get('/filtrar/:pedido', async (req, res: express.Response) => {
   }
 })
 
+router.get('/filtrar/maispedidos', async (_, res: express.Response) => {
+  try {
+    const itens_mais_pedido = await pedidos_itens.getAlimentosMaisPedidos()
+    res.status(200).json(itens_mais_pedido)
+  } catch (error) {
+    console.error(`Erro ao buscar os itens mais pedidos: `, error)
+    res.status(500).json({ error: `Erro ao buscar os itens mais pedidos.` })
+  }
+})
+
 
 router.post('/', async (req, res) => {
   try {

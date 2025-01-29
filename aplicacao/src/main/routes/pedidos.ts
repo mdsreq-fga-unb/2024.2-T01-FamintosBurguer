@@ -29,7 +29,7 @@ router.get('/filtrar/data', async (req, res) => {
   if (typeof startDate === 'string' && typeof endDate === 'string') {
     try {
       const pedido = await pedidos.getPedidosByDate(new Date(startDate), new Date(endDate))
-      res.json(pedido)
+      res.status(200).json(pedido)
     } catch (error) {
       console.error('Erro ao buscar pedidos por data:', error)
       res.status(500).json({ error: 'Erro ao buscar pedidos por data' })
