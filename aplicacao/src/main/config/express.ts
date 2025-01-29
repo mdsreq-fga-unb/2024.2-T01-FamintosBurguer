@@ -1,7 +1,7 @@
 import express from 'express'
 import pedidos from '../routes/pedidos'
 import pedidos_itens from '../routes/pedidos_itens'
-//import alimentos  from '../routes/alimentos';
+import alimentos  from '../routes/alimentos';
 //import ingredientes_alimentos  from '../routes/ingredientes_alimentos';
 //import ingredientes  from '../routes/ingredientes';
 
@@ -17,9 +17,9 @@ export async function Express(): Promise<void> {
 
     server.use('/pedidos', pedidos)
     server.use('/pedidos_itens', pedidos_itens)
+    server.use('/alimentos', alimentos)
 
     // A fazer...
-    //server.use('/alimentos', alimentos)
     //server.use('/ingredientes_alimentos', ingredientes_alimentos)
     //server.use('/ingredientes', ingredientes)
 
