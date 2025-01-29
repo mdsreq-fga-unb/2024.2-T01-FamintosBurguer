@@ -109,3 +109,33 @@ export async function getItensPedidos() {
     throw new Error('Não foi possível buscar os itens do pedido.');
   }
 }
+
+// Função para obter os itens de pedido por ID
+export async function getItemIdPedidos(itemId: any) {
+  const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+  try {
+    return await itensPedidoRepo.find({
+      where:{
+        id: itemId
+      }, 
+      relations: ['pedido', 'alimento'] });
+  } catch (error) {
+    console.error(`Erro ao buscar o item de id ${itemId}:`, error);
+    throw new Error(`Não foi possível buscar o item de id ${itemId}.`);
+  }
+}
+
+// Função para obter todos os itens por ID do pedido
+export async function getItensPedidoId(pedidoId: any) {
+  const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+  try {
+    return await itensPedidoRepo.find({
+      where:{
+       pedido: { id: pedidoId }
+      }, 
+      relations: ['pedido', 'alimento'] });
+  } catch (error) {
+    console.error(`Erro ao buscar itens do pedido ${pedidoId}: `, error);
+    throw new Error(`Não foi possível buscar os itens do pedido ${pedidoId}.`);
+  }
+}

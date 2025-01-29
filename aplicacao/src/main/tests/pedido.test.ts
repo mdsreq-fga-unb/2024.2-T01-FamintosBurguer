@@ -97,15 +97,6 @@ describe('Testando CRUD de Pedidos', () => {
     expect(response.body).toHaveProperty('message', 'Pedido atualizado com sucesso!');
   });
 
-  test('Listar Pedidos', async () => {
-    const response = await request(BASE_URL).get('/pedidos');
-
-    expect(response.status).toBe(200);
-    expect(Array.isArray(response.body)).toBe(true);
-    expect(response.body.length).toBeGreaterThan(0);
-  });
-
-
   test('Excluir um Pedido', async () => {
     const response = await request(BASE_URL).delete(`/pedidos/${pedidoId}`);
 

@@ -35,6 +35,7 @@ describe('Testando CRUD de Itens de Pedido', () => {
     const novoAlimento = alimentoRepo.create({
       nome: 'Alimento Teste',
       valor: 20,
+      tipo: 'Principal',
       observacao: 'Sem cebola',
     });
     const alimento = await alimentoRepo.save(novoAlimento);
@@ -89,6 +90,38 @@ describe('Testando CRUD de Itens de Pedido', () => {
     expect(response.status).toBe(200);
     expect(Array.isArray(response.body)).toBe(true);
     expect(response.body.length).toBeGreaterThanOrEqual(itensPedido.length);
+  });
+
+  test('Listar Itens de um Pedido por Id do pedido', async () => {
+    // Listando diretamente no banco de dados com o repositório
+    const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+    const itensPedido = await itensPedidoRepo.find({
+      where: { pedido: { id: pedidoId } },
+    });
+
+    // Verificação se os itens estão sendo retornados corretamente
+    const response = await request(BASE_URL).get(`/pedidos_itens/filtrar/${pedidoId}`);
+
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.body)).toBe(true);
+    expect(response.body.length).toBeGreaterThanOrEqual(itensPedido.length);
+  });
+
+  test('Listar Item de Pedido por Id do item', async () => {
+    // Listando diretamente no banco de dados com o repositório
+    const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+    const itemPedido = await itensPedidoRepo.find({
+      where:{
+        id: itemId
+      },
+    });
+
+    // Verificação se os itens estão sendo retornados corretamente
+    const response = await request(BASE_URL).get(`/pedidos_itens/${itemId}`);
+
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.body)).toBe(true);
+    expect(response.body.length).toBeGreaterThanOrEqual(itemPedido.length);
   });
 
   test('Atualizar um Item de Pedido', async () => {
