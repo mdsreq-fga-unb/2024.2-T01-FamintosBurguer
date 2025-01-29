@@ -2,10 +2,13 @@ import 'reflect-metadata'
 import { app, shell, BrowserWindow, nativeTheme } from 'electron'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { AppDataSource } from './config/database'
+import { registerPedidoHandlers } from './ipc/pedidoshandlers'
+import { registerItensPedidoHandlers } from './ipc/itenspedidoshandlers'
+import { alimentosController } from './ipc/alimentoshandlers'
 import icon from '../../resources/icon.png?asset'
 import path from 'path'
 import * as express from './config/express'
-import { alimentosController } from './ipc/alimentoshandlers'
+
 
 if (process.env.NODE_ENV === 'development') {
   express.Express()
@@ -21,9 +24,12 @@ app.whenReady().then(async () => {
       console.log('Banco de dados inicializado!')
     }
 
+    // Registrar os IPC handlers para comunicação com o preloader
+    registerPedidoHandlers()
+    registerItensPedidoHandlers()
     alimentosController()
-    createWindow()
 
+    createWindow()
     app.on('activate', () => {
       if (BrowserWindow.getAllWindows().length === 0) createWindow()
     })
