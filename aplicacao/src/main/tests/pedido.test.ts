@@ -28,6 +28,48 @@ describe('Testando CRUD de Pedidos', () => {
     pedidoId = response.body.id;
   });
 
+  test('Filtrar Pedidos por Status', async () => {
+    const status = 'Pendente';
+
+    const response = await request(BASE_URL).get(`/pedidos/filtrar/${status}`)
+
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.body)).toBe(true);
+
+    response.body.forEach((pedido: any) => {
+      expect(pedido.status).toBe(status);
+    });
+  });
+
+  test('Filtrar Pedidos por Data', async () => {
+    const startDate = '2024-12-01';
+    const endDate = '2024-12-31';
+
+    const response = await request(BASE_URL)
+      .get('/pedidos/filtrar/data')
+      .query({ startDate, endDate });
+
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.body)).toBe(true);
+
+    response.body.forEach((pedido: any) => {
+      const dataPedido = new Date(pedido.data);
+      expect(dataPedido >= new Date(startDate) && dataPedido <= new Date(endDate)).toBe(true);
+    });
+  });
+
+  test('Filtrar Pedidos por Id', async () => {
+
+    const response = await request(BASE_URL).get(`/pedidos/${pedidoId}`)
+
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.body)).toBe(true);
+
+    response.body.forEach((pedido: any) => {
+      expect(pedido.id).toBe(pedidoId);
+    });
+  });
+
   test('Listar Pedidos', async () => {
     const response = await request(BASE_URL).get('/pedidos');
 
@@ -55,10 +97,20 @@ describe('Testando CRUD de Pedidos', () => {
     expect(response.body).toHaveProperty('message', 'Pedido atualizado com sucesso!');
   });
 
+  test('Listar Pedidos', async () => {
+    const response = await request(BASE_URL).get('/pedidos');
+
+    expect(response.status).toBe(200);
+    expect(Array.isArray(response.body)).toBe(true);
+    expect(response.body.length).toBeGreaterThan(0);
+  });
+
+
   test('Excluir um Pedido', async () => {
     const response = await request(BASE_URL).delete(`/pedidos/${pedidoId}`);
 
     expect(response.status).toBe(200);
     expect(response.body).toHaveProperty('message', 'Pedido deletado com sucesso!');
   });
+
 });
