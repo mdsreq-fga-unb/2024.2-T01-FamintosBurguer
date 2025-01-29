@@ -1,4 +1,4 @@
-import * as pedidos from '../models/pedidos'
+import * as pedidos from '../service/pedidos'
 import express from 'express'
 
 const router = express.Router()

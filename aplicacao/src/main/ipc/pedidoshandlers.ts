@@ -1,6 +1,6 @@
 import { ipcMain } from 'electron'
 import { ipcLogger } from '../utils/ipcLogger'
-import * as pedido from '../models/pedidos'
+import * as pedido from '../service/pedidos'
 
 export function registerPedidoHandlers() {
   ipcMain.handle('get-pedidos', ipcLogger('get-pedidos', pedido.getPedidos))
