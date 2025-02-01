@@ -109,3 +109,53 @@ export async function getItensPedidos() {
     throw new Error('Não foi possível buscar os itens do pedido.');
   }
 }
+
+// Função para obter os itens de pedido por ID
+export async function getItemIdPedidos(itemId: any) {
+  const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+  try {
+    return await itensPedidoRepo.find({
+      where:{
+        id: itemId
+      }, 
+      relations: ['pedido', 'alimento'] });
+  } catch (error) {
+    console.error(`Erro ao buscar o item de id ${itemId}:`, error);
+    throw new Error(`Não foi possível buscar o item de id ${itemId}.`);
+  }
+}
+
+// Função para obter todos os itens por ID do pedido
+export async function getItensPedidoId(pedidoId: any) {
+  const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+  try {
+    return await itensPedidoRepo.find({
+      where:{
+       pedido: { id: pedidoId }
+      }, 
+      relations: ['pedido', 'alimento'] });
+  } catch (error) {
+    console.error(`Erro ao buscar itens do pedido ${pedidoId}: `, error);
+    throw new Error(`Não foi possível buscar os itens do pedido ${pedidoId}.`);
+  }
+}
+
+// Função para obter todos os alimentos mais pedidos, com base na tabela 'itenspedido'
+export async function getAlimentosMaisPedidos() {
+  const itensPedidoRepo = AppDataSource.getRepository(ItensPedido);
+  try {
+    const alimentosMaisPedidos = await itensPedidoRepo
+      .createQueryBuilder('itenspedido')
+      .select('itenspedido.alimentoId', 'alimentoId') // Seleciona o ID do alimento
+      .addSelect('COUNT(itenspedido.alimentoId)', 'totalPedidos') // Conta quantas vezes o alimento foi pedido
+      .groupBy('itenspedido.alimentoId') // Agrupa os resultados por alimentoId
+      .orderBy('totalPedidos', 'DESC') // Ordena pelos mais pedidos
+      .limit(100) // Limita o resultado a 100 itens
+      .getRawMany(); // Retorna os resultados brutos
+
+    return alimentosMaisPedidos;
+  } catch (error) {
+    console.error('Erro ao buscar os alimentos mais pedidos:', error);
+    throw new Error('Não foi possível buscar os alimentos mais pedidos.');
+  }
+}

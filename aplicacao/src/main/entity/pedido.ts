@@ -28,8 +28,8 @@ export class Pedido {
   status: string
 
   @OneToMany(() => ItensPedido, (itenspedido) => itenspedido.pedido)
-  itenspedido: ItensPedido[]; // Relacionamento com Postagens
+  itenspedido: ItensPedido[]; // Relacionamento com a tabela `itenspedido`
 
   @OneToOne(() => IngredientesAlimento, (ingredientesalimento) => ingredientesalimento.pedido)
-  ingredientesalimento: IngredientesAlimento; // Relacionamento com Postagens
+  ingredientesalimento: IngredientesAlimento; // Relacionamento com a tabela `ingredientesalimento`
 }

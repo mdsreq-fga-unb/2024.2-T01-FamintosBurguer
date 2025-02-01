@@ -13,7 +13,7 @@ export class IngredientesAlimento {
 
   @Column('integer')
   quantidade: number
-  
+
   @Column('integer')
   valor: number
 
@@ -24,13 +24,14 @@ export class IngredientesAlimento {
   observacao: string
 
   @ManyToOne(() => Alimento, (alimento) => alimento.ingredientesalimento, { onDelete: 'CASCADE' })
-  alimento: Alimento; // Chave estrangeira para a tabela `usuarios`
-  
-  @ManyToOne(() => Ingrediente, (ingrediente) => ingrediente.ingredientesalimento, { onDelete: 'CASCADE' })
-  ingrediente: Ingrediente; // Chave estrangeira para a tabela `usuarios`
+  alimento: Alimento // Chave estrangeira para a tabela `usuarios`
+
+  @ManyToOne(() => Ingrediente, (ingrediente) => ingrediente.ingredientesalimento, {
+    onDelete: 'CASCADE'
+  })
+  ingrediente: Ingrediente // Chave estrangeira para a tabela `usuarios`
 
   @OneToOne(() => Pedido, (pedido) => pedido.ingredientesalimento, { cascade: true })
   @JoinColumn() // Indica que esta entidade possui a chave estrangeira
-  pedido: Pedido;
-
+  pedido: Pedido
 }
