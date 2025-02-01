@@ -2,9 +2,16 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SideBarDireita from '../components/SideBarDireita';
 
+// Função para truncar a descrição
+function truncateDescription(description: string, maxLength: number): string {
+  if (description.length <= maxLength) return description;
+  return description.substring(0, maxLength).trim() + '...';
+}
+
 const Cardapio = (): JSX.Element => {
   const navigate = useNavigate();
 
+  // Estado para itens selecionados (carrinho)
   const [selectedItems, setSelectedItems] = useState<{
     id: number;
     name: string;
@@ -13,28 +20,39 @@ const Cardapio = (): JSX.Element => {
     observation: string;
   }[]>([]);
 
-  const [pedidoId, setPedidoId] = useState<string>(''); // ID do pedido
-  const [orderStatus] = useState<string>('Pendente'); // Status do pedido (default)
-  const [cliente, setCliente] = useState<string>(''); // Nome do cliente
+  // Estado para pedido
+  const [pedidoId, setPedidoId] = useState<string>('');
+  const [orderStatus] = useState<string>('Pendente');
+  const [cliente, setCliente] = useState<string>('');
 
-  // Função para gerar um ID único para o pedido com até 5 dígitos
-  const generatePedidoId = (): string => {
-    return Math.floor(Math.random() * 100000).toString();
-  };
+  // Estado para controlar qual categoria está ativa
+  const [activeSection, setActiveSection] = useState<'lanches' | 'bebidas' | 'trios' | 'adicionais'>('lanches');
 
-  // Gera o ID do pedido ao montar o componente
   useEffect(() => {
     setPedidoId(generatePedidoId());
   }, []);
 
+  // Gera ID único de até 5 dígitos
+  const generatePedidoId = (): string => {
+    return Math.floor(Math.random() * 100000).toString();
+  };
+
+  // Troca de categoria
+  const handleSectionChange = (
+    section: 'lanches' | 'bebidas' | 'trios' | 'adicionais'
+  ): void => {
+    setActiveSection(section);
+  };
+
+  // Navega para o formulário de adicionar novo item
   const handleAddItem = (): void => {
     navigate('/formulario');
   };
 
-  const handleCardClick = (item: { id: number; name: string; price: string }): void => {
+  // Lógica do carrinho (adicionar, remover, etc.)
+  const handleCardClick = (item: { id: number; name: string; price: string }) => {
     setSelectedItems((prevItems) => {
       const existingItem = prevItems.find((i) => i.id === item.id);
-
       if (existingItem) {
         return prevItems.map((i) =>
           i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
@@ -75,117 +93,206 @@ const Cardapio = (): JSX.Element => {
     );
   };
 
-  // Função que finaliza o pedido, criando um objeto com id, status, itens, cliente, data e total
-const handleFinalizeOrder = (): void => {
-  const dataAtual = new Date().toISOString().slice(0, 10); // Recalcula a data no momento da finalização
-  const totalValue = selectedItems.reduce(
-    (total, item) => total + parseFloat(item.price) * item.quantity,
-    0
-  );
+  // Finaliza o pedido
+  const handleFinalizeOrder = (): void => {
+    const dataAtual = new Date().toISOString().slice(0, 10);
+    const totalValue = selectedItems.reduce(
+      (total, item) => total + parseFloat(item.price) * item.quantity,
+      0
+    );
 
-  const pedido = {
-    id: pedidoId,
-    status: orderStatus, // Valor padrão "Pendente"
-    cliente,           // Nome do cliente
-    data: dataAtual,   // Data atual sem horas, minutos e segundos
-    items: selectedItems,
-    total: totalValue.toFixed(2), // Valor total formatado com duas casas decimais
+    const pedido = {
+      id: pedidoId,
+      status: orderStatus,
+      cliente,
+      data: dataAtual,
+      items: selectedItems,
+      total: totalValue.toFixed(2),
+    };
+
+    console.log('Pedido finalizado:', pedido);
+    // Pode enviar para API ou fazer outra ação
   };
 
-  // Aqui você pode enviar o pedido para uma API ou realizar outra ação
-  console.log('Pedido finalizado:', pedido);
-};
-
-
+  // Items do cardápio, cada um com "category"
   const items = [
+    // Lanches
     {
       id: 1,
       name: 'Hambúrguer Clássico',
-      description: 'Um hambúrguer suculento com queijo e alface.',
+      description: 'Um hambúrguer suculento com queijo, alface e molho especial da casa.',
       price: '20.00',
+      category: 'lanches',
     },
     {
       id: 2,
       name: 'Batata Frita',
-      description: 'Porção crocante de batata frita.',
+      description: 'Porção crocante de batata frita com tempero exclusivo.',
       price: '10.00',
+      category: 'lanches',
     },
+    // Bebidas
     {
       id: 3,
       name: 'Milkshake de Chocolate',
-      description: 'Delicioso milkshake cremoso.',
+      description: 'Milkshake cremoso de chocolate feito com sorvete artesanal.',
       price: '15.00',
+      category: 'bebidas',
     },
     {
       id: 4,
-      name: 'Salada Caesar',
-      description: 'Uma salada leve e refrescante.',
-      price: '12.00',
+      name: 'Suco de Laranja',
+      description: 'Suco natural de laranja fresquinho, sem adição de açúcar.',
+      price: '8.00',
+      category: 'bebidas',
     },
+    // Trios
     {
       id: 5,
-      name: 'Suco de Laranja',
-      description: 'Suco natural de laranja.',
-      price: '8.00',
+      name: 'Trio X-Burguer',
+      description: 'X-Burguer + Batata + Bebida. Combo especial para matar a fome!',
+      price: '27.00',
+      category: 'trios',
     },
     {
       id: 6,
-      name: 'Frango Grelhado',
-      description: 'Filé de frango grelhado com molho especial.',
-      price: '25.00',
+      name: 'Trio Frango',
+      description: 'Frango Grelhado + Batata + Bebida. Mais leve e saudável.',
+      price: '32.00',
+      category: 'trios',
+    },
+    // Adicionais
+    {
+      id: 7,
+      name: 'Queijo Extra',
+      description: 'Adicione queijo extra ao seu hambúrguer favorito!',
+      price: '3.00',
+      category: 'adicionais',
+    },
+    {
+      id: 8,
+      name: 'Bacon Extra',
+      description: 'Fatias extras de bacon crocante para tornar seu lanche irresistível.',
+      price: '4.00',
+      category: 'adicionais',
     },
   ];
 
+  // Filtra só os itens da categoria selecionada
+  const filteredItems = items.filter((item) => item.category === activeSection);
+
   return (
-    <div className="flex w-full h-full pt-16">
-      {/* Área do cardápio */}
-      <div className="w-2/3">
-        <div className="fixed top-0 left-[100px] w-[calc(70%-16rem)] shadow-md flex justify-between items-center  py-4 z-10">
-          <h1 className="text-3xl font-bold px-6 text-white">Cardápio</h1>
+    <div className="flex w-screen h-screen bg-[#252836] text-white overflow-hidden">
+      {/* SIDEBAR ESQUERDA */}
+      <div className="w-[100px] bg-[#1F1D2B] h-full">
+        {/* Conteúdo da sua sidebar esquerda */}
+      </div>
+
+      {/* CONTEÚDO PRINCIPAL */}
+      <div className="flex-1 p-6 overflow-auto relative">
+        <h1 className="text-3xl font-bold mb-4">Famintos Burger</h1>
+        <hr className="border-t-2 border-[#393C49] mb-6" />
+
+        {/* Botões de Categoria */}
+        <div className="flex gap-6 mb-6">
           <button
-            onClick={handleAddItem}
-            className="flex items-center justify-center gap-2 bg-purple-700 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-800 transition-all"
+            onClick={() => handleSectionChange('lanches')}
+            className={`py-2 px-4 rounded font-semibold transition-all ${
+              activeSection === 'lanches'
+                ? 'bg-[#ea7c69] text-white'
+                : 'bg-transparent text-white hover:text-[#ea7c69]'
+            }`}
           >
-            <span className="text-xl">+</span>
-            <span>Adicionar</span>
+            Lanches
+          </button>
+          <button
+            onClick={() => handleSectionChange('bebidas')}
+            className={`py-2 px-4 rounded font-semibold transition-all ${
+              activeSection === 'bebidas'
+                ? 'bg-[#ea7c69] text-white'
+                : 'bg-transparent text-white hover:text-[#ea7c69]'
+            }`}
+          >
+            Bebidas
+          </button>
+          <button
+            onClick={() => handleSectionChange('trios')}
+            className={`py-2 px-4 rounded font-semibold transition-all ${
+              activeSection === 'trios'
+                ? 'bg-[#ea7c69] text-white'
+                : 'bg-transparent text-white hover:text-[#ea7c69]'
+            }`}
+          >
+            Trios
+          </button>
+          <button
+            onClick={() => handleSectionChange('adicionais')}
+            className={`py-2 px-4 rounded font-semibold transition-all ${
+              activeSection === 'adicionais'
+                ? 'bg-[#ea7c69] text-white'
+                : 'bg-transparent text-white hover:text-[#ea7c69]'
+            }`}
+          >
+            Adicionais
           </button>
         </div>
 
-        <div
-          className="mt-24 px-6 overflow-y-auto pb-20"
-          style={{ height: `calc(100vh - 6rem - 1rem)` }}
-        >
+        {/* Título da seção */}
+        <h2 className="text-2xl font-bold mb-4 capitalize">{activeSection}</h2>
+
+        {/* Grid de cards */}
+        <div className="pr-6">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {items.map((item) => (
+            {filteredItems.map((item) => (
               <div
                 key={item.id}
                 onClick={() => handleCardClick(item)}
-                className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer"
+                className="cursor-pointer bg-[#1F1D2B] p-4 rounded-2xl shadow-md hover:shadow-lg transition-all"
               >
-                <h2 className="text-xl font-bold text-gray-800">
+                <h3 className="text-center text-base font-normal mt-2">
                   {item.name}
-                </h2>
-                <p className="text-gray-600 mt-2">{item.description}</p>
-                <p className="text-purple-700 font-semibold mt-4">
+                </h3>
+
+                {/* Agora o preço vem antes da descrição */}
+                <p className="text-center font-semibold mt-2">
                   R$ {item.price}
+                </p>
+
+                {/* Descrição truncada */}
+                <p className="text-center text-gray-400 mt-2">
+                  {truncateDescription(item.description, 50)}
                 </p>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Botão "Adicionar" fixado */}
+        <div className="fixed bottom-6 left-[120px] z-10">
+          <button
+            onClick={handleAddItem}
+            className="flex items-center gap-3 bg-[#ea7c69] text-white px-4 py-2 rounded-lg hover:bg-[#e55337] transition-all"
+          >
+            <span className="text-xl">+</span>
+            <span>Adicionar</span>
+          </button>
+        </div>
       </div>
 
-      <SideBarDireita
-        selectedItems={selectedItems}
-        handleIncreaseQuantity={handleIncreaseQuantity}
-        handleDecreaseQuantity={handleDecreaseQuantity}
-        handleRemoveItem={handleRemoveItem}
-        handleObservationChange={handleObservationChange}
-        pedidoId={pedidoId}
-        onFinalizeOrder={handleFinalizeOrder} // Função de finalização
-        cliente={cliente} // Valor do nome do cliente
-        onClienteChange={setCliente} // Função para atualizar o nome do cliente
-      />
+      {/* SIDEBAR DIREITA (carrinho) */}
+      <div className="w-1/3 bg-[#1F1D2B] h-full overflow-auto">
+        <SideBarDireita
+          selectedItems={selectedItems}
+          handleIncreaseQuantity={handleIncreaseQuantity}
+          handleDecreaseQuantity={handleDecreaseQuantity}
+          handleRemoveItem={handleRemoveItem}
+          handleObservationChange={handleObservationChange}
+          pedidoId={pedidoId}
+          onFinalizeOrder={handleFinalizeOrder}
+          cliente={cliente}
+          onClienteChange={setCliente}
+        />
+      </div>
     </div>
   );
 };
