@@ -14,7 +14,9 @@ const Cardapio = (): JSX.Element => {
   }[]>([]);
 
   const [pedidoId, setPedidoId] = useState<string>(''); // ID do pedido
-  const [orderStatus] = useState<string>('Pendente'); // Status de pagamento do pedido (default)
+  const [orderStatus] = useState<string>('Pendente'); // Status do pedido (default)
+  const [cliente, setCliente] = useState<string>(''); // Nome do cliente
+  const dataAtual = new Date().toISOString().slice(0, 10); // Retorna "YYYY-MM-DD"
 
   // Função para gerar um ID único para o pedido com até 5 dígitos
   const generatePedidoId = (): string => {
@@ -74,17 +76,20 @@ const Cardapio = (): JSX.Element => {
     );
   };
 
-  // Função que finaliza o pedido, criando um objeto com id, status e itens
-  const handleFinalizeOrder = (): void => {
-    const pedido = {
-      id: pedidoId,
-      status: orderStatus, // Campo status com valor "Pendente"
-      items: selectedItems,
-    };
-
-    // Aqui você pode enviar o pedido para uma API, armazená-lo ou realizar outra ação
-    console.log('Pedido finalizado:', pedido);
+  // Função que finaliza o pedido, criando um objeto com id, status, itens, cliente e data
+const handleFinalizeOrder = (): void => {
+  const pedido = {
+    id: pedidoId,
+    status: orderStatus, // Valor padrão "Pendente"
+    cliente, // Nome do cliente
+    data: dataAtual, // Data atual sem horas, minutos e segundos
+    items: selectedItems,
   };
+
+  // Aqui você pode enviar o pedido para uma API ou realizar outra ação
+  console.log('Pedido finalizado:', pedido);
+};
+
 
   const items = [
     {
@@ -171,7 +176,9 @@ const Cardapio = (): JSX.Element => {
         handleRemoveItem={handleRemoveItem}
         handleObservationChange={handleObservationChange}
         pedidoId={pedidoId}
-        onFinalizeOrder={handleFinalizeOrder} // Passa a função para finalizar o pedido
+        onFinalizeOrder={handleFinalizeOrder} // Função de finalização
+        cliente={cliente} // Valor do nome do cliente
+        onClienteChange={setCliente} // Função para atualizar o nome do cliente
       />
     </div>
   );

@@ -15,7 +15,9 @@ interface SideBarDireitaProps {
   handleRemoveItem: (id: number) => void;
   handleObservationChange: (id: number, observation: string) => void;
   pedidoId: string;
-  onFinalizeOrder: () => void; // Nova prop para finalizar o pedido
+  onFinalizeOrder: () => void;
+  cliente: string; // Nome do cliente
+  onClienteChange: (name: string) => void; // Função para atualizar o nome do cliente
 }
 
 const SideBarDireita: React.FC<SideBarDireitaProps> = ({
@@ -26,6 +28,8 @@ const SideBarDireita: React.FC<SideBarDireitaProps> = ({
   handleObservationChange,
   pedidoId,
   onFinalizeOrder,
+  cliente,
+  onClienteChange,
 }) => {
   return (
     <div className="w-full sm:w-1/3 bg-[#1F1D2B] text-white p-6 sm:fixed sm:right-0 sm:top-0 sm:h-screen overflow-y-auto">
@@ -98,18 +102,24 @@ const SideBarDireita: React.FC<SideBarDireitaProps> = ({
         <input
           type="text"
           placeholder="Cliente"
+          value={cliente}
+          onChange={(e) => onClienteChange(e.target.value)}
           className="bg-gray-800 text-white rounded-lg p-1 flex-grow max-w-[100px] mr-2"
         />
         <span className="flex-shrink-0 w-32 text-right">
           Total: R${' '}
           {selectedItems
-            .reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0)
+            .reduce(
+              (total, item) =>
+                total + parseFloat(item.price) * item.quantity,
+              0
+            )
             .toFixed(2)}
         </span>
       </div>
 
       <button
-        onClick={onFinalizeOrder}  // Chama a função passada via prop
+        onClick={onFinalizeOrder}
         className="w-full mt-6 bg-[#EA7C69] py-2 rounded-lg text-white hover:bg-[#ee8774] transition-all"
       >
         Finalizar Pedido
