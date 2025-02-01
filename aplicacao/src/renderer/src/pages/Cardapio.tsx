@@ -80,7 +80,27 @@ const Cardapio = (): JSX.Element => {
   const handleSectionChange = (section: string) => {
     setActiveSection(section);
   };
+/*
+  // Função para carregar os alimentos do banco
+  const loadMenuItems = async () => {
+    try {
+      const alimentos = await window.api.fetchAlimentos(); // Chama o método do preload
+      setMenuItems(alimentos);
+    } catch (error) {
+      console.error('Erro ao carregar itens do cardápio:', error);
+    }
+  };
 
+  // Carrega os itens ao montar o componente
+  useEffect(() => {
+    loadMenuItems();
+  }, []);
+
+  // Função para filtrar itens por categoria (simulada para o exemplo)
+  const renderItems = () => {
+    return menuItems.filter((item) => item.categoria === activeSection); // Adapte conforme suas categorias
+  };
+  */
   // Itens do cardápio
   const lanches = [
     { id: 1, name: 'X-Burguer', price: 'R$ 13,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
