@@ -2,16 +2,48 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import SideBarDireita from '../components/SideBarDireita';
 
+// Tipo que representa seu alimento no banco (ajuste se necessário)
+interface Alimento {
+  id: number;
+  nome: string;
+  tipo: string;       // "Lanche", "Bebida", "Trio" ou "Adicional"
+  valor: number;      // Ex: 1300 significa 13.00
+  observacao: string; // Descrição
+}
+
 // Função para truncar a descrição
 function truncateDescription(description: string, maxLength: number): string {
   if (description.length <= maxLength) return description;
   return description.substring(0, maxLength).trim() + '...';
 }
 
+// Faz o “mapeamento” de "Lanche" -> 'lanches', "Bebida" -> 'bebidas', etc.
+function mapTipoToCategory(tipo: string): 'lanches' | 'bebidas' | 'trios' | 'adicionais' {
+  switch (tipo.toLowerCase()) {
+    case 'lanche':
+      return 'lanches';
+    case 'bebida':
+      return 'bebidas';
+    case 'trio':
+      return 'trios';
+    case 'adicional':
+      return 'adicionais';
+    default:
+      return 'lanches'; // fallback
+  }
+}
+
 const Cardapio = (): JSX.Element => {
   const navigate = useNavigate();
 
-  // Estado para itens selecionados (carrinho)
+  // ============================
+  // 1) ESTADO dos alimentos do banco
+  // ============================
+  const [alimentos, setAlimentos] = useState<Alimento[]>([]);
+
+  // ============================
+  // 2) ESTADO para itens selecionados (carrinho)
+  // ============================
   const [selectedItems, setSelectedItems] = useState<{
     id: number;
     name: string;
@@ -20,44 +52,65 @@ const Cardapio = (): JSX.Element => {
     observation: string;
   }[]>([]);
 
-  // Estado para pedido
+  // ============================
+  // 3) Pedido e categorias
+  // ============================
   const [pedidoId, setPedidoId] = useState<string>('');
   const [orderStatus] = useState<string>('Pendente');
   const [cliente, setCliente] = useState<string>('');
+  const [activeSection, setActiveSection] =
+    useState<'lanches' | 'bebidas' | 'trios' | 'adicionais'>('lanches');
 
-  // Estado para controlar qual categoria está ativa
-  const [activeSection, setActiveSection] = useState<'lanches' | 'bebidas' | 'trios' | 'adicionais'>('lanches');
-
+  // ============================
+  // 4) EFEITOS
+  // ============================
   useEffect(() => {
+    // Gera um ID para o pedido na montagem
     setPedidoId(generatePedidoId());
+
+    // Busca alimentos do banco
+    window.api
+      .getAlimentos()
+      .then((data) => {
+        console.log('Dados do banco:', data);
+        setAlimentos(data); // Armazena no estado
+      })
+      .catch((error) => {
+        console.error('Erro ao buscar alimentos:', error);
+      });
   }, []);
 
+  // ============================
+  // 5) FUNÇÕES
+  // ============================
   // Gera ID único de até 5 dígitos
   const generatePedidoId = (): string => {
     return Math.floor(Math.random() * 100000).toString();
   };
 
-  // Troca de categoria
+  // Troca de categoria (ex: lanches, bebidas, trios, adicionais)
   const handleSectionChange = (
     section: 'lanches' | 'bebidas' | 'trios' | 'adicionais'
   ): void => {
     setActiveSection(section);
   };
 
-  // Navega para o formulário de adicionar novo item
+  // Ir para o formulário de adicionar item
   const handleAddItem = (): void => {
     navigate('/formulario');
   };
 
-  // Lógica do carrinho (adicionar, remover, etc.)
+  // Adicionar ou incrementar item no carrinho
   const handleCardClick = (item: { id: number; name: string; price: string }) => {
     setSelectedItems((prevItems) => {
       const existingItem = prevItems.find((i) => i.id === item.id);
       if (existingItem) {
+        // Se já existe no carrinho, incrementa a quantidade
         return prevItems.map((i) =>
           i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
         );
       } else {
+        // Se não existe, adiciona com quantity=1
         return [...prevItems, { ...item, quantity: 1, observation: '' }];
       }
     });
@@ -111,81 +164,39 @@ const Cardapio = (): JSX.Element => {
     };
 
     console.log('Pedido finalizado:', pedido);
-    // Pode enviar para API ou fazer outra ação
+    // Poderia enviar para a API, etc.
   };
 
-  // Items do cardápio, cada um com "category"
-  const items = [
-    // Lanches
-    {
-      id: 1,
-      name: 'Hambúrguer Clássico',
-      description: 'Um hambúrguer suculento com queijo, alface e molho especial da casa.',
-      price: '20.00',
-      category: 'lanches',
-    },
-    {
-      id: 2,
-      name: 'Batata Frita',
-      description: 'Porção crocante de batata frita com tempero exclusivo.',
-      price: '10.00',
-      category: 'lanches',
-    },
-    // Bebidas
-    {
-      id: 3,
-      name: 'Milkshake de Chocolate',
-      description: 'Milkshake cremoso de chocolate feito com sorvete artesanal.',
-      price: '15.00',
-      category: 'bebidas',
-    },
-    {
-      id: 4,
-      name: 'Suco de Laranja',
-      description: 'Suco natural de laranja fresquinho, sem adição de açúcar.',
-      price: '8.00',
-      category: 'bebidas',
-    },
-    // Trios
-    {
-      id: 5,
-      name: 'Trio X-Burguer',
-      description: 'X-Burguer + Batata + Bebida. Combo especial para matar a fome!',
-      price: '27.00',
-      category: 'trios',
-    },
-    {
-      id: 6,
-      name: 'Trio Frango',
-      description: 'Frango Grelhado + Batata + Bebida. Mais leve e saudável.',
-      price: '32.00',
-      category: 'trios',
-    },
-    // Adicionais
-    {
-      id: 7,
-      name: 'Queijo Extra',
-      description: 'Adicione queijo extra ao seu hambúrguer favorito!',
-      price: '3.00',
-      category: 'adicionais',
-    },
-    {
-      id: 8,
-      name: 'Bacon Extra',
-      description: 'Fatias extras de bacon crocante para tornar seu lanche irresistível.',
-      price: '4.00',
-      category: 'adicionais',
-    },
-  ];
+  // ============================
+  // 6) FILTRO: Converte tipo -> category e filtra
+  // ============================
+  const filteredItems = alimentos
+    .filter((item) => {
+      // Mapeia ex: "Lanche" -> 'lanches'
+      const category = mapTipoToCategory(item.tipo);
+      return category === activeSection;
+    })
+    .map((item) => {
+      // Precisamos converter esse `item` do banco 
+      // para o formato usado no "cart" (name, price em string, etc.)
+      return {
+        // Tudo que for preciso no card:
+        id: item.id,
+        name: item.nome,
+        // Convertendo item.valor (ex: 1300) em "13.00"
+        price: (item.valor / 100).toFixed(2),
+        description: item.observacao,
+      };
+    });
 
-  // Filtra só os itens da categoria selecionada
-  const filteredItems = items.filter((item) => item.category === activeSection);
-
+  // ============================
+  // 7) RENDER
+  // ============================
   return (
     <div className="flex w-screen h-screen bg-[#252836] text-white overflow-hidden">
       {/* SIDEBAR ESQUERDA */}
       <div className="w-[100px] bg-[#1F1D2B] h-full">
-        {/* Conteúdo da sua sidebar esquerda */}
+        {/* Conteúdo da sua sidebar esquerda, se existir */}
       </div>
 
       {/* CONTEÚDO PRINCIPAL */}
@@ -240,25 +251,30 @@ const Cardapio = (): JSX.Element => {
         {/* Título da seção */}
         <h2 className="text-2xl font-bold mb-4 capitalize">{activeSection}</h2>
 
-        {/* Grid de cards */}
-        <div className="pr-6">
+        {/* GRID DE CARDS */}
+        <div className="pr-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredItems.map((item) => (
               <div
                 key={item.id}
-                onClick={() => handleCardClick(item)}
+                // Ao clicar, passamos o ID e PRICE em string para o carrinho
+                onClick={() => handleCardClick({
+                  id: item.id,
+                  name: item.name,
+                  price: item.price
+                })}
                 className="cursor-pointer bg-[#1F1D2B] p-4 rounded-2xl shadow-md hover:shadow-lg transition-all"
               >
                 <h3 className="text-center text-base font-normal mt-2">
                   {item.name}
                 </h3>
-
-                {/* Agora o preço vem antes da descrição */}
+                
+                {/* Preço (ex.: R$ 13.00) */}
                 <p className="text-center font-semibold mt-2">
                   R$ {item.price}
                 </p>
 
-                {/* Descrição truncada */}
+                {/* Descrição truncada (observacao do DB) */}
                 <p className="text-center text-gray-400 mt-2">
                   {truncateDescription(item.description, 50)}
                 </p>
@@ -268,7 +284,7 @@ const Cardapio = (): JSX.Element => {
         </div>
 
         {/* Botão "Adicionar" fixado */}
-        <div className="fixed bottom-6 left-[120px] z-10">
+        <div className="fixed bottom-6 left-[160px] z-10">
           <button
             onClick={handleAddItem}
             className="flex items-center gap-3 bg-[#ea7c69] text-white px-4 py-2 rounded-lg hover:bg-[#e55337] transition-all"
