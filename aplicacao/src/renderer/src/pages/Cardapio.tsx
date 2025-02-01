@@ -13,9 +13,10 @@ const Cardapio = (): JSX.Element => {
     observation: string;
   }[]>([]);
 
-  const [pedidoId, setPedidoId] = useState<string>(''); // Estado para armazenar o ID do pedido
+  const [pedidoId, setPedidoId] = useState<string>(''); // ID do pedido
+  const [orderStatus] = useState<string>('Pendente'); // Status de pagamento do pedido (default)
 
-  // Função para gerar um ID único para o pedido com até 5 dígitos (entre 0 e 99999)
+  // Função para gerar um ID único para o pedido com até 5 dígitos
   const generatePedidoId = (): string => {
     return Math.floor(Math.random() * 100000).toString();
   };
@@ -73,6 +74,18 @@ const Cardapio = (): JSX.Element => {
     );
   };
 
+  // Função que finaliza o pedido, criando um objeto com id, status e itens
+  const handleFinalizeOrder = (): void => {
+    const pedido = {
+      id: pedidoId,
+      status: orderStatus, // Campo status com valor "Pendente"
+      items: selectedItems,
+    };
+
+    // Aqui você pode enviar o pedido para uma API, armazená-lo ou realizar outra ação
+    console.log('Pedido finalizado:', pedido);
+  };
+
   const items = [
     {
       id: 1,
@@ -114,9 +127,8 @@ const Cardapio = (): JSX.Element => {
 
   return (
     <div className="flex w-full h-full pt-16">
-      {/* Ajuste para 2/3 da tela para o cardápio */}
+      {/* Área do cardápio */}
       <div className="w-2/3">
-        {/* Ajuste do header fixo para não invadir a sidebar de 1/3 */}
         <div className="fixed top-0 left-64 w-[calc(67%-16rem)] shadow-md flex justify-between items-center px-6 py-4 z-10">
           <h1 className="text-3xl font-bold text-white">Cardápio</h1>
           <button
@@ -139,7 +151,9 @@ const Cardapio = (): JSX.Element => {
                 onClick={() => handleCardClick(item)}
                 className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer"
               >
-                <h2 className="text-xl font-bold text-gray-800">{item.name}</h2>
+                <h2 className="text-xl font-bold text-gray-800">
+                  {item.name}
+                </h2>
                 <p className="text-gray-600 mt-2">{item.description}</p>
                 <p className="text-purple-700 font-semibold mt-4">
                   R$ {item.price}
@@ -156,7 +170,8 @@ const Cardapio = (): JSX.Element => {
         handleDecreaseQuantity={handleDecreaseQuantity}
         handleRemoveItem={handleRemoveItem}
         handleObservationChange={handleObservationChange}
-        pedidoId={pedidoId} // Passando o ID do pedido como prop
+        pedidoId={pedidoId}
+        onFinalizeOrder={handleFinalizeOrder} // Passa a função para finalizar o pedido
       />
     </div>
   );
