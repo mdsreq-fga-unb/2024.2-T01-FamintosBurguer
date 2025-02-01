@@ -16,7 +16,6 @@ const Cardapio = (): JSX.Element => {
   const [pedidoId, setPedidoId] = useState<string>(''); // ID do pedido
   const [orderStatus] = useState<string>('Pendente'); // Status do pedido (default)
   const [cliente, setCliente] = useState<string>(''); // Nome do cliente
-  const dataAtual = new Date().toISOString().slice(0, 10); // Retorna "YYYY-MM-DD"
 
   // Função para gerar um ID único para o pedido com até 5 dígitos
   const generatePedidoId = (): string => {
@@ -78,6 +77,7 @@ const Cardapio = (): JSX.Element => {
 
   // Função que finaliza o pedido, criando um objeto com id, status, itens, cliente e data
 const handleFinalizeOrder = (): void => {
+  const dataAtual = new Date().toISOString().slice(0, 10); // Recalcula a data no momento da finalização
   const pedido = {
     id: pedidoId,
     status: orderStatus, // Valor padrão "Pendente"
