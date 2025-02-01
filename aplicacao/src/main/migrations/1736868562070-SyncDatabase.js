@@ -106,7 +106,46 @@ module.exports = class SyncDatabase1736868562070 {
     await queryRunner.query(
       `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao") VALUES ('Dog na Chapa', 'Trio', 1900, 'Pão, salsicha, bacon, queijo, alface, tomate e maionese, com um sabor que só a chapa pode oferecer')`
     )
+
+    // Adicionais
+    await queryRunner.query(
+      `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
+      VALUES ('Alface', 'Adicional', 200, 'Folhas frescas de alface para deixar seu lanche mais leve')`
+    );
+
+    await queryRunner.query(
+      `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
+      VALUES ('Hambúrguer', 'Adicional', 1000, 'Um hambúrguer extra para tornar seu lanche ainda mais suculento')`
+    );
+
+    await queryRunner.query(
+      `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
+      VALUES ('Batata Palha', 'Adicional', 200, 'Batata palha crocante para um toque especial de sabor')`
+    );
+
+    await queryRunner.query(
+      `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
+      VALUES ('Bacon', 'Adicional', 200, 'Fatias crocantes de bacon para dar um toque defumado')`
+    );
+
+    await queryRunner.query(
+      `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
+      VALUES ('Queijo', 'Adicional', 200, 'Queijo adicional para mais cremosidade')`
+    );
+
+    await queryRunner.query(
+      `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
+      VALUES ('Presunto', 'Adicional', 200, 'Fatias de presunto para incrementar o sabor')`
+    );
+
+    await queryRunner.query(
+      `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
+      VALUES ('Ovo', 'Adicional', 200, 'Ovo frito para deixar seu lanche ainda mais completo')`
+    );
+
   }
+
+  
 
   async down(queryRunner) {
     await queryRunner.query(`ALTER TABLE "itenspedido" RENAME TO "temporary_itenspedido"`)
