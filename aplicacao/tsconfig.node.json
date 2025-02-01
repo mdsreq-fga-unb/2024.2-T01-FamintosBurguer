@@ -12,5 +12,5 @@
     "module": "CommonJS",
     "esModuleInterop": true,
     "strict": true
-  },
+  }
 }

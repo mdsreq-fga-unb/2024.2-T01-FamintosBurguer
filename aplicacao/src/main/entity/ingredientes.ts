@@ -10,5 +10,5 @@ export class Ingrediente {
   nome: string
 
   @OneToMany(() => IngredientesAlimento, (ingredientesalimento) => ingredientesalimento.ingrediente)
-  ingredientesalimento: IngredientesAlimento[]; // Relacionamento com Postagens
+  ingredientesalimento: IngredientesAlimento[]; // Relacionamento com a tabela `ingredientesalimento`
 }

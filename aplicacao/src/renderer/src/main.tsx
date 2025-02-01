@@ -1,3 +1,4 @@
+import './styles/global.css'
 import './assets/main.css'
 
 import React from 'react'

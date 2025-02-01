@@ -1,57 +1,28 @@
-import React, { useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Sidebar from './components/Sidebar'
+import Home from './pages/Home'
+import Cardapio from './pages/Cardapio'
+import Pedidos from './pages/Pedidos'
+import PedidoForm from './pages/TesteBancodeDados'
+import Formulario from './pages/Formulario'
 
-function PedidoForm() {
-  const [cliente, setCliente] = useState('')
-  const [item, setItem] = useState('')
-  const [quantidade, setQuantidade] = useState(1)
-  const [observacoes, setObservacoes] = useState('')
+const App = (): JSX.Element => (
+  <Router>
+    <div className="flex">
+      <Sidebar />
+      <div className="flex-1 ml-[100px] p-4">
+        {' '}
+        {/* Ajuste de largura */}
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/cardapio" element={<Cardapio />} />
+          <Route path="/pedidos" element={<Pedidos />} />
+          <Route path="/pedido" element={<PedidoForm />} />
+          <Route path="/formulario" element={<Formulario />} />
+        </Routes>
+      </div>
+    </div>
+  </Router>
+)
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-
-    const pedidoData = {
-      cliente,
-      item,
-      quantidade,
-      observacoes
-    }
-
-    try {
-      const novoPedido = await window.electronAPI.cadastrarPedido(pedidoData)
-      alert(`Pedido cadastrado com sucesso! ID: ${novoPedido.id}`)
-    } catch (error) {
-      console.error('Erro ao cadastrar pedido:', error)
-      console.log(error)
-      alert('Erro ao cadastrar pedido.')
-    }
-  }
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Cliente:
-        <input type="text" value={cliente} onChange={(e) => setCliente(e.target.value)} required />
-      </label>
-      <label>
-        Item:
-        <input type="text" value={item} onChange={(e) => setItem(e.target.value)} required />
-      </label>
-      <label>
-        Quantidade:
-        <input
-          type="number"
-          value={quantidade}
-          onChange={(e) => setQuantidade(Number(e.target.value))}
-          required
-        />
-      </label>
-      <label>
-        Observações:
-        <textarea value={observacoes} onChange={(e) => setObservacoes(e.target.value)} />
-      </label>
-      <button type="submit">Cadastrar Pedido</button>
-    </form>
-  )
-}
-
-export default PedidoForm
+export default App

@@ -1,31 +1,53 @@
-import { contextBridge } from 'electron'
+import { contextBridge, ipcRenderer } from 'electron'
 import { electronAPI } from '@electron-toolkit/preload'
-const { ipcRenderer } = require('electron')
+import { Alimento } from '../main/entity/alimentos'
+import { ItensPedido } from '../main/entity/itenspedido'
+import { Pedido } from '../main/entity/pedido'
 
 // Custom APIs for renderer
 const api = {
   // Pedido
-  cadastrarPedido: (pedidoData) => ipcRenderer.invoke('cadastrar-pedido', pedidoData),
-  UpdatePedido: (id, pedidoData) => ipcRenderer.invoke('update-pedido', id, pedidoData),
-  deletePedido: (id) => ipcRenderer.invoke('delete-pedido', id),
-  getPedidos: () => ipcRenderer.invoke('get-pedidos'),
-  // Itens do Pedidos 
-  cadastrarItensPedido: (pedidoData) => ipcRenderer.invoke('cadastrar-itens-pedido', pedidoData),
-  UpdateItensPedido: (id, pedidoData) => ipcRenderer.invoke('update-itens-pedido', id, pedidoData),
-  deleteItensPedido: (id) => ipcRenderer.invoke('delete-itens-pedido', id),
-  getItensPedidos: () => ipcRenderer.invoke('get-itens-pedidos')
+  cadastrarPedido: (pedidoData): Promise<Pedido> =>
+    ipcRenderer.invoke('cadastrar-pedido', pedidoData),
+  UpdatePedido: (id, pedidoData): Promise<Pedido> =>
+    ipcRenderer.invoke('update-pedido', id, pedidoData),
+  deletePedido: (id): Promise<boolean> =>
+   ipcRenderer.invoke('delete-pedido', id),
+  getPedidos: (): Promise<Pedido[]> => 
+    ipcRenderer.invoke('get-pedidos'),
+  getPedidosId: (Id: any): Promise<Pedido[]> => 
+    ipcRenderer.invoke('get-pedidos-id', Id),
+  getPedidosStatus: (status: string): Promise<Pedido[]> => 
+    ipcRenderer.invoke('get-pedidos-status', status),
+  getPedidosData: (startDate, endDate): Promise<Pedido[]> => 
+    ipcRenderer.invoke('get-pedidos-data', startDate, endDate),
+
+  // Itens do Pedidos
+  cadastrarItensPedido: (pedidoData): Promise<Pedido> =>
+    ipcRenderer.invoke('cadastrar-itens-pedido', pedidoData),
+  UpdateItensPedido: (id, pedidoData): Promise<Pedido> =>
+    ipcRenderer.invoke('update-itens-pedido', id, pedidoData),
+  deleteItensPedido: (id): Promise<boolean> => 
+    ipcRenderer.invoke('delete-itens-pedido', id),
+  getItensPedidos: (): Promise<ItensPedido[]> =>
+    ipcRenderer.invoke('get-itens-pedidos'),
+  getItensMaisPedidos: (): Promise<ItensPedido[]> =>
+    ipcRenderer.invoke('get-itens-mais-pedidos'),
+  getItemIdPedidos: (id): Promise<ItensPedido[]> =>
+    ipcRenderer.invoke('get-item-id-pedidos', id),
+  getItensPedidoId: (pedidoId): Promise<ItensPedido[]> =>
+    ipcRenderer.invoke('get-itens-pedido-id', pedidoId),
+
+  // Alimentos
+  getAlimentos: (): Promise<Alimento[]> =>
+    ipcRenderer.invoke('getAlimentos')
 }
-// Use `contextBridge` APIs to expose Electron APIs to
-// renderer only if context isolation is enabled, otherwise
-// just add to the DOM global.
+
 if (process.contextIsolated) {
   try {
-    // Expondo a API padrão do Electron Toolkit
     contextBridge.exposeInMainWorld('electronAPI', {
       api: electronAPI
     })
-
-    // Expondo sua API customizada
     contextBridge.exposeInMainWorld('api', api)
   } catch (error) {
     console.error('Erro ao configurar contextBridge:', error)

@@ -1,12 +1,14 @@
 import { ipcMain } from 'electron'
-import { ipcLogger } from '../index' // Função que loga eventos IPC
-import * as pedido_itens from '../models/pedidos_itens'
+import { ipcLogger } from '../utils/ipcLogger'
+import AlimentosService from '../service/alimentosService'
 
-export function registerItensPedidoHandlers() {
-  ipcMain.handle('get-pedidos', ipcLogger('get-itens-pedidos', pedido_itens.getItensPedidos))
-  ipcMain.handle('cadastrar-pedido', ipcLogger('cadastrar-itens-pedido', (__event, pedidoData) => pedido_itens.cadastrarItensPedido(pedidoData)))
-  ipcMain.handle('update-pedido', ipcLogger('update-itens-pedido', (__event, id, pedidoData) => pedido_itens.updateItensPedido(id, pedidoData)))
-  ipcMain.handle('delete-pedido', ipcLogger('delete-itens-pedido', (__event, id) => pedido_itens.deleteItensPedido(id)))
+export function alimentosController(): void {
+  const alimentosService = new AlimentosService()
+
+  ipcMain.handle(
+    'getAlimentos',
+    ipcLogger('getAlimentos', async () => {
+      return alimentosService.getAlimentos()
+    })
+  )
 }
-
-// Tem que alterar para as funções do arquivo models/alimentos.ts
