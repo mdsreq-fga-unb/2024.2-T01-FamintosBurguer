@@ -75,15 +75,21 @@ const Cardapio = (): JSX.Element => {
     );
   };
 
-  // Função que finaliza o pedido, criando um objeto com id, status, itens, cliente e data
+  // Função que finaliza o pedido, criando um objeto com id, status, itens, cliente, data e total
 const handleFinalizeOrder = (): void => {
   const dataAtual = new Date().toISOString().slice(0, 10); // Recalcula a data no momento da finalização
+  const totalValue = selectedItems.reduce(
+    (total, item) => total + parseFloat(item.price) * item.quantity,
+    0
+  );
+
   const pedido = {
     id: pedidoId,
     status: orderStatus, // Valor padrão "Pendente"
-    cliente, // Nome do cliente
-    data: dataAtual, // Data atual sem horas, minutos e segundos
+    cliente,           // Nome do cliente
+    data: dataAtual,   // Data atual sem horas, minutos e segundos
     items: selectedItems,
+    total: totalValue.toFixed(2), // Valor total formatado com duas casas decimais
   };
 
   // Aqui você pode enviar o pedido para uma API ou realizar outra ação
