@@ -46,7 +46,6 @@ const SideBarDireita: React.FC<SideBarDireitaProps> = ({
           {selectedItems.map((item) => (
             <li
               key={item.id}
-              // De 0 a 639px => 1 coluna; 640 a 1279 => 2 colunas; a partir de 1280 => 4 colunas
               className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-8 items-center border-b border-gray-600 pb-2"
             >
               <span>{item.name}</span>
@@ -83,19 +82,30 @@ const SideBarDireita: React.FC<SideBarDireitaProps> = ({
                 rows={2}
                 placeholder="Adicione observações (ex: retirar a alface)"
                 value={item.observation}
-                onChange={(e) => handleObservationChange(item.id, e.target.value)}
+                onChange={(e) =>
+                  handleObservationChange(item.id, e.target.value)
+                }
               />
             </li>
           ))}
         </ul>
       )}
 
-      <div className="mt-4 text-right font-bold">
-        Total: R${' '}
-        {selectedItems
-          .reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0)
-          .toFixed(2)}
-      </div>
+      {/* Container com o campo Nome à esquerda e o Total à direita */}
+      <div className="mt-4 flex items-center justify-between font-bold">
+  <input
+    type="text"
+    placeholder="Cliente"
+    className="bg-gray-800 text-white rounded-lg p-1 flex-grow max-w-[100px] mr-2"
+  />
+  <span className="flex-shrink-0 w-32 text-right">
+    Total: R${" "}
+    {selectedItems
+      .reduce((total, item) => total + parseFloat(item.price) * item.quantity, 0)
+      .toFixed(2)}
+  </span>
+</div>
+
 
       <button className="w-full mt-6 bg-[#EA7C69] py-2 rounded-lg text-white hover:bg-[#ee8774] transition-all">
         Finalizar Pedido
