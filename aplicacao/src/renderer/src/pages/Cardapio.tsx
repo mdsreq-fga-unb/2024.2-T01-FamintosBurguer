@@ -73,44 +73,75 @@ const Cardapio = (): JSX.Element => {
     );
   };
 
-  const items = [
-    {
-      id: 1,
-      name: 'Hambúrguer Clássico',
-      description: 'Um hambúrguer suculento com queijo e alface.',
-      price: '20.00',
-    },
-    {
-      id: 2,
-      name: 'Batata Frita',
-      description: 'Porção crocante de batata frita.',
-      price: '10.00',
-    },
-    {
-      id: 3,
-      name: 'Milkshake de Chocolate',
-      description: 'Delicioso milkshake cremoso.',
-      price: '15.00',
-    },
-    {
-      id: 4,
-      name: 'Salada Caesar',
-      description: 'Uma salada leve e refrescante.',
-      price: '12.00',
-    },
-    {
-      id: 5,
-      name: 'Suco de Laranja',
-      description: 'Suco natural de laranja.',
-      price: '8.00',
-    },
-    {
-      id: 6,
-      name: 'Frango Grelhado',
-      description: 'Filé de frango grelhado com molho especial.',
-      price: '25.00',
-    },
+  // Estado para controlar a seção ativa
+  const [activeSection, setActiveSection] = useState('lanches');
+
+  // Função para alterar a seção ativa
+  const handleSectionChange = (section: string) => {
+    setActiveSection(section);
+  };
+/*
+  // Função para carregar os alimentos do banco
+  const loadMenuItems = async () => {
+    try {
+      const alimentos = await window.api.fetchAlimentos(); // Chama o método do preload
+      setMenuItems(alimentos);
+    } catch (error) {
+      console.error('Erro ao carregar itens do cardápio:', error);
+    }
+  };
+
+  // Carrega os itens ao montar o componente
+  useEffect(() => {
+    loadMenuItems();
+  }, []);
+
+  // Função para filtrar itens por categoria (simulada para o exemplo)
+  const renderItems = () => {
+    return menuItems.filter((item) => item.categoria === activeSection); // Adapte conforme suas categorias
+  };
+  */
+  // Itens do cardápio
+  const lanches = [
+    { id: 1, name: 'X-Burguer', price: 'R$ 13,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
+    { id: 2, name: 'X-Salada', price: 'R$ 15,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
+    { id: 3, name: 'X-Egg', price: 'R$ 17,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
+    { id: 4, name: 'X-Bacon', price: 'R$ 18,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
+    { id: 5, name: 'X-Tudo', price: 'R$ 20,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
+    { id: 6, name: 'X-Famintos', price: 'R$ 28,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
   ];
+
+  const bebidas = [
+    { id: 1, name: 'Coca-Cola', price: 'R$ 5,00', description: 'Refrigerante clássico' },
+    { id: 2, name: 'Guaraná Antártica', price: 'R$ 5,00', description: 'Refrigerante tradicional' },
+    { id: 3, name: 'Suco de Laranja', price: 'R$ 6,00', description: 'Suco natural de laranja' },
+  ];
+
+  const combos = [
+    { id: 1, name: 'Combo X-Burguer + Refrigerante', price: 'R$ 18,00', description: 'Combo com X-Burguer e refrigerante' },
+    { id: 2, name: 'Combo X-Tudo + Suco', price: 'R$ 22,00', description: 'Combo com X-Tudo e suco' },
+  ];
+
+  const especiais = [
+    { id: 1, name: 'X-Famintos Especial', price: 'R$ 30,00', description: 'Hambúrguer especial com molho secreto' },
+    { id: 2, name: 'X-Bacon Deluxe', price: 'R$ 25,00', description: 'Hambúrguer com bacon e cheddar' },
+  ];
+
+  // Função para renderizar os itens da seção ativa
+  const renderItems = () => {
+    switch (activeSection) {
+      case 'lanches':
+        return lanches;
+      case 'bebidas':
+        return bebidas;
+      case 'combos':
+        return combos;
+      case 'especiais':
+        return especiais;
+      default:
+        return lanches;
+    }
+  };
 
   return (
     <div className="flex w-full h-full pt-16">
@@ -132,8 +163,43 @@ const Cardapio = (): JSX.Element => {
           className="mt-24 px-6 overflow-y-auto pb-20"
           style={{ height: `calc(100vh - 6rem - 1rem)` }}
         >
+          <div className="flex justify-around mb-6">
+            <button
+              className="text-white font-semibold py-2 px-4 rounded hover:text-[#ea7c69]"
+              onClick={() => handleSectionChange('lanches')}
+            >
+              Lanches
+            </button>
+            <button
+              className="text-white font-semibold py-2 px-4 rounded hover:text-[#ea7c69]"
+              onClick={() => handleSectionChange('bebidas')}
+            >
+              Bebidas
+            </button>
+            <button
+              className="text-white font-semibold py-2 px-4 rounded hover:text-[#ea7c69]"
+              onClick={() => handleSectionChange('combos')}
+            >
+              Combos
+            </button>
+            <button
+              className="text-white font-semibold py-2 px-4 rounded hover:text-[#ea7c69]"
+              onClick={() => handleSectionChange('especiais')}
+            >
+              Especiais
+            </button>
+          </div>
+
+          <div className="mt-2 mb-6">
+            <hr className="border-t-2 border-[#393C49]" />
+          </div>
+
+          <h2 className="text-800 font-bold text-white mb-6">
+            {activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}
+          </h2>
+
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {items.map((item) => (
+            {renderItems().map((item) => (
               <div
                 key={item.id}
                 onClick={() => handleCardClick(item)}
