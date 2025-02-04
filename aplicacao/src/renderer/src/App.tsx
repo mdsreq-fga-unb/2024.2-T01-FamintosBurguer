@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Sidebar from './components/Sidebar'
 import Home from './pages/Home'
 import Cardapio from './pages/Cardapio'
+import Historico from './pages/Historico'
 import Pedidos from './pages/Pedidos'
 import PedidoForm from './pages/TesteBancodeDados'
 import Formulario from './pages/Formulario'
@@ -16,6 +17,7 @@ const App = (): JSX.Element => (
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cardapio" element={<Cardapio />} />
+          <Route path="/Historico" element={<Historico />} />
           <Route path="/pedidos" element={<Pedidos />} />
           <Route path="/pedido" element={<PedidoForm />} />
           <Route path="/formulario" element={<Formulario />} />
