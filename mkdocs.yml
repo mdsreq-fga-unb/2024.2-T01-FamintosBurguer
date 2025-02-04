@@ -6,7 +6,7 @@ repo_url: https://github.com/mdsreq-fga-unb/2024.2-T01-FamintosBurguer/tree/main
 nav:
   - Home Page: index.md
   - Projeto: projeto.md
-  - Documentação do Projeto:
+  - Documentação de Requisitos:
     - 📂 Documentação: ProdutoProjeto/Documentacao.md
     - 1. Videos Apresentação:
       - ProdutoProjeto/1. Videos Apresentação/1_video.md
@@ -29,12 +29,12 @@ nav:
           - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/4_User Stories.md
           - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/5_Backlog.md
           - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/6_MVP.md
-        - 9. Lições Aprendidas: ProdutoProjeto/2. Visao Produto Projeto/9_Lições.md
-        - 10. Referências Bibliográficas: ProdutoProjeto/2. Visao Produto Projeto/10_Referências.md
+        - 9. Referências Bibliográficas: ProdutoProjeto/2. Visao Produto Projeto/9_Referências.md
+    - 3. Estudos de caso:    
+        - PBB: 'ProdutoProjeto/Estudo de caso/PBB.md'
+        - USM: 'ProdutoProjeto/Estudo de caso/USM.md'
+    - 4. Lições Aprendidas: ProdutoProjeto/Lições.md
   - Atas Reuniões: Atas
-  - Estudo de Caso:
-      - PBB: 'ProdutoProjeto/Estudo de caso/PBB.md'
-      - USM: 'ProdutoProjeto/Estudo de caso/USM.md'
 
 
 markdown_extensions:

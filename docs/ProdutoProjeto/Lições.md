@@ -1,8 +1,8 @@
-# 9. Lições Aprendidas
+# Lições Aprendidas
 
 ___________________________________________________________________________________
 
-## 9.1 Unidade 1
+## Unidade 1
 ### Dificuldades e Desafios Enfrentados:
 
 1. **Agendamento de Reuniões**:  
@@ -20,7 +20,7 @@ ________________________________________________________________________________
    Cada reunião agora contará com uma pauta definida e distribuída previamente entre os membros e o cliente. Essa agenda incluirá pontos prioritários e permitirá que todos tragam perguntas ou tópicos específicos para discussão, otimizando o tempo e evitando que dúvidas importantes sejam esquecidas.
 ___________________________________________________________________________________
 
-## 9.2. Unidade 2
+##  Unidade 2
 
 Na Unidade 2 do projeto de Requisitos de Software, o foco principal foi o aprofundamento nos conceitos de Engenharia de Requisitos, Backlog, MVP (Produto Mínimo Viável) e a utilização de técnicas de engenharia de requisitos. Esses tópicos foram essenciais para alinhar as necessidades do cliente com a implementação do sistema proposto.
 
@@ -49,7 +49,7 @@ Aprendemos a organizar o backlog de maneira eficaz, classificando as funcionalid
 
 ___________________________________________________________________________________
 
-## 9.3. Unidade 3
+## Unidade 3
 
 ### Principais Aprendizados
 

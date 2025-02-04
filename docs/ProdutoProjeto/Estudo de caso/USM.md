@@ -54,7 +54,8 @@ O **Coordenador Pedagógico** é responsável por apoiar os professores, oferece
 ![Coordenador Pedagógico](../img/pedagogico.png)
 
 ___________________________________________________________________________________
-# Fórmula dos Critérios de Priorização
+
+## Fórmula dos Critérios de Priorização
 
 Para priorizar as histórias de usuário no **User Story Mapping (USM)**, utilizamos a seguinte fórmula, que considera três fatores principais: **Impacto no Negócio (I)**, **Complexidade de Implementação (C)** e **Urgência (U)**. 
 
@@ -84,9 +85,10 @@ Com base na pontuação calculada pela fórmula de priorização, as histórias 
 - **Baixa Prioridade**: Pontuação **igual ou abaixo de 1**
   - Histórias que têm impacto menor ou podem ser adiadas sem causar problemas significativos. São candidatas para backlog futuro ou implementação quando houver recursos disponíveis.
 ___________________________________________________________________________________
-# Histórias de Usuário Priorizadas
 
-## Alta Prioridade
+## Histórias de Usuário Priorizadas
+
+### Alta Prioridade
 
 1. **História de Usuário:**
     - *Como Professor Participante, quero criar atividades interdisciplinares que integrem meu conteúdo com outros professores, para promover uma aprendizagem mais ampla e colaborativa.*
@@ -133,7 +135,9 @@ ________________________________________________________________________________
     - **Fórmula de Prioridade:**
         - Prioridade = (I×U) / (C×2) = (5×5) / (3×2) = 4,17
 
-## Prioridade Média
+___________________________________________________________________________________
+
+### Prioridade Média
 
 6. **História de Usuário:**
      - *Como Professor Coordenador, quero receber sugestões de atividades que atendam aos objetivos pedagógicos definidos, facilitando o planejamento e execução das aulas.*
@@ -171,7 +175,9 @@ ________________________________________________________________________________
     - **Fórmula de Prioridade:**
          - Prioridade = (I×U) / (C×2) = (3×2) / (1×2) = 3
 
-## Baixa Prioridade
+___________________________________________________________________________________
+
+### Baixa Prioridade
 
 10. **História de Usuário:**
     - *Como Professor Participante, quero acessar o cronograma atualizado do projeto para garantir que as atividades que eu criar estejam dentro dos prazos estabelecidos.*
@@ -226,3 +232,5 @@ ________________________________________________________________________________
       - Complexidade (C): 2
     - **Fórmula de Prioridade:**
       - Prioridade = (I×U) / (C×2) = (1×2) / (2×2) = 0,5
+
+___________________________________________________________________________________

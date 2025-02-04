@@ -1,6 +1,9 @@
 # 8.6. MVP Projeto
+___________________________________________________________________________________
 
 O **MVP (Produto Mínimo Viável)** é composto pelas funcionalidades essenciais para atender às principais necessidades do cliente dentro do escopo do projeto. A tabela do **MVP** foi organizada levando em consideração a **ordem de prioridade** de cada funcionalidade. Essa priorização foi definida com base no cálculo que considera métricas como **frequência de uso**, **impacto no cliente**, **esforço técnico estimado**, entre outros critérios avaliados no **backlog do produto**, determinando o valor de negócio e a complexidade técnica de cada funcionalidade.
+
+___________________________________________________________________________________
 
 ### 8.6.1. Considerações para o Cálculo e Escolha do MVP
 
@@ -18,7 +21,7 @@ Além das métricas mencionadas, levamos em conta os seguintes fatores:
 | 1 ≤ Prioridade < 1.5    | Moderada Prioridade | Planeje conforme recursos disponíveis. |
 | < 1                     | Baixa Prioridade | Considere postergar ou revisar necessidade. |
 
----
+___________________________________________________________________________________
 
 ### 8.6.2. MVP
 
@@ -42,7 +45,4 @@ Além das métricas mencionadas, levamos em conta os seguintes fatores:
 | **US-6**     | Como atendente, eu quero remover lanches e ingredientes do cardápio para manter o cardápio atualizado. | P = 0,62 (Baixa) | Não |
 | **US-14**    | Como atendente, eu quero gerenciar promoções com validade para atrair mais clientes em períodos específicos. | P = 0,50 (Baixa) | Não |
 
----
-
-
-
+___________________________________________________________________________________
