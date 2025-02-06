@@ -4,7 +4,9 @@ ________________________________________________________________________________
 
 ## Protótipo da Famintos Burguer
 
+<div style="text-align: justify">
 O projeto desenvolvido visa aprimorar o funcionamento da hamburgueria Famintos Burger, oferecendo soluções práticas e eficientes para a gestão e operação do estabelecimento. Criamos um protótipo de média fidelidade que foi projetado com o objetivo de otimizar o processo de pedidos. O conceito do protótipo foi desenvolvido para proporcionar uma experiência mais ágil e intuitiva tanto para os clientes quanto para os colaboradores, garantindo maior organização e satisfação. O sistema desenvolvido permitirá uma gestão mais eficiente das comandas, tornando o processo de atendimento mais fluido e preciso.
+</div>
 
 ___________________________________________________________________________________
 
