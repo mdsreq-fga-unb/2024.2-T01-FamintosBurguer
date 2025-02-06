@@ -30,10 +30,11 @@ nav:
           - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/5_Backlog.md
           - ProdutoProjeto/2. Visao Produto Projeto/8. Backlog Projeto/6_MVP.md
         - 9. Referências Bibliográficas: ProdutoProjeto/2. Visao Produto Projeto/9_Referências.md
-    - 3. Estudos de caso:    
+    - 3. Protótipo de Produto: ProdutoProjeto/Prototipo.md
+    - 4. Estudos de caso:    
         - PBB: 'ProdutoProjeto/Estudo de caso/PBB.md'
         - USM: 'ProdutoProjeto/Estudo de caso/USM.md'
-    - 4. Lições Aprendidas: ProdutoProjeto/Lições.md
+    - 5. Lições Aprendidas: ProdutoProjeto/Lições.md
   - Atas Reuniões: Atas
 
 
