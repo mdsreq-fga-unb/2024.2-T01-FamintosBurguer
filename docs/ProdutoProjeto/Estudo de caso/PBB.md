@@ -110,57 +110,56 @@ ________________________________________________________________________________
 
 ### **US1**
 - **Critérios de aceitação:**<br />
-    1. O sistema deve permitir que o técnico registre informações detalhadas sobre o atendimento (data, hora, descrição do problema e solução).
-    2. O histórico do atendimento deve estar vinculado ao cliente e ao equipamento atendido.
-    3. O técnico deve receber uma confirmação de que o atendimento foi registrado com sucesso.
+    1. O sistema deve permitir que o técnico registre informações detalhadas do atendimento, como data, hora, descrição do problema, solução aplicada, materiais utilizados e técnico responsável.
+    2. O histórico do atendimento deve estar vinculado ao cliente (nome, identificação) e ao equipamento atendido (modelo, número de série).
+    3. O sistema deve exibir uma mensagem de confirmação de que o atendimento foi registrado com sucesso.
 
 ### **US2**
 - **Critérios de aceitação:**<br />
-    1. O sistema deve exibir uma lista de atendimentos anteriores associados ao cliente ou equipamento.
-    2. Deve ser possível filtrar o histórico por data, técnico ou tipo de atendimento.
-    3. O técnico deve visualizar detalhes de cada atendimento, como solução aplicada e materiais utilizados.
+    1. O sistema deve exibir uma lista de atendimentos anteriores com informações como data, hora, cliente, técnico, equipamento, problema relatado e solução aplicada.
+    2. Deve ser possível filtrar o histórico por data, técnico, cliente, tipo de atendimento ou equipamento (filtros podem ser combinados).
+    3. O sistema deve impedir consultas a datas futuras, mas permitir a consulta de atendimentos realizados em qualquer data passada sem restrições.
+    4. O técnico deve visualizar detalhes do atendimento, como solução aplicada, materiais utilizados, e o tempo de atendimento registrado.
 
 ### **US3**
 - **Critérios de aceitação:**<br />
-    1. O técnico deve selecionar os materiais utilizados de uma lista predefinida.
-    2. O sistema deve atualizar automaticamente o estoque ao registrar o uso do material.
-    3. O técnico deve ser notificado caso o material não esteja mais disponível no estoque.
-
+    1. O sistema deve permitir que o técnico selecione os materiais utilizados de uma lista predefinida com nome, código e quantidade disponível.
+    2. O sistema deve atualizar automaticamente o estoque, deduzindo a quantidade utilizada para cada material registrado.
+    3. Caso o material selecionado esteja indisponível no estoque, o técnico deve ser notificado imediatamente, com a indicação de que o registro do material foi desconsiderado.
 ### **US4**
 - **Critérios de aceitação:**<br />
-    1. O sistema deve permitir acesso ao guia técnico correspondente ao modelo do equipamento atendido.
-    2. O técnico deve ser capaz de pesquisar por palavras-chave no guia técnico.
-    3. O guia técnico deve estar disponível offline em caso de falta de conexão com a internet.
+    1. O sistema deve permitir o acesso ao guia técnico vinculado ao modelo do equipamento (especificações, procedimentos e diagramas).
+    2. O guia técnico deve ser pesquisável por palavras-chave, permitindo filtragem por categoria ou componente.
+    3. O guia técnico deve ser acessível offline, armazenado localmente, em caso de falta de conexão com a internet.
 
 ### **US8**
 - **Critérios de aceitação:**<br />
-    1. O sistema deve permitir o cadastro de informações básicas do cliente (nome, endereço, telefone e e-mail).
-    2. O sistema deve verificar se o cliente já está cadastrado para evitar duplicidade.
-    3. O atendente deve receber uma notificação confirmando que o cliente foi cadastrado com sucesso.
+    1. O sistema deve permitir o cadastro de informações básicas do cliente, como nome, endereço, telefone, e-mail, CNPJ ou CPF.
+    2. O sistema deve verificar automaticamente se o cliente já está cadastrado, com base no CPF ou CNPJ, para evitar duplicidade.
+    3. O atendente deve receber uma mensagem de confirmação informando que o cliente foi cadastrado com sucesso.
 
 ### **US9**
 - **Critérios de aceitação:**<br />
-    1. A agenda deve exibir os horários disponíveis e ocupados para cada técnico.
-    2. O sistema deve alertar o atendente caso haja tentativa de agendar dois atendimentos no mesmo horário para o mesmo técnico.
-    3. A agenda deve ser atualizada em tempo real para refletir alterações recentes.
+    1. A agenda deve exibir os horários disponíveis e ocupados de cada técnico, organizados por dia, horário e local do atendimento.
+    2. O sistema deve impedir o agendamento de dois atendimentos para o mesmo técnico no mesmo horário.
+    3. Alterações recentes na agenda (inclusões, exclusões ou edições) devem ser refletidas em tempo real.
 
 ### **US10**
 - **Critérios de aceitação:**<br />
-    1. O sistema deve permitir o registro de solicitações com informações como cliente, tipo de serviço e urgência.
-    2. As solicitações registradas devem ser listadas em uma tela específica para fácil acompanhamento.
-    3. O atendente deve poder editar ou excluir uma solicitação enquanto ela estiver pendente.
+    1. O sistema deve permitir o registro de solicitações com informações como cliente, tipo de serviço, urgência, localização e descrição do problema.
+    2. Todas as solicitações registradas devem ser exibidas em uma tela de acompanhamento com informações como status (pendente, em andamento, concluído).
+    3. O atendente deve poder editar ou excluir solicitações enquanto estiverem com status "pendente".
 
 ### **US11**
 - **Critérios de aceitação:**<br />
-    1. O sistema deve sugerir técnicos disponíveis com base no horário e na localização do atendimento.
-    2. O atendente deve poder selecionar manualmente um técnico diferente, caso necessário.
-    3. O técnico designado deve ser notificado automaticamente sobre o atendimento.
-
+    1. O sistema deve sugerir automaticamente técnicos disponíveis, considerando localização do atendimento, horário e especialidade técnica necessária.
+    2. O atendente deve poder selecionar manualmente outro técnico, caso necessário, informando o motivo da alteração.
+    3. O técnico designado deve receber uma notificação contendo os detalhes do atendimento, como cliente, localização, tipo de serviço e horário agendado.
 ### **US12**
 - **Critérios de aceitação:**<br />
-    1. O sistema deve permitir a edição de informações como horário, técnico e local do atendimento.
-    2. O sistema deve registrar um histórico de alterações feitas no agendamento.
-    3. Tanto o cliente quanto o técnico devem ser notificados sobre as alterações realizadas.
+    1. O sistema deve permitir a edição de informações como horário, técnico e local do atendimento, exibindo uma interface clara e validando os dados inseridos antes da confirmação.
+    2. O sistema deve registrar um histórico das alterações feitas no agendamento, contendo os seguintes dados: data da alteração, campos modificados e responsável pela modificação.
+    3. O cliente e o técnico devem ser notificados sobre as alterações realizadas, com detalhes das mudanças (novo horário, local e técnico, se aplicável) via e-mail ou SMS.
 
 ### **US14**
 - **Critérios de aceitação:**<br />
@@ -170,33 +169,33 @@ ________________________________________________________________________________
 
 ### **US16**
 - **Critérios de aceitação:**<br />
-    1. O dashboard deve exibir o total de solicitações em cada status (pendente, em andamento, concluído).
-    2. O cliente deve poder clicar em um status para visualizar as solicitações correspondentes.
-    3. O dashboard deve ser atualizado automaticamente em tempo real.
-
+    1. O dashboard deve exibir o total de solicitações divididas por status (pendente, em andamento, concluído), com indicadores visuais (ex.: cores).
+    2. O cliente deve poder clicar em um status para visualizar a lista de solicitações correspondentes, com informações como data, técnico responsável, local do atendimento e descrição do problema.
+    3. O dashboard deve ser atualizado em tempo real para refletir alterações recentes.
 ### **US19**
 - **Critérios de aceitação:**<br />
-    1. O sistema deve enviar uma notificação automática por e-mail ou SMS assim que o técnico registrar o início do atendimento.
-    2. A notificação deve incluir informações como o nome do técnico e o horário estimado de conclusão.
-    3. O cliente deve poder confirmar o recebimento da notificação no sistema.
+    1. O sistema deve enviar uma notificação automática ao cliente assim que o técnico registrar o início do atendimento, via e-mail ou SMS.
+    2. A notificação deve incluir o nome do técnico, horário de início, e horário estimado de conclusão do atendimento.
+    3. O cliente deve poder confirmar o recebimento da notificação no sistema, que deve registrar a confirmação para controle de comunicação.
 
 ### **US23**
 - **Critérios de aceitação:**<br />
-    1. O sistema deve permitir a seleção de um técnico específico para exibir todas as solicitações associadas a ele.
-    2. As solicitações filtradas devem ser exibidas em ordem cronológica, com informações detalhadas.
-    3. O cliente deve poder exportar os resultados filtrados em formato PDF ou Excel.
+    1. O sistema deve permitir que o cliente selecione um técnico específico para visualizar todas as solicitações associadas a ele, com os resultados ordenados cronologicamente.
+    2. As solicitações filtradas devem exibir informações como data do atendimento, status, local do serviço e descrição do problema.
+    3. O cliente deve poder exportar os resultados filtrados em formato PDF ou Excel para fins de registro ou análise.
 
 ### **US26**
 - **Critérios de aceitação:**<br />
-    1. A lista deve exibir informações como técnico responsável, status do atendimento e prazo para conclusão.
-    2. Deve ser possível filtrar os atendimentos por status ou prazo.
-    3. A diretora deve poder gerar relatórios a partir da lista exibida.
+    1. A lista de atendimentos deve exibir informações como técnico responsável, status do atendimento, prazo para conclusão e descrição do serviço.
+    2. Deve ser possível aplicar filtros por status, técnico e prazo para facilitar a priorização das demandas.
+    3. O sistema deve permitir a geração de relatórios em formato PDF ou Excel com as informações da lista filtrada.
+
 
 ### **US30**
 - **Critérios de aceitação:**<br />
-    1. O painel deve exibir metas configuradas manualmente, como tempo médio de atendimento ou taxa de satisfação.
-    2. O dashboard deve destacar quando uma meta está próxima ou foi atingida.
-    3. A diretora deve poder editar ou adicionar novas metas no painel.
+    1. O painel deve exibir metas configuradas manualmente, como tempo médio de atendimento, taxa de satisfação ou quantidade de atendimentos concluídos.
+    2. O dashboard deve destacar visualmente (ex.: cores ou ícones) quando uma meta estiver próxima de ser atingida ou ultrapassada.
+    3. A diretora deve poder editar, adicionar ou remover metas diretamente pelo sistema, com as alterações refletidas em tempo real no painel.
 
 ___________________________________________________________________________________
 
