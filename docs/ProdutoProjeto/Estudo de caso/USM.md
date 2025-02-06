@@ -1,4 +1,4 @@
-# User Story Mapping - EduConnect
+# User Story Mapping
 
 ___________________________________________________________________________________
 
@@ -96,8 +96,12 @@ ________________________________________________________________________________
         - Impacto (I): 5
         - Urgência (U): 4
         - Complexidade (C): 2
-     - **Fórmula de Prioridade:**
-         - Prioridade = (I×U) / (C×2) = (5×4) / (2×2) = 5
+    - **Fórmula de Prioridade:**
+        - Prioridade = (I×U) / (C×2) = (5×4) / (2×2) = 5
+    - **Critérios de aceitação:**<br />
+        - O sistema deve permitir a criação de atividades interdisciplinares com campos para selecionar temas, conteúdos e disciplinas envolvidas.
+        - Deve ser possível vincular as atividades a um cronograma existente.
+        - A interface deve oferecer sugestões de colaboração com base em disciplinas previamente integradas.
 
 2. **História de Usuário:**
     - *Como Professor Participante, quero que as atividades interdisciplinares sejam facilmente ajustadas conforme o projeto avança, para que eu possa reagir a mudanças no cronograma ou conteúdo.*
@@ -107,6 +111,10 @@ ________________________________________________________________________________
         - Complexidade (C): 2
     - **Fórmula de Prioridade:**
         - Prioridade = (I×U) / (C×2) = (5×4) / (2×2) = 5
+    - **Critérios de aceitação:**<br />
+        - O sistema deve permitir a edição de atividades interdisciplinares já cadastradas, incluindo alterações em datas, disciplinas ou objetivos.
+        - Deve ser possível reatribuir as atividades a novos professores, caso necessário.
+        - Alterações no cronograma devem refletir automaticamente nos calendários dos participantes.
 
 3. **História de Usuário:**
      - *Como Aluno, quero ter a opção de baixar os materiais fornecidos, para que eu possa estudá-los offline quando não tiver acesso à internet.*
@@ -116,6 +124,10 @@ ________________________________________________________________________________
         - Complexidade (C): 2
     - **Fórmula de Prioridade:**
         - Prioridade = (I×U) / (C×2) = (5×4) / (2×2) = 5
+    - **Critérios de aceitação:**<br />
+        - O sistema deve exibir uma lista de materiais organizados por disciplinas e tópicos.
+        - Deve ser possível baixar os materiais em formatos compatíveis, como PDF, DOCX ou PPTX.
+        - O aluno deve ser notificado sobre o progresso do download e possíveis falhas na conexão.
 
 4. **História de Usuário:**
      - *Como Professor Coordenador, quero poder adicionar tarefas ao cronograma para adaptar o planejamento conforme necessário.*
@@ -125,6 +137,10 @@ ________________________________________________________________________________
         - Complexidade (C): 3
      - **Fórmula de Prioridade:**
         - Prioridade = (I×U) / (C×2) = (5×5) / (3×2) = 4,17
+    - **Critérios de aceitação:**<br />
+        - O sistema deve permitir adicionar tarefas ao cronograma com campos para título, descrição, prazo e responsáveis.
+        - Tarefas adicionadas devem ser exibidas automaticamente no calendário dos envolvidos.
+        - O sistema deve alertar sobre possíveis conflitos de horários ou prazos sobrepostos.
 
 5. **História de Usuário:**
      - *Como Professor Coordenador, quero poder editar tarefas no cronograma para adaptar o planejamento conforme necessário.*
@@ -134,6 +150,10 @@ ________________________________________________________________________________
         - Complexidade (C): 3
     - **Fórmula de Prioridade:**
         - Prioridade = (I×U) / (C×2) = (5×5) / (3×2) = 4,17
+    - **Critérios de aceitação:**<br />
+        - Deve ser possível editar tarefas existentes no cronograma, alterando prazos, responsáveis ou descrições.
+        - Alterações devem ser refletidas automaticamente no calendário dos envolvidos.
+        - O sistema deve alertar sobre impactos em outras tarefas vinculadas ao cronograma.
 
 ___________________________________________________________________________________
 
@@ -147,6 +167,10 @@ ________________________________________________________________________________
         - Complexidade (C): 3
     - **Fórmula de Prioridade:**
         - Prioridade = (I×U) / (C×2) = (5×4) / (3×2) = 3,33
+    - **Critérios de aceitação:**<br />
+        - O sistema deve exibir sugestões de atividades com base nos objetivos pedagógicos cadastrados previamente.
+        - Deve ser possível filtrar as sugestões por tipo de atividade, como práticas, teóricas ou interdisciplinares.
+        - O sistema deve permitir ao coordenador aceitar ou ajustar as atividades sugeridas antes de adicioná-las ao cronograma.
 
 7. **História de Usuário:**
     - *Como Professor Coordenador, quero receber lembretes automáticos sobre prazos importantes para garantir que tarefas críticas sejam concluídas a tempo.*
@@ -156,6 +180,10 @@ ________________________________________________________________________________
         - Complexidade (C): 1
     - **Fórmula de Prioridade:**
         - Prioridade = (I×U) / (C×2) = (3×2) / (1×2) = 3
+    - **Critérios de aceitação:**<br />
+        - O sistema deve enviar notificações automáticas para o coordenador com base nos prazos cadastrados no cronograma.
+        - Deve ser possível configurar a antecedência dos lembretes, como um ou dois dias antes do prazo.
+        - O sistema deve exibir um resumo semanal com tarefas críticas e seus prazos associados.
 
 8. **História de Usuário:**
     - *Como Professor Coordenador, quero monitorar o progresso dos alunos em direção aos objetivos pedagógicos para avaliar o impacto do projeto e ajustar estratégias de ensino conforme necessário.*
@@ -165,6 +193,10 @@ ________________________________________________________________________________
         - Complexidade (C): 1
     - **Fórmula de Prioridade:**
         - Prioridade = (I×U) / (C×2) = (3×2) / (1×2) = 3
+    - **Critérios de aceitação:**<br />
+        - O sistema deve exibir relatórios detalhados sobre o progresso dos alunos em relação aos objetivos pedagógicos.
+        - Deve ser possível visualizar gráficos de progresso, comparando o desempenho atual com os objetivos definidos.
+        - O sistema deve permitir ao coordenador registrar ajustes nas estratégias de ensino diretamente na interface.
 
 9. **História de Usuário:**
     - *Como Aluno, quero que os materiais estejam bem organizados em uma plataforma online para que eu possa encontrar rapidamente o conteúdo relevante para cada atividade ou tópico.*
@@ -174,6 +206,10 @@ ________________________________________________________________________________
         - Complexidade (C): 1
     - **Fórmula de Prioridade:**
          - Prioridade = (I×U) / (C×2) = (3×2) / (1×2) = 3
+    - **Critérios de aceitação:**<br />
+        - O sistema deve exibir os materiais organizados por categorias, como disciplinas, módulos e tópicos.
+        - Deve ser possível acessar os materiais através de filtros, como tipo de arquivo, data de publicação ou relevância.
+        - Os alunos devem receber notificações quando novos materiais forem adicionados.
 
 ___________________________________________________________________________________
 
@@ -187,6 +223,10 @@ ________________________________________________________________________________
       - Complexidade (C): 3
     - **Fórmula de Prioridade:**
       - Prioridade = (I×U) / (C×2) = (5×3) / (3×2) = 2,5
+    - **Critérios de aceitação:**<br />
+        - O sistema deve exibir o cronograma atualizado com campos como data, horário, atividade e responsáveis.
+        - Deve ser possível acessar o cronograma completo ou visualizar apenas as atividades associadas a um professor específico.
+        - Alterações no cronograma devem ser notificadas automaticamente aos professores envolvidos.
 
 11. **História de Usuário:**
     - *Como Professor Participante, quero ter acesso à pauta da reunião com antecedência, para que eu possa me preparar e contribuir de forma mais eficaz.*
@@ -196,6 +236,10 @@ ________________________________________________________________________________
       - Complexidade (C): 3
     - **Fórmula de Prioridade:**
       - Prioridade = (I×U) / (C×2) = (5×3) / (3×2) = 2,5
+    - **Critérios de aceitação:**<br />
+        - O sistema deve permitir o cadastro e compartilhamento de pautas de reunião com antecedência mínima configurável.
+        - Deve ser possível visualizar a pauta diretamente no sistema ou baixá-la em formatos padrão, como PDF ou DOCX.
+        - Professores devem poder sugerir alterações ou adições à pauta antes da reunião.
 
 12. **História de Usuário:**
     - *Como Professor Coordenador, quero criar relatórios que mostrem o alinhamento dos objetivos pedagógicos com o currículo escolar para apresentar evidências de conformidade durante auditorias ou reuniões com a administração.*
@@ -205,6 +249,10 @@ ________________________________________________________________________________
       - Complexidade (C): 3
     - **Fórmula de Prioridade:**
       - Prioridade = (I×U) / (C×2) = (2×2) / (3×2) = 0,67
+    - **Critérios de aceitação:**<br />
+        - O sistema deve gerar relatórios detalhados com informações sobre os objetivos pedagógicos e sua vinculação ao currículo escolar.
+        - Deve ser possível personalizar o período e o formato do relatório.
+        - O relatório deve ser exportável em formatos como PDF ou XLS.
 
 13. **História de Usuário:**
     - *Como Professor Participante, quero acessar o histórico de feedbacks dados aos alunos para manter um registro contínuo e consistente do desempenho e desenvolvimento deles.*
@@ -214,6 +262,10 @@ ________________________________________________________________________________
       - Complexidade (C): 3
     - **Fórmula de Prioridade:**
       - Prioridade = (I×U) / (C×2) = (1×2) / (3×2) = 0,67
+    - **Critérios de aceitação:**<br />
+        - O sistema deve exibir o histórico de feedbacks por aluno, organizado por data e atividade.
+        - Deve ser possível visualizar e editar feedbacks anteriores, respeitando permissões definidas.
+        - O sistema deve alertar o professor quando um aluno não acessou feedbacks recentes.
 
 14. **História de Usuário:**
     - *Como Professor Coordenador, quero registrar as decisões e insights gerados nas reuniões para que a equipe tenha um ponto de referência claro para ações futuras.*
@@ -223,6 +275,10 @@ ________________________________________________________________________________
       - Complexidade (C): 1
     - **Fórmula de Prioridade:**
       - Prioridade = (I×U) / (C×2) = (1×2) / (1×2) = 1
+    - **Critérios de aceitação:**<br />
+        - O sistema deve permitir o registro de decisões e insights associados a reuniões específicas.
+        - Deve ser possível acessar e editar registros anteriores com controle de versão.
+        - Os registros devem ser pesquisáveis por palavras-chave ou data.
 
 15. **História de Usuário:**
     - *Como Professor Participante, quero agendar sessões individuais para discutir feedbacks com os alunos, garantindo que eles compreendam as áreas a melhorar e como aplicá-las.*
@@ -232,5 +288,9 @@ ________________________________________________________________________________
       - Complexidade (C): 2
     - **Fórmula de Prioridade:**
       - Prioridade = (I×U) / (C×2) = (1×2) / (2×2) = 0,5
+    - **Critérios de aceitação:**<br />
+        - O sistema deve permitir o agendamento de sessões individuais com campos para data, horário e objetivo da reunião.
+        - Deve ser possível vincular as sessões a feedbacks específicos previamente registrados.
+        - O sistema deve notificar automaticamente os participantes antes da sessão.
 
 ___________________________________________________________________________________

@@ -1,4 +1,4 @@
-# Product Backlog Building - TechFix
+# Product Backlog Building
 
 ___________________________________________________________________________________
 
