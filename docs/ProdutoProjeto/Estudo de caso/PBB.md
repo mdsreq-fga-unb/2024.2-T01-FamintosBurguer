@@ -205,71 +205,78 @@ ________________________________________________________________________________
 - Critério 1: O sistema deve permitir que o técnico registre informações detalhadas sobre o atendimento.
     - **Cenário 1 - Registro de informações bem-sucedido (positivo):**  
         - **Dado** que o técnico está logado no sistema e na página de registro de atendimento.  
-        - **Quando** ele preenche os campos de data, hora, descrição do problema e solução.  
-        - **Então** o sistema deve salvar os dados com sucesso e exibir uma mensagem de confirmação.  
+        - **Quando**  ele preenche os campos de data (25/02/2025), hora (08:00), descrição do problema ("Impressora não está imprimindo") e solução ("Substituição do cartucho de tinta").
+        - **Então** o sistema deve salvar os dados com sucesso e exibir a mensagem "Atendimento registrado com sucesso!".
 
     - **Cenário 2 - Registro de informações incompleto (negativo):**  
-        - **Dado** que o técnico está logado no sistema e na página de registro de atendimento.  
-        - **Quando** ele não preenche todos os campos obrigatórios.  
-        - **Então** o sistema deve exibir uma mensagem de erro informando que os campos obrigatórios precisam ser preenchidos.  
+        - **Dado** que o técnico está logado no sistema e na página de registro de atendimento.
+        - **Quando** ele não preenche todos os campos obrigatórios, como data e descrição do problema.
+        - **Então** o sistema deve exibir a mensagem "Erro: Por favor, preencha todos os campos obrigatórios."
 
 - Critério 2: O histórico do atendimento deve estar vinculado ao cliente e ao equipamento atendido.
     - **Cenário 3 - Histórico vinculado com sucesso (positivo):**  
-        - **Dado** que o técnico registra um atendimento para um cliente com equipamento vinculado.  
+        - **Dado** que o técnico registra um atendimento para o cliente "Maria Silva" com o equipamento "Notebook Dell Inspiron".
         - **Quando** o registro é concluído com sucesso.  
-        - **Então** o histórico deve ser atualizado no perfil do cliente e no equipamento.  
+        - **Então** o histórico do atendimento deve ser atualizado no perfil do cliente e vinculado ao equipamento.
 
     - **Cenário 4 - Vinculação falha por dados ausentes (negativo):**  
-        - **Dado** que o técnico registra um atendimento sem associar a um cliente ou equipamento.  
+        - **Dado** que o técnico registra um atendimento sem associar a um cliente ou equipamento.
         - **Quando** ele tenta concluir o registro.  
-        - **Então** o sistema deve exibir uma mensagem de erro indicando a necessidade de associar o cliente e o equipamento.  
+        - **Então** o sistema deve exibir a mensagem "Erro: Cliente e equipamento devem ser associados ao atendimento."  
 
 - Critério 3: O técnico deve receber uma confirmação de que o atendimento foi registrado com sucesso.
     - **Cenário 5 - Confirmação exibida (positivo):**  
-        - **Dado** que o técnico registra todas as informações necessárias.  
+        - **Dado** que o técnico registra todas as informações necessárias.
         - **Quando** ele conclui o registro.  
-        - **Então** o sistema deve exibir uma mensagem confirmando que o atendimento foi salvo com sucesso.  
+        - **Então** o sistema deve exibir a mensagem "Atendimento salvo com sucesso!".
 
     - **Cenário 6 - Falha na confirmação (negativo):**  
         - **Dado** que ocorre uma falha no sistema durante o registro do atendimento.  
         - **Quando** o técnico tenta salvar o registro.  
-        - **Então** o sistema deve exibir uma mensagem de erro informando que o registro não foi concluído.  
+        - **Então** o sistema deve exibir a mensagem "Erro: O registro não foi concluído. Tente novamente."
 
 ___________________________________________________________________________________
 
 ### **US2**
 - Critério 1: O sistema deve exibir uma lista de atendimentos anteriores associados ao cliente ou equipamento.
     - **Cenário 1 - Lista de atendimentos exibida (positivo):**  
-        - **Dado** que o técnico acessa o histórico de um cliente ou equipamento com atendimentos registrados.  
+        - **Dado** que o técnico acessa o histórico do cliente "Carlos Souza" com o equipamento "Impressora HP DeskJet".
         - **Quando** ele solicita a lista de atendimentos.  
-        - **Então** o sistema deve exibir todos os atendimentos associados.  
+        - **Então** o sistema deve exibir os registros:
+            - Data: 15/01/2025, Problema: Impressora travando.
+            - Data: 20/02/2025, Problema: Troca do toner.
 
     - **Cenário 2 - Nenhum atendimento registrado (negativo):**  
-        - **Dado** que o técnico acessa o histórico de um cliente ou equipamento sem atendimentos registrados.  
+        - **Dado** que o técnico acessa o histórico do cliente "Ana Costa" sem atendimentos registrados.
         - **Quando** ele solicita a lista de atendimentos.  
-        - **Então** o sistema deve exibir uma mensagem informando que não há registros disponíveis.  
+        - **Então** o sistema deve exibir a mensagem "Nenhum atendimento encontrado para este cliente ou equipamento."
 
 - Critério 2: Deve ser possível filtrar o histórico por data, técnico ou tipo de atendimento.
     - **Cenário 3 - Filtro aplicado com sucesso (positivo):**  
         - **Dado** que o técnico acessa o histórico de atendimentos.  
-        - **Quando** ele aplica filtros por data, técnico ou tipo de atendimento.  
-        - **Então** o sistema deve exibir somente os registros que atendem aos critérios selecionados.  
+        - **Quando** ele aplica o filtro por data "01/01/2025 a 31/01/2025" e tipo de atendimento "Troca de peças".
+        - **Então** o sistema deve exibir somente os registros correspondentes:
+            - Data: 15/01/2025, Técnico: João Silva, Tipo: Troca de toner.
 
     - **Cenário 4 - Filtro inválido (negativo):**  
         - **Dado** que o técnico acessa o histórico de atendimentos.  
-        - **Quando** ele aplica filtros inválidos (por exemplo, datas futuras ou técnico inexistente).  
-        - **Então** o sistema deve exibir uma mensagem indicando que não foram encontrados resultados para os filtros aplicados.  
+        - **Quando** ele aplica o filtro por técnico "Técnico inexistente" ou data futura "01/01/2030 a 31/01/2030".
+        - **Então** o sistema deve exibir a mensagem "Nenhum atendimento encontrado para os filtros aplicados."
 
 - Critério 3: O técnico deve visualizar detalhes de cada atendimento.
     - **Cenário 5 - Detalhes exibidos (positivo):**  
         - **Dado** que o técnico acessa o histórico de atendimentos.  
-        - **Quando** ele seleciona um atendimento específico.  
-        - **Então** o sistema deve exibir todos os detalhes, como a solução aplicada e os materiais utilizados.  
+        - **Quando** ele seleciona o atendimento de data "10/02/2025".
+        - **Então** o sistema deve exibir os detalhes:
+            - Cliente: José Almeida.
+            - Equipamento: Notebook Lenovo IdeaPad.
+            - Problema: Tela piscando intermitentemente.
+            - Solução: Substituição da placa de vídeo.
 
     - **Cenário 6 - Detalhes não disponíveis (negativo):**  
         - **Dado** que o técnico acessa o histórico de atendimentos.  
-        - **Quando** ele tenta abrir os detalhes de um atendimento que não está registrado corretamente.  
-        - **Então** o sistema deve exibir uma mensagem de erro informando que os detalhes não estão disponíveis.  
+        - **Quando** ele tenta visualizar os detalhes de um atendimento com erro de registro.
+        - **Então** o sistema deve exibir a mensagem "Erro: Detalhes do atendimento não disponíveis."
 
 ___________________________________________________________________________________
 
@@ -277,35 +284,35 @@ ________________________________________________________________________________
 - Critério 1: O técnico deve selecionar os materiais utilizados de uma lista predefinida.
     - **Cenário 1 - Seleção bem-sucedida (positivo):**  
         - **Dado** que o técnico está registrando um atendimento.  
-        - **Quando** ele seleciona materiais de uma lista predefinida.  
+        - **Quando** ele seleciona os materiais "Cartucho de tinta preto - HP" e "Cabo USB - 2m" da lista predefinida.
         - **Então** o sistema deve associar os materiais ao atendimento com sucesso.  
 
     - **Cenário 2 - Lista de materiais indisponível (negativo):**  
-        - **Dado** que o técnico está registrando um atendimento.  
-        - **Quando** ele tenta acessar uma lista predefinida indisponível.  
-        - **Então** o sistema deve exibir uma mensagem de erro indicando o problema.  
+        - **Dado** que o técnico está registrando um atendimento.
+        - **Quando** ele tenta acessar uma lista predefinida indisponível devido a falha no sistema.
+        - **Então** o sistema deve exibir a mensagem "Erro: Lista de materiais indisponível no momento."
 
 - Critério 2: O sistema deve atualizar automaticamente o estoque ao registrar o uso do material.
     - **Cenário 3 - Estoque atualizado com sucesso (positivo):**  
-        - **Dado** que o técnico registra materiais utilizados em um atendimento.  
-        - **Quando** ele salva o registro.  
-        - **Então** o sistema deve reduzir a quantidade correspondente no estoque.  
+        - **Dado** Dado que o técnico registra os materiais "Cartucho de tinta preto - HP (quantidade: 1)".
+        - **Quando** ele salva o registro.
+        - **Então** o sistema deve reduzir o estoque do material correspondente em 1 unidade.
 
     - **Cenário 4 - Falha na atualização do estoque (negativo):**  
-        - **Dado** que o técnico registra materiais utilizados em um atendimento.  
-        - **Quando** ocorre uma falha no sistema durante a atualização.  
-        - **Então** o sistema deve exibir uma mensagem de erro e não finalizar o registro.  
+        - **Dado** que o técnico registra materiais utilizados em um atendimento.
+        - **Quando** Quando ocorre uma falha no sistema ao atualizar o estoque.
+        - **Então** o sistema deve exibir a mensagem "Erro: Falha na atualização do estoque. Registro não concluído."
 
 - Critério 3: O técnico deve ser notificado caso o material não esteja mais disponível no estoque.
     - **Cenário 5 - Notificação exibida (positivo):**  
-        - **Dado** que o técnico está registrando materiais utilizados.  
-        - **Quando** ele tenta selecionar um material que não está disponível no estoque.  
-        - **Então** o sistema deve exibir uma notificação informando a indisponibilidade.  
+        - **Dado** que o técnico está registrando materiais utilizados.
+        - **Quando** ele tenta selecionar o material "Cartucho de tinta colorido - HP", que está com estoque zerado.
+        - **Então** o sistema deve exibir a mensagem "Material indisponível no estoque."
 
     - **Cenário 6 - Material fora de estoque não detectado (negativo):**  
-        - **Dado** que o técnico está registrando materiais utilizados.  
-        - **Quando** o sistema não identifica a falta de estoque e permite o registro.  
-        - **Então** o sistema deve gerar uma inconsistência no estoque, afetando o controle.  
+        - **Dado** que o técnico está registrando materiais utilizados.
+        - **Quando** o sistema não identifica a falta de estoque e permite o registro do material.
+        - **Então** o sistema deve gerar uma inconsistência no estoque e exibir a mensagem "Erro: Estoque inconsistente. Contate o administrador."
 
 ___________________________________________________________________________________
 
@@ -313,35 +320,35 @@ ________________________________________________________________________________
 - Critério 1: O sistema deve permitir acesso ao guia técnico correspondente ao modelo do equipamento atendido.
     - **Cenário 1 - Acesso bem-sucedido (positivo):**  
         - **Dado** que o técnico está realizando um atendimento e precisa acessar o guia técnico.  
-        - **Quando** ele seleciona o modelo do equipamento no sistema.  
-        - **Então** o sistema deve exibir o guia técnico correspondente ao modelo selecionado.  
+        - **Quando** ele seleciona o modelo "Impressora Epson L3150".
+        - **Então** o sistema deve exibir o guia técnico correspondente ao modelo.  
 
     - **Cenário 2 - Falha ao encontrar o guia técnico (negativo):**  
-        - **Dado** que o técnico está realizando um atendimento e precisa acessar o guia técnico.  
-        - **Quando** ele seleciona um modelo de equipamento que não possui guia técnico disponível no sistema.  
-        - **Então** o sistema deve exibir uma mensagem de erro informando que o guia técnico não está disponível.  
+        - **Dado** que o técnico está realizando um atendimento e precisa acessar o guia técnico.
+        - **Quando** ele seleciona o modelo "Scanner XYZ", que não possui guia técnico registrado.  
+        - **Então** o sistema deve exibir a mensagem "Guia técnico não disponível para este modelo." 
 
 - Critério 2: O técnico deve ser capaz de pesquisar por palavras-chave no guia técnico.
     - **Cenário 3 - Pesquisa bem-sucedida (positivo):**  
-        - **Dado** que o técnico está consultando o guia técnico no sistema.  
-        - **Quando** ele realiza uma busca por uma palavra-chave relevante.  
-        - **Então** o sistema deve exibir os resultados correspondentes à palavra-chave no guia técnico.  
+        - **Dado** que o técnico está consultando o guia técnico no sistema.
+        - **Quando** ele realiza uma busca pela palavra-chave "instalação de drivers".
+        - **Então** o sistema deve exibir os resultados correspondentes: "Guia de instalação de drivers para Windows e MacOS".
 
     - **Cenário 4 - Nenhum resultado encontrado na pesquisa (negativo):**  
         - **Dado** que o técnico está consultando o guia técnico no sistema.  
-        - **Quando** ele realiza uma busca por uma palavra-chave inexistente no guia técnico.  
-        - **Então** o sistema deve exibir uma mensagem informando que nenhum resultado foi encontrado.  
+        - **Quando** ele realiza uma busca pela palavra-chave "peça inexistente".
+        - **Então**  o sistema deve exibir a mensagem "Nenhum resultado encontrado para a palavra-chave pesquisada."
 
 - Critério 3: O guia técnico deve estar disponível offline em caso de falta de conexão com a internet.
     - **Cenário 5 - Acesso offline bem-sucedido (positivo):**  
         - **Dado** que o técnico está sem conexão com a internet e precisa consultar o guia técnico.  
-        - **Quando** ele tenta acessar o guia técnico previamente baixado no sistema.  
-        - **Então** o sistema deve permitir o acesso offline ao guia técnico.  
+        - **Quando** ele tenta acessar o guia técnico previamente baixado para o modelo "Notebook Asus VivoBook".
+        - **Então** o sistema deve exibir o guia técnico offline.
 
     - **Cenário 6 - Guia técnico não disponível offline (negativo):**  
-        - **Dado** que o técnico está sem conexão com a internet e precisa consultar o guia técnico.  
-        - **Quando** ele tenta acessar um guia técnico que não foi baixado previamente.  
-        - **Então** o sistema deve exibir uma mensagem informando que o guia técnico não está disponível offline.  
+        - **Dado** que o técnico está sem conexão com a internet e precisa consultar o guia técnico.
+        - **Quando** ele tenta acessar o guia técnico do modelo "Monitor Samsung 24'", que não foi baixado previamente.
+        - **Então** o sistema deve exibir a mensagem "Guia técnico não disponível offline."
 
 ___________________________________________________________________________________
 
@@ -349,30 +356,30 @@ ________________________________________________________________________________
 - Critério 1: O sistema deve permitir o cadastro de informações básicas do cliente (nome, endereço, telefone e e-mail).
     - **Cenário 1 - Cadastro bem-sucedido (positivo):**  
         - **Dado** que o atendente está no sistema e deseja cadastrar um novo cliente.  
-        - **Quando** ele preenche todos os campos obrigatórios com informações válidas e salva o cadastro.  
-        - **Então** o sistema deve registrar o cliente com sucesso e exibir uma mensagem de confirmação.  
+        - **Quando** ele preenche os campos: Nome "João Santos", Endereço "Rua das Flores, 123", Telefone "(61) 99999-9999", e E-mail "joao.santos@gmail.com".
+        - **Então** o sistema deve registrar o cliente com sucesso e exibir a mensagem "Cliente cadastrado com sucesso!".
 
     - **Cenário 2 - Falha no preenchimento de informações obrigatórias (negativo):**  
         - **Dado** que o atendente está no sistema e deseja cadastrar um novo cliente.  
-        - **Quando** ele tenta salvar o cadastro sem preencher todos os campos obrigatórios.  
-        - **Então** o sistema deve exibir uma mensagem de erro solicitando o preenchimento dos campos obrigatórios.  
+        - **Quando** ele tenta salvar o cadastro sem preencher o campo "E-mail".
+        - **Então** o sistema deve exibir a mensagem "Erro: O campo E-mail é obrigatório."
 
 - Critério 2: O sistema deve verificar se o cliente já está cadastrado para evitar duplicidade.
     - **Cenário 3 - Cliente duplicado detectado (positivo):**  
         - **Dado** que o atendente está cadastrando um cliente no sistema.  
-        - **Quando** ele tenta cadastrar um cliente com o mesmo nome e e-mail já registrado.  
-        - **Então** o sistema deve exibir uma mensagem informando que o cliente já está cadastrado e bloquear o cadastro duplicado.  
+        - **Quando** ele tenta cadastrar o cliente "João Santos" com o e-mail "joao.santos@gmail.com", que já está registrado.
+        - **Então** o sistema deve exibir a mensagem "Erro: Cliente já cadastrado no sistema."
 
     - **Cenário 4 - Nenhuma duplicidade encontrada (positivo):**  
         - **Dado** que o atendente está cadastrando um cliente no sistema.  
-        - **Quando** ele insere informações de um cliente novo e salva o cadastro.  
+        - **Quando** ele insere informações de um cliente novo "Maria Oliveira" e salva o cadastro.
         - **Então** o sistema deve concluir o cadastro com sucesso.  
 
 - Critério 3: O atendente deve receber uma notificação confirmando que o cliente foi cadastrado com sucesso.
     - **Cenário 5 - Notificação exibida (positivo):**  
         - **Dado** que o atendente concluiu o cadastro de um cliente no sistema.  
         - **Quando** o cadastro é salvo com sucesso.  
-        - **Então** o sistema deve exibir uma notificação confirmando que o cliente foi cadastrado com sucesso.  
+        - **Então** o sistema deve exibir a mensagem "Cliente cadastrado com sucesso!" 
 
     - **Cenário 6 - Falha na exibição da notificação (negativo):** 
         - **Dado** que o atendente concluiu o cadastro de um cliente no sistema.  
