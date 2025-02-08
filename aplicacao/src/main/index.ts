@@ -2,13 +2,12 @@ import 'reflect-metadata'
 import { app, shell, BrowserWindow, nativeTheme } from 'electron'
 import { electronApp, optimizer, is } from '@electron-toolkit/utils'
 import { AppDataSource } from './config/database'
-import { registerPedidoHandlers } from './ipc/pedidoshandlers'
+import { PedidoController } from './ipc/pedidoshandlers'
 import { registerItensPedidoHandlers } from './ipc/itenspedidoshandlers'
 import { alimentosController } from './ipc/alimentoshandlers'
 import icon from '../../resources/icon.png?asset'
 import path from 'path'
 import * as express from './config/express'
-
 
 if (process.env.NODE_ENV === 'development') {
   express.Express()
@@ -25,7 +24,7 @@ app.whenReady().then(async () => {
     }
 
     // Registrar os IPC handlers para comunicação com o preloader
-    registerPedidoHandlers()
+    PedidoController()
     registerItensPedidoHandlers()
     alimentosController()
 
