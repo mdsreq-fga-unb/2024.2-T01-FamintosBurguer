@@ -193,13 +193,13 @@ const Cardapio = (): JSX.Element => {
   return (
     <div className="flex w-screen h-screen bg-[#252836] text-white overflow-hidden">
       {/* SIDEBAR ESQUERDA */}
-      <div className="w-[100px] bg-[#1F1D2B] h-full">
+      <div className="w-[50px] h-full">
         {/* Conteúdo da sua sidebar esquerda, se existir */}
       </div>
 
       {/* CONTEÚDO PRINCIPAL */}
       <div className="flex-1 p-6 overflow-auto relative">
-        <h1 className="text-3xl font-bold mb-4">Famintos Burger</h1>
+        <h1 className="text-3xl font-bold mb-4">Famintos Burguer</h1>
         <hr className="border-t-2 border-[#393C49] mb-6" />
 
         {/* Botões de Categoria */}

@@ -11,7 +11,7 @@ const App = (): JSX.Element => (
   <Router>
     <div className="flex">
       <Sidebar />
-      <div className="flex-1 ml-[100px] p-4">
+      <div className="flex-1 ml-[100px]">
         {' '}
         {/* Ajuste de largura */}
         <Routes>
