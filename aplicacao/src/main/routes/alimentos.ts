@@ -1,4 +1,4 @@
-import  AlimentosService from '../service/alimentosService'
+import AlimentosService from '../service/alimentosService'
 import express from 'express'
 
 const router = express.Router()
@@ -13,7 +13,6 @@ router.get('/', async (_, res: express.Response) => {
     res.status(500).json({ error: 'Erro ao buscar pedidos' })
   }
 })
-
 
 router.post('/', async (req, res) => {
   try {

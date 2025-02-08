@@ -12,10 +12,25 @@ module.exports = class SyncDatabase1736868562070 {
       `CREATE TABLE "alimento" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" text NOT NULL, "tipo" text NOT NULL, "valor" integer NOT NULL, "observacao" text)`
     )
     await queryRunner.query(
-      `CREATE TABLE "itenspedido" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "quantidade" integer NOT NULL, "custom" boolean NOT NULL, "observacao" text NOT NULL, "pedidoId" integer, "alimentoId" integer)`
+      `CREATE TABLE "itenspedido" (
+        "id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+        "name" text NOT NULL,
+        "preco" decimal NOT NULL,
+        "quantidade" integer NOT NULL,
+        "observacao" text,
+        "pedidoId" integer,
+        CONSTRAINT "FK_pedido" FOREIGN KEY ("pedidoId") REFERENCES "pedido" ("id") ON DELETE CASCADE ON UPDATE NO ACTION
+      )`
     )
     await queryRunner.query(
-      `CREATE TABLE "pedido" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "cliente" text NOT NULL, "desconto" integer NOT NULL, "total" integer NOT NULL, "subtotal" integer NOT NULL, "data" date NOT NULL, "pagamento" text NOT NULL, "status" text NOT NULL)`
+      `CREATE TABLE "pedido" (
+        "id" integer PRIMARY KEY AUTOINCREMENT NOT NULL,
+        "cliente" text NOT NULL,
+        "total" integer NOT NULL,
+        "data" date NOT NULL,
+        "pagamento" text,
+        "status" text NOT NULL
+      )`
     )
     await queryRunner.query(
       `CREATE TABLE "temporary_ingredientesalimento" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "nome" text NOT NULL, "quantidade" integer NOT NULL, "valor" integer NOT NULL, "custom" boolean NOT NULL, "observacao" text NOT NULL, "alimentoId" integer, "ingredienteId" integer, "pedidoId" integer, CONSTRAINT "REL_91bed45d0ae9fe636309449b94" UNIQUE ("pedidoId"), CONSTRAINT "FK_42295708ca7054fdb9b1c9ef4f6" FOREIGN KEY ("alimentoId") REFERENCES "alimento" ("id") ON DELETE CASCADE ON UPDATE NO ACTION, CONSTRAINT "FK_0bf1250081890dcac7e8e760ef0" FOREIGN KEY ("ingredienteId") REFERENCES "ingredientes" ("id") ON DELETE CASCADE ON UPDATE NO ACTION, CONSTRAINT "FK_91bed45d0ae9fe636309449b94c" FOREIGN KEY ("pedidoId") REFERENCES "pedido" ("id") ON DELETE NO ACTION ON UPDATE NO ACTION)`
@@ -33,8 +48,6 @@ module.exports = class SyncDatabase1736868562070 {
     await queryRunner.query(
       `INSERT INTO "temporary_itenspedido"("id", "quantidade", "custom", "observacao", "pedidoId", "alimentoId") SELECT "id", "quantidade", "custom", "observacao", "pedidoId", "alimentoId" FROM "itenspedido"`
     )
-    await queryRunner.query(`DROP TABLE "itenspedido"`)
-    await queryRunner.query(`ALTER TABLE "temporary_itenspedido" RENAME TO "itenspedido"`)
     // Inserindo cardápio atual
     // Lanches
     await queryRunner.query(
@@ -111,47 +124,41 @@ module.exports = class SyncDatabase1736868562070 {
     await queryRunner.query(
       `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
       VALUES ('Alface', 'Adicional', 200, 'Folhas frescas de alface para deixar seu lanche mais leve')`
-    );
+    )
 
     await queryRunner.query(
       `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
       VALUES ('Hambúrguer', 'Adicional', 1000, 'Um hambúrguer extra para tornar seu lanche ainda mais suculento')`
-    );
+    )
 
     await queryRunner.query(
       `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
       VALUES ('Batata Palha', 'Adicional', 200, 'Batata palha crocante para um toque especial de sabor')`
-    );
+    )
 
     await queryRunner.query(
       `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
       VALUES ('Bacon', 'Adicional', 200, 'Fatias crocantes de bacon para dar um toque defumado')`
-    );
+    )
 
     await queryRunner.query(
       `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
       VALUES ('Queijo', 'Adicional', 200, 'Queijo adicional para mais cremosidade')`
-    );
+    )
 
     await queryRunner.query(
       `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
       VALUES ('Presunto', 'Adicional', 200, 'Fatias de presunto para incrementar o sabor')`
-    );
+    )
 
     await queryRunner.query(
       `INSERT INTO "alimento"("nome", "tipo", "valor", "observacao")
       VALUES ('Ovo', 'Adicional', 200, 'Ovo frito para deixar seu lanche ainda mais completo')`
-    );
-
+    )
   }
-
-  
 
   async down(queryRunner) {
     await queryRunner.query(`ALTER TABLE "itenspedido" RENAME TO "temporary_itenspedido"`)
-    await queryRunner.query(
-      `CREATE TABLE "itenspedido" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "quantidade" integer NOT NULL, "custom" boolean NOT NULL, "observacao" text NOT NULL, "pedidoId" integer, "alimentoId" integer)`
-    )
     await queryRunner.query(
       `INSERT INTO "itenspedido"("id", "quantidade", "custom", "observacao", "pedidoId", "alimentoId") SELECT "id", "quantidade", "custom", "observacao", "pedidoId", "alimentoId" FROM "temporary_itenspedido"`
     )

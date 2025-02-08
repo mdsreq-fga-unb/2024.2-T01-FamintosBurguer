@@ -45,7 +45,6 @@ router.get('/filtrar/maispedidos', async (_, res: express.Response) => {
   }
 })
 
-
 router.post('/', async (req, res) => {
   try {
     const pedido_itens = await pedidos_itens.cadastrarItensPedido(req.body)

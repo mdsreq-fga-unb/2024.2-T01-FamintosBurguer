@@ -7,19 +7,15 @@ import { Pedido } from '../main/entity/pedido'
 // Custom APIs for renderer
 const api = {
   // Pedido
-  cadastrarPedido: (pedidoData): Promise<Pedido> =>
-    ipcRenderer.invoke('cadastrar-pedido', pedidoData),
+  postPedido: (pedidoData): Promise<Pedido | Error> => ipcRenderer.invoke('postPedido', pedidoData),
   UpdatePedido: (id, pedidoData): Promise<Pedido> =>
     ipcRenderer.invoke('update-pedido', id, pedidoData),
-  deletePedido: (id): Promise<boolean> =>
-   ipcRenderer.invoke('delete-pedido', id),
-  getPedidos: (): Promise<Pedido[]> => 
-    ipcRenderer.invoke('get-pedidos'),
-  getPedidosId: (Id: any): Promise<Pedido[]> => 
-    ipcRenderer.invoke('get-pedidos-id', Id),
-  getPedidosStatus: (status: string): Promise<Pedido[]> => 
+  deletePedido: (id): Promise<boolean> => ipcRenderer.invoke('delete-pedido', id),
+  getPedidos: (): Promise<Pedido[]> => ipcRenderer.invoke('get-pedidos'),
+  getPedidosId: (Id): Promise<Pedido[]> => ipcRenderer.invoke('get-pedidos-id', Id),
+  getPedidosStatus: (status: string): Promise<Pedido[]> =>
     ipcRenderer.invoke('get-pedidos-status', status),
-  getPedidosData: (startDate, endDate): Promise<Pedido[]> => 
+  getPedidosData: (startDate, endDate): Promise<Pedido[]> =>
     ipcRenderer.invoke('get-pedidos-data', startDate, endDate),
 
   // Itens do Pedidos
@@ -27,20 +23,15 @@ const api = {
     ipcRenderer.invoke('cadastrar-itens-pedido', pedidoData),
   UpdateItensPedido: (id, pedidoData): Promise<Pedido> =>
     ipcRenderer.invoke('update-itens-pedido', id, pedidoData),
-  deleteItensPedido: (id): Promise<boolean> => 
-    ipcRenderer.invoke('delete-itens-pedido', id),
-  getItensPedidos: (): Promise<ItensPedido[]> =>
-    ipcRenderer.invoke('get-itens-pedidos'),
-  getItensMaisPedidos: (): Promise<ItensPedido[]> =>
-    ipcRenderer.invoke('get-itens-mais-pedidos'),
-  getItemIdPedidos: (id): Promise<ItensPedido[]> =>
-    ipcRenderer.invoke('get-item-id-pedidos', id),
+  deleteItensPedido: (id): Promise<boolean> => ipcRenderer.invoke('delete-itens-pedido', id),
+  getItensPedidos: (): Promise<ItensPedido[]> => ipcRenderer.invoke('get-itens-pedidos'),
+  getItensMaisPedidos: (): Promise<ItensPedido[]> => ipcRenderer.invoke('get-itens-mais-pedidos'),
+  getItemIdPedidos: (id): Promise<ItensPedido[]> => ipcRenderer.invoke('get-item-id-pedidos', id),
   getItensPedidoId: (pedidoId): Promise<ItensPedido[]> =>
     ipcRenderer.invoke('get-itens-pedido-id', pedidoId),
 
   // Alimentos
-  getAlimentos: (): Promise<Alimento[]> =>
-    ipcRenderer.invoke('getAlimentos')
+  getAlimentos: (): Promise<Alimento[]> => ipcRenderer.invoke('getAlimentos')
 }
 
 if (process.contextIsolated) {
