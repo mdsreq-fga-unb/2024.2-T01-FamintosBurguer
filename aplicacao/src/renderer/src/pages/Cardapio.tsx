@@ -157,6 +157,7 @@ const Cardapio = (): JSX.Element => {
       .postPedido(pedido)
       .then((response) => {
         console.log('Pedido cadastrado com sucesso:', response)
+        setSelectedItems([])
       })
       .catch((error) => {
         console.error('Erro ao cadastrar o pedido:', error)
