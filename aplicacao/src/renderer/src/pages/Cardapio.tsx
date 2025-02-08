@@ -280,7 +280,7 @@ const Cardapio = (): JSX.Element => {
         </div>
 
         {/* Botão "Adicionar" fixado */}
-        <div className="fixed bottom-6 left-[160px] z-10">
+        <div className="fixed bottom-6 left-[130px] z-10">
           <button
             onClick={handleAddItem}
             className="flex items-center gap-3 bg-[#ea7c69] text-white px-4 py-2 rounded-lg hover:bg-[#e55337] transition-all"
