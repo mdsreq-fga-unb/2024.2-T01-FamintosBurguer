@@ -1,171 +1,168 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import SideBarDireita from '../components/SideBarDireita';
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import SideBarDireita from '../components/SideBarDireita'
 
 // Tipo que representa seu alimento no banco (ajuste se necessário)
 interface Alimento {
-  id: number;
-  nome: string;
-  tipo: string;       // "Lanche", "Bebida", "Trio" ou "Adicional"
-  valor: number;      // Ex: 1300 significa 13.00
-  observacao: string; // Descrição
+  id: number
+  nome: string
+  tipo: string // "Lanche", "Bebida", "Trio" ou "Adicional"
+  valor: number // Ex: 1300 significa 13.00
+  observacao: string // Descrição
 }
 
 // Função para truncar a descrição
 function truncateDescription(description: string, maxLength: number): string {
-  if (description.length <= maxLength) return description;
-  return description.substring(0, maxLength).trim() + '...';
+  if (description.length <= maxLength) return description
+  return description.substring(0, maxLength).trim() + '...'
 }
 
 // Faz o “mapeamento” de "Lanche" -> 'lanches', "Bebida" -> 'bebidas', etc.
 function mapTipoToCategory(tipo: string): 'lanches' | 'bebidas' | 'trios' | 'adicionais' {
   switch (tipo.toLowerCase()) {
     case 'lanche':
-      return 'lanches';
+      return 'lanches'
     case 'bebida':
-      return 'bebidas';
+      return 'bebidas'
     case 'trio':
-      return 'trios';
+      return 'trios'
     case 'adicional':
-      return 'adicionais';
+      return 'adicionais'
     default:
-      return 'lanches'; // fallback
+      return 'lanches' // fallback
   }
 }
 
 const Cardapio = (): JSX.Element => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   // ============================
   // 1) ESTADO dos alimentos do banco
   // ============================
-  const [alimentos, setAlimentos] = useState<Alimento[]>([]);
+  const [alimentos, setAlimentos] = useState<Alimento[]>([])
 
   // ============================
   // 2) ESTADO para itens selecionados (carrinho)
   // ============================
-  const [selectedItems, setSelectedItems] = useState<{
-    id: number;
-    name: string;
-    price: string;
-    quantity: number;
-    observation: string;
-  }[]>([]);
+  const [selectedItems, setSelectedItems] = useState<
+    {
+      id: number
+      name: string
+      price: string
+      quantity: number
+      observation: string
+    }[]
+  >([])
 
   // ============================
   // 3) Pedido e categorias
   // ============================
-  const [pedidoId, setPedidoId] = useState<string>('');
-  const [orderStatus] = useState<string>('Pendente');
-  const [cliente, setCliente] = useState<string>('');
-  const [activeSection, setActiveSection] =
-    useState<'lanches' | 'bebidas' | 'trios' | 'adicionais'>('lanches');
+  const [pedidoId, setPedidoId] = useState<string>('')
+  const [orderStatus] = useState<string>('Pendente')
+  const [cliente, setCliente] = useState<string>('')
+  const [activeSection, setActiveSection] = useState<
+    'lanches' | 'bebidas' | 'trios' | 'adicionais'
+  >('lanches')
 
   // ============================
   // 4) EFEITOS
   // ============================
   useEffect(() => {
     // Gera um ID para o pedido na montagem
-    setPedidoId(generatePedidoId());
+    setPedidoId(generatePedidoId())
 
     // Busca alimentos do banco
     window.api
       .getAlimentos()
       .then((data) => {
-        console.log('Dados do banco:', data);
-        setAlimentos(data); // Armazena no estado
+        setAlimentos(data) // Armazena no estado
       })
       .catch((error) => {
-        console.error('Erro ao buscar alimentos:', error);
-      });
-  }, []);
+        console.error('Erro ao buscar alimentos:', error)
+      })
+  }, [])
 
   // ============================
   // 5) FUNÇÕES
   // ============================
   // Gera ID único de até 5 dígitos
   const generatePedidoId = (): string => {
-    return Math.floor(Math.random() * 100000).toString();
-  };
+    return Math.floor(Math.random() * 100000).toString()
+  }
 
   // Troca de categoria (ex: lanches, bebidas, trios, adicionais)
-  const handleSectionChange = (
-    section: 'lanches' | 'bebidas' | 'trios' | 'adicionais'
-  ): void => {
-    setActiveSection(section);
-  };
+  const handleSectionChange = (section: 'lanches' | 'bebidas' | 'trios' | 'adicionais'): void => {
+    setActiveSection(section)
+  }
 
   // Ir para o formulário de adicionar item
   const handleAddItem = (): void => {
-    navigate('/formulario');
-  };
+    navigate('/formulario')
+  }
 
   // Adicionar ou incrementar item no carrinho
-  const handleCardClick = (item: { id: number; name: string; price: string }) => {
+  const handleCardClick = (item: { id: number; name: string; price: string }): void => {
     setSelectedItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.id === item.id);
+      const existingItem = prevItems.find((i) => i.id === item.id)
       if (existingItem) {
         // Se já existe no carrinho, incrementa a quantidade
-        return prevItems.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-        );
+        return prevItems.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i))
       } else {
         // Se não existe, adiciona com quantity=1
-        return [...prevItems, { ...item, quantity: 1, observation: '' }];
+        return [...prevItems, { ...item, quantity: 1, observation: '' }]
       }
-    });
-  };
+    })
+  }
 
   const handleIncreaseQuantity = (id: number): void => {
     setSelectedItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
-  };
+      prevItems.map((item) => (item.id === id ? { ...item, quantity: item.quantity + 1 } : item))
+    )
+  }
 
   const handleDecreaseQuantity = (id: number): void => {
     setSelectedItems((prevItems) =>
       prevItems
-        .map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-        )
+        .map((item) => (item.id === id ? { ...item, quantity: item.quantity - 1 } : item))
         .filter((item) => item.quantity > 0)
-    );
-  };
+    )
+  }
 
   const handleRemoveItem = (id: number): void => {
-    setSelectedItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
+    setSelectedItems((prevItems) => prevItems.filter((item) => item.id !== id))
+  }
 
   const handleObservationChange = (id: number, observation: string): void => {
     setSelectedItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, observation } : item
-      )
-    );
-  };
+      prevItems.map((item) => (item.id === id ? { ...item, observation } : item))
+    )
+  }
 
   // Finaliza o pedido
   const handleFinalizeOrder = (): void => {
-    const dataAtual = new Date().toISOString().slice(0, 10);
+    const dataAtual = new Date().toISOString().slice(0, 10)
     const totalValue = selectedItems.reduce(
       (total, item) => total + parseFloat(item.price) * item.quantity,
       0
-    );
+    )
 
     const pedido = {
-      id: pedidoId,
       status: orderStatus,
       cliente,
       data: dataAtual,
       items: selectedItems,
-      total: totalValue.toFixed(2),
-    };
-
-    console.log('Pedido finalizado:', pedido);
+      total: Number(totalValue.toFixed(2))
+    }
+    window.api
+      .postPedido(pedido)
+      .then((response) => {
+        console.log('Pedido cadastrado com sucesso:', response)
+      })
+      .catch((error) => {
+        console.error('Erro ao cadastrar o pedido:', error)
+      })
     // Poderia enviar para a API, etc.
-  };
+  }
 
   // ============================
   // 6) FILTRO: Converte tipo -> category e filtra
@@ -173,11 +170,11 @@ const Cardapio = (): JSX.Element => {
   const filteredItems = alimentos
     .filter((item) => {
       // Mapeia ex: "Lanche" -> 'lanches'
-      const category = mapTipoToCategory(item.tipo);
-      return category === activeSection;
+      const category = mapTipoToCategory(item.tipo)
+      return category === activeSection
     })
     .map((item) => {
-      // Precisamos converter esse `item` do banco 
+      // Precisamos converter esse `item` do banco
       // para o formato usado no "cart" (name, price em string, etc.)
       return {
         // Tudo que for preciso no card:
@@ -185,9 +182,9 @@ const Cardapio = (): JSX.Element => {
         name: item.nome,
         // Convertendo item.valor (ex: 1300) em "13.00"
         price: (item.valor / 100).toFixed(2),
-        description: item.observacao,
-      };
-    });
+        description: item.observacao
+      }
+    })
 
   // ============================
   // 7) RENDER
@@ -258,21 +255,19 @@ const Cardapio = (): JSX.Element => {
               <div
                 key={item.id}
                 // Ao clicar, passamos o ID e PRICE em string para o carrinho
-                onClick={() => handleCardClick({
-                  id: item.id,
-                  name: item.name,
-                  price: item.price
-                })}
+                onClick={() =>
+                  handleCardClick({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price
+                  })
+                }
                 className="cursor-pointer bg-[#1F1D2B] p-4 rounded-2xl shadow-md hover:shadow-lg transition-all"
               >
-                <h3 className="text-center text-base font-normal mt-2">
-                  {item.name}
-                </h3>
-                
+                <h3 className="text-center text-base font-normal mt-2">{item.name}</h3>
+
                 {/* Preço (ex.: R$ 13.00) */}
-                <p className="text-center font-semibold mt-2">
-                  R$ {item.price}
-                </p>
+                <p className="text-center font-semibold mt-2">R$ {item.price}</p>
 
                 {/* Descrição truncada (observacao do DB) */}
                 <p className="text-center text-gray-400 mt-2">
@@ -310,7 +305,7 @@ const Cardapio = (): JSX.Element => {
         />
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Cardapio;
+export default Cardapio
