@@ -6,3 +6,4 @@ out
 build
 famintos.sqlite
 famintos-teste.sqlite
+package-lock.json

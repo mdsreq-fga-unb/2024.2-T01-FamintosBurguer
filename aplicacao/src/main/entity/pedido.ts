@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, OneToOne } from 'typeorm'
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
 import { ItensPedido } from './itenspedido'
-import { IngredientesAlimento } from './ingredientesalimento'
+
 @Entity('pedido')
 export class Pedido {
   @PrimaryGeneratedColumn()
@@ -10,13 +10,7 @@ export class Pedido {
   cliente: string
 
   @Column('integer')
-  desconto: number
-
-  @Column('integer')
   total: number
-
-  @Column('integer')
-  subtotal: number
 
   @Column('date')
   data: Date
@@ -28,8 +22,5 @@ export class Pedido {
   status: string
 
   @OneToMany(() => ItensPedido, (itenspedido) => itenspedido.pedido)
-  itenspedido: ItensPedido[]; // Relacionamento com a tabela `itenspedido`
-
-  @OneToOne(() => IngredientesAlimento, (ingredientesalimento) => ingredientesalimento.pedido)
-  ingredientesalimento: IngredientesAlimento; // Relacionamento com a tabela `ingredientesalimento`
+  itenspedido: ItensPedido[] // Relacionamento com a tabela `itenspedido`
 }

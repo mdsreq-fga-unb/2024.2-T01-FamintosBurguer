@@ -1,231 +1,312 @@
-import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import SideBarDireita from '../components/SideBarDireita';
+import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+import SideBarDireita from '../components/SideBarDireita'
+
+// Tipo que representa seu alimento no banco (ajuste se necessário)
+interface Alimento {
+  id: number
+  nome: string
+  tipo: string // "Lanche", "Bebida", "Trio" ou "Adicional"
+  valor: number // Ex: 1300 significa 13.00
+  observacao: string // Descrição
+}
+
+// Função para truncar a descrição
+function truncateDescription(description: string, maxLength: number): string {
+  if (description.length <= maxLength) return description
+  return description.substring(0, maxLength).trim() + '...'
+}
+
+// Faz o “mapeamento” de "Lanche" -> 'lanches', "Bebida" -> 'bebidas', etc.
+function mapTipoToCategory(tipo: string): 'lanches' | 'bebidas' | 'trios' | 'adicionais' {
+  switch (tipo.toLowerCase()) {
+    case 'lanche':
+      return 'lanches'
+    case 'bebida':
+      return 'bebidas'
+    case 'trio':
+      return 'trios'
+    case 'adicional':
+      return 'adicionais'
+    default:
+      return 'lanches' // fallback
+  }
+}
 
 const Cardapio = (): JSX.Element => {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
-  const [selectedItems, setSelectedItems] = useState<{
-    id: number;
-    name: string;
-    price: string;
-    quantity: number;
-    observation: string;
-  }[]>([]);
+  // ============================
+  // 1) ESTADO dos alimentos do banco
+  // ============================
+  const [alimentos, setAlimentos] = useState<Alimento[]>([])
 
-  const [pedidoId, setPedidoId] = useState<string>(''); // Estado para armazenar o ID do pedido
+  // ============================
+  // 2) ESTADO para itens selecionados (carrinho)
+  // ============================
+  const [selectedItems, setSelectedItems] = useState<
+    {
+      id: number
+      name: string
+      price: string
+      quantity: number
+      observation: string
+    }[]
+  >([])
 
-  // Função para gerar um ID único para o pedido com até 5 dígitos (entre 0 e 99999)
-  const generatePedidoId = (): string => {
-    return Math.floor(Math.random() * 100000).toString();
-  };
+  // ============================
+  // 3) Pedido e categorias
+  // ============================
+  const [pedidoId, setPedidoId] = useState<string>('')
+  const [orderStatus] = useState<string>('Pendente')
+  const [cliente, setCliente] = useState<string>('')
+  const [activeSection, setActiveSection] = useState<
+    'lanches' | 'bebidas' | 'trios' | 'adicionais'
+  >('lanches')
 
-  // Gera o ID do pedido ao montar o componente
+  // ============================
+  // 4) EFEITOS
+  // ============================
   useEffect(() => {
-    setPedidoId(generatePedidoId());
-  }, []);
+    // Gera um ID para o pedido na montagem
+    setPedidoId(generatePedidoId())
 
+    // Busca alimentos do banco
+    window.api
+      .getAlimentos()
+      .then((data) => {
+        setAlimentos(data) // Armazena no estado
+      })
+      .catch((error) => {
+        console.error('Erro ao buscar alimentos:', error)
+      })
+  }, [])
+
+  // ============================
+  // 5) FUNÇÕES
+  // ============================
+  // Gera ID único de até 5 dígitos
+  const generatePedidoId = (): string => {
+    return Math.floor(Math.random() * 100000).toString()
+  }
+
+  // Troca de categoria (ex: lanches, bebidas, trios, adicionais)
+  const handleSectionChange = (section: 'lanches' | 'bebidas' | 'trios' | 'adicionais'): void => {
+    setActiveSection(section)
+  }
+
+  // Ir para o formulário de adicionar item
   const handleAddItem = (): void => {
-    navigate('/formulario');
-  };
+    navigate('/formulario')
+  }
 
+  // Adicionar ou incrementar item no carrinho
   const handleCardClick = (item: { id: number; name: string; price: string }): void => {
     setSelectedItems((prevItems) => {
-      const existingItem = prevItems.find((i) => i.id === item.id);
-
+      const existingItem = prevItems.find((i) => i.id === item.id)
       if (existingItem) {
-        return prevItems.map((i) =>
-          i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
-        );
+        // Se já existe no carrinho, incrementa a quantidade
+        return prevItems.map((i) => (i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i))
       } else {
-        return [...prevItems, { ...item, quantity: 1, observation: '' }];
+        // Se não existe, adiciona com quantity=1
+        return [...prevItems, { ...item, quantity: 1, observation: '' }]
       }
-    });
-  };
+    })
+  }
 
   const handleIncreaseQuantity = (id: number): void => {
     setSelectedItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, quantity: item.quantity + 1 } : item
-      )
-    );
-  };
+      prevItems.map((item) => (item.id === id ? { ...item, quantity: item.quantity + 1 } : item))
+    )
+  }
 
   const handleDecreaseQuantity = (id: number): void => {
     setSelectedItems((prevItems) =>
       prevItems
-        .map((item) =>
-          item.id === id ? { ...item, quantity: item.quantity - 1 } : item
-        )
+        .map((item) => (item.id === id ? { ...item, quantity: item.quantity - 1 } : item))
         .filter((item) => item.quantity > 0)
-    );
-  };
+    )
+  }
 
   const handleRemoveItem = (id: number): void => {
-    setSelectedItems((prevItems) => prevItems.filter((item) => item.id !== id));
-  };
+    setSelectedItems((prevItems) => prevItems.filter((item) => item.id !== id))
+  }
 
   const handleObservationChange = (id: number, observation: string): void => {
     setSelectedItems((prevItems) =>
-      prevItems.map((item) =>
-        item.id === id ? { ...item, observation } : item
-      )
-    );
-  };
+      prevItems.map((item) => (item.id === id ? { ...item, observation } : item))
+    )
+  }
 
-  // Estado para controlar a seção ativa
-  const [activeSection, setActiveSection] = useState('lanches');
+  // Finaliza o pedido
+  const handleFinalizeOrder = (): void => {
+    const dataAtual = new Date().toISOString().slice(0, 10)
+    const totalValue = selectedItems.reduce(
+      (total, item) => total + parseFloat(item.price) * item.quantity,
+      0
+    )
 
-  // Função para alterar a seção ativa
-  const handleSectionChange = (section: string) => {
-    setActiveSection(section);
-  };
-/*
-  // Função para carregar os alimentos do banco
-  const loadMenuItems = async () => {
-    try {
-      const alimentos = await window.api.fetchAlimentos(); // Chama o método do preload
-      setMenuItems(alimentos);
-    } catch (error) {
-      console.error('Erro ao carregar itens do cardápio:', error);
+    const pedido = {
+      status: orderStatus,
+      cliente,
+      data: dataAtual,
+      items: selectedItems,
+      total: Number(totalValue.toFixed(2))
     }
-  };
+    window.api
+      .postPedido(pedido)
+      .then((response) => {
+        console.log('Pedido cadastrado com sucesso:', response)
+        setSelectedItems([])
+      })
+      .catch((error) => {
+        console.error('Erro ao cadastrar o pedido:', error)
+      })
+    // Poderia enviar para a API, etc.
+  }
 
-  // Carrega os itens ao montar o componente
-  useEffect(() => {
-    loadMenuItems();
-  }, []);
+  // ============================
+  // 6) FILTRO: Converte tipo -> category e filtra
+  // ============================
+  const filteredItems = alimentos
+    .filter((item) => {
+      // Mapeia ex: "Lanche" -> 'lanches'
+      const category = mapTipoToCategory(item.tipo)
+      return category === activeSection
+    })
+    .map((item) => {
+      // Precisamos converter esse `item` do banco
+      // para o formato usado no "cart" (name, price em string, etc.)
+      return {
+        // Tudo que for preciso no card:
+        id: item.id,
+        name: item.nome,
+        // Convertendo item.valor (ex: 1300) em "13.00"
+        price: (item.valor / 100).toFixed(2),
+        description: item.observacao
+      }
+    })
 
-  // Função para filtrar itens por categoria (simulada para o exemplo)
-  const renderItems = () => {
-    return menuItems.filter((item) => item.categoria === activeSection); // Adapte conforme suas categorias
-  };
-  */
-  // Itens do cardápio
-  const lanches = [
-    { id: 1, name: 'X-Burguer', price: 'R$ 13,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
-    { id: 2, name: 'X-Salada', price: 'R$ 15,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
-    { id: 3, name: 'X-Egg', price: 'R$ 17,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
-    { id: 4, name: 'X-Bacon', price: 'R$ 18,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
-    { id: 5, name: 'X-Tudo', price: 'R$ 20,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
-    { id: 6, name: 'X-Famintos', price: 'R$ 28,00', description: 'Hambúrguer, queijo, presunto e batata palha' },
-  ];
-
-  const bebidas = [
-    { id: 1, name: 'Coca-Cola', price: 'R$ 5,00', description: 'Refrigerante clássico' },
-    { id: 2, name: 'Guaraná Antártica', price: 'R$ 5,00', description: 'Refrigerante tradicional' },
-    { id: 3, name: 'Suco de Laranja', price: 'R$ 6,00', description: 'Suco natural de laranja' },
-  ];
-
-  const combos = [
-    { id: 1, name: 'Combo X-Burguer + Refrigerante', price: 'R$ 18,00', description: 'Combo com X-Burguer e refrigerante' },
-    { id: 2, name: 'Combo X-Tudo + Suco', price: 'R$ 22,00', description: 'Combo com X-Tudo e suco' },
-  ];
-
-  const especiais = [
-    { id: 1, name: 'X-Famintos Especial', price: 'R$ 30,00', description: 'Hambúrguer especial com molho secreto' },
-    { id: 2, name: 'X-Bacon Deluxe', price: 'R$ 25,00', description: 'Hambúrguer com bacon e cheddar' },
-  ];
-
-  // Função para renderizar os itens da seção ativa
-  const renderItems = () => {
-    switch (activeSection) {
-      case 'lanches':
-        return lanches;
-      case 'bebidas':
-        return bebidas;
-      case 'combos':
-        return combos;
-      case 'especiais':
-        return especiais;
-      default:
-        return lanches;
-    }
-  };
-
+  // ============================
+  // 7) RENDER
+  // ============================
   return (
-    <div className="flex w-full h-full pt-16">
-      {/* Ajuste para 2/3 da tela para o cardápio */}
-      <div className="w-2/3">
-        {/* Ajuste do header fixo para não invadir a sidebar de 1/3 */}
-        <div className="fixed top-0 left-64 w-[calc(67%-16rem)] shadow-md flex justify-between items-center px-6 py-4 z-10">
-          <h1 className="text-3xl font-bold text-white">Cardápio</h1>
+    <div className="flex w-screen h-screen bg-[#252836] text-white overflow-hidden">
+      {/* SIDEBAR ESQUERDA */}
+      <div className="w-[50px] h-full">
+        {/* Conteúdo da sua sidebar esquerda, se existir */}
+      </div>
+
+      {/* CONTEÚDO PRINCIPAL */}
+      <div className="flex-1 p-6 overflow-auto relative">
+        <h1 className="text-3xl font-bold mb-4">Famintos Burguer</h1>
+        <hr className="border-t-2 border-[#393C49] mb-6" />
+
+        {/* Botões de Categoria */}
+        <div className="flex gap-6 mb-6">
           <button
-            onClick={handleAddItem}
-            className="flex items-center justify-center gap-2 bg-purple-700 text-white px-4 py-2 rounded-lg shadow hover:bg-purple-800 transition-all"
+            onClick={() => handleSectionChange('lanches')}
+            className={`py-2 px-4 rounded font-semibold transition-all ${
+              activeSection === 'lanches'
+                ? 'bg-[#ea7c69] text-white'
+                : 'bg-transparent text-white hover:text-[#ea7c69]'
+            }`}
           >
-            <span className="text-xl">+</span>
-            <span>Adicionar</span>
+            Lanches
+          </button>
+          <button
+            onClick={() => handleSectionChange('bebidas')}
+            className={`py-2 px-4 rounded font-semibold transition-all ${
+              activeSection === 'bebidas'
+                ? 'bg-[#ea7c69] text-white'
+                : 'bg-transparent text-white hover:text-[#ea7c69]'
+            }`}
+          >
+            Bebidas
+          </button>
+          <button
+            onClick={() => handleSectionChange('trios')}
+            className={`py-2 px-4 rounded font-semibold transition-all ${
+              activeSection === 'trios'
+                ? 'bg-[#ea7c69] text-white'
+                : 'bg-transparent text-white hover:text-[#ea7c69]'
+            }`}
+          >
+            Trios
+          </button>
+          <button
+            onClick={() => handleSectionChange('adicionais')}
+            className={`py-2 px-4 rounded font-semibold transition-all ${
+              activeSection === 'adicionais'
+                ? 'bg-[#ea7c69] text-white'
+                : 'bg-transparent text-white hover:text-[#ea7c69]'
+            }`}
+          >
+            Adicionais
           </button>
         </div>
 
-        <div
-          className="mt-24 px-6 overflow-y-auto pb-20"
-          style={{ height: `calc(100vh - 6rem - 1rem)` }}
-        >
-          <div className="flex justify-around mb-6">
-            <button
-              className="text-white font-semibold py-2 px-4 rounded hover:text-[#ea7c69]"
-              onClick={() => handleSectionChange('lanches')}
-            >
-              Lanches
-            </button>
-            <button
-              className="text-white font-semibold py-2 px-4 rounded hover:text-[#ea7c69]"
-              onClick={() => handleSectionChange('bebidas')}
-            >
-              Bebidas
-            </button>
-            <button
-              className="text-white font-semibold py-2 px-4 rounded hover:text-[#ea7c69]"
-              onClick={() => handleSectionChange('combos')}
-            >
-              Combos
-            </button>
-            <button
-              className="text-white font-semibold py-2 px-4 rounded hover:text-[#ea7c69]"
-              onClick={() => handleSectionChange('especiais')}
-            >
-              Especiais
-            </button>
-          </div>
+        {/* Título da seção */}
+        <h2 className="text-2xl font-bold mb-4 capitalize">{activeSection}</h2>
 
-          <div className="mt-2 mb-6">
-            <hr className="border-t-2 border-[#393C49]" />
-          </div>
-
-          <h2 className="text-800 font-bold text-white mb-6">
-            {activeSection.charAt(0).toUpperCase() + activeSection.slice(1)}
-          </h2>
-
+        {/* GRID DE CARDS */}
+        <div className="pr-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {renderItems().map((item) => (
+            {filteredItems.map((item) => (
               <div
                 key={item.id}
-                onClick={() => handleCardClick(item)}
-                className="bg-white shadow-md rounded-lg p-4 hover:shadow-lg transition-shadow cursor-pointer"
+                // Ao clicar, passamos o ID e PRICE em string para o carrinho
+                onClick={() =>
+                  handleCardClick({
+                    id: item.id,
+                    name: item.name,
+                    price: item.price
+                  })
+                }
+                className="cursor-pointer bg-[#1F1D2B] p-4 rounded-2xl shadow-md hover:shadow-lg transition-all"
               >
-                <h2 className="text-xl font-bold text-gray-800">{item.name}</h2>
-                <p className="text-gray-600 mt-2">{item.description}</p>
-                <p className="text-purple-700 font-semibold mt-4">
-                  R$ {item.price}
+                <h3 className="text-center text-base font-normal mt-2">{item.name}</h3>
+
+                {/* Preço (ex.: R$ 13.00) */}
+                <p className="text-center font-semibold mt-2">R$ {item.price}</p>
+
+                {/* Descrição truncada (observacao do DB) */}
+                <p className="text-center text-gray-400 mt-2">
+                  {truncateDescription(item.description, 50)}
                 </p>
               </div>
             ))}
           </div>
         </div>
+
+        {/* Botão "Adicionar" fixado */}
+        <div className="fixed bottom-6 left-[130px] z-10">
+          <button
+            onClick={handleAddItem}
+            className="flex items-center gap-3 bg-[#ea7c69] text-white px-4 py-2 rounded-lg hover:bg-[#e55337] transition-all"
+          >
+            <span className="text-xl">+</span>
+            <span>Adicionar</span>
+          </button>
+        </div>
       </div>
 
-      <SideBarDireita
-        selectedItems={selectedItems}
-        handleIncreaseQuantity={handleIncreaseQuantity}
-        handleDecreaseQuantity={handleDecreaseQuantity}
-        handleRemoveItem={handleRemoveItem}
-        handleObservationChange={handleObservationChange}
-        pedidoId={pedidoId} // Passando o ID do pedido como prop
-      />
+      {/* SIDEBAR DIREITA (carrinho) */}
+      <div className="w-1/3 bg-[#1F1D2B] h-full overflow-auto">
+        <SideBarDireita
+          selectedItems={selectedItems}
+          handleIncreaseQuantity={handleIncreaseQuantity}
+          handleDecreaseQuantity={handleDecreaseQuantity}
+          handleRemoveItem={handleRemoveItem}
+          handleObservationChange={handleObservationChange}
+          pedidoId={pedidoId}
+          onFinalizeOrder={handleFinalizeOrder}
+          cliente={cliente}
+          onClienteChange={setCliente}
+        />
+      </div>
     </div>
-  );
-};
+  )
+}
 
-export default Cardapio;
+export default Cardapio

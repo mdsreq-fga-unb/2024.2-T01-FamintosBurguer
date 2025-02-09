@@ -88,11 +88,21 @@ const Historico: React.FC = () => (
             className="bg-[#252836] text-white outline-none w-full px-2 py-1 rounded-md"
             onChange={(e) => console.log(e.target.value)}
           >
-            <option className="bg-[#252836] text-white" value="Hoje">Hoje</option>
-            <option className="bg-[#252836] text-white" value="Semana">Semana</option>
-            <option className="bg-[#252836] text-white" value="Mês">Mês</option>
-            <option className="bg-[#252836] text-white" value="Ano">Ano</option>
-            <option className="bg-[#252836] text-white" value="Todos">Todos</option>
+            <option className="bg-[#252836] text-white" value="Hoje">
+              Hoje
+            </option>
+            <option className="bg-[#252836] text-white" value="Semana">
+              Semana
+            </option>
+            <option className="bg-[#252836] text-white" value="Mês">
+              Mês
+            </option>
+            <option className="bg-[#252836] text-white" value="Ano">
+              Ano
+            </option>
+            <option className="bg-[#252836] text-white" value="Todos">
+              Todos
+            </option>
           </select>
         </div>
       </div>

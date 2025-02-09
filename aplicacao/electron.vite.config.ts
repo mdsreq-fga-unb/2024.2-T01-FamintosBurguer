@@ -14,8 +14,8 @@ export default defineConfig({
     define: {
       'process.platform': JSON.stringify(process.platform)
     },
-    css:{
-      postcss:{
+    css: {
+      postcss: {
         plugins: [
           tailwindcss({
             config: './src/renderer/tailwind.config.js'

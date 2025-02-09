@@ -1,6 +1,7 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm'
-import { IngredientesAlimento } from './ingredientesalimento'
-import { ItensPedido } from './itenspedido'
+import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm'
+// import { IngredientesAlimento } from './ingredientesalimento'
+// import { ItensPedido } from './itenspedido'
+
 @Entity('alimento')
 export class Alimento {
   @PrimaryGeneratedColumn()
@@ -17,10 +18,4 @@ export class Alimento {
 
   @Column('text', { nullable: true })
   observacao: string
-
-  @OneToMany(() => IngredientesAlimento, (ingredientesalimento) => ingredientesalimento.alimento)
-  ingredientesalimento: IngredientesAlimento[]
-
-  @OneToMany(() => ItensPedido, (itenspedido) => itenspedido.alimento)
-  itenspedido: ItensPedido[]
 }
