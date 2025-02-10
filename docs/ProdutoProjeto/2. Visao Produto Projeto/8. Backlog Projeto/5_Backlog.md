@@ -80,6 +80,7 @@ ________________________________________________________________________________
 | T-02     | E-04      | US-15          | Rastrear pedidos por cliente.                              | P = 2,08 (Alta)      |
 | T-02     | E-04      | US-16          | Consultar histórico de pedidos realizados.                 | P = 1,92 (Alta)      |
 | T-02     | E-04      | US-17          | Filtrar histórico de pedidos por período.                  | P = 1,23 (Moderada)  |
+| T-01     | E-02      | US-18          | Filtrar Cardápio por setores                               | P = 2,50 (Alta)      |
 
 ___________________________________________________________________________________
 
@@ -87,10 +88,10 @@ ________________________________________________________________________________
 
 | **User Story** | **Descrição**                                                                         | U | R | P | S | + | **Prioridade**     |
 |----------------|---------------------------------------------------------------------------------------|---|---|---|---|---|--------------------|
-| US-18          | Atualizar dados automaticamente em tempo real.                                        | 5 | 4 | 5 | 5 | -4| P = 1,5 (Alta)     |
-| US-19          | Garantir compatibilidade com a impressora Epson utilizadas pela empresa.              | 4 | 5 | 4 | 3 | -3| P = 1,3 (Moderada) |
-| US-20          | Suportar uma quantidade de 200 clientes e pedidos cadastrados sem perda de desempenho | 5 | 4 | 5 | 5 | -4| P = 1,5 (Alta)     |
-| US-21          | Garantir funcionamento no sistema Windows 10 e 11.                                    | 5 | 3 | 4 | 4 | -2| P = 1,4 (Moderada) |
+| US-19          | Atualizar dados automaticamente em tempo real.                                        | 5 | 4 | 5 | 5 | -4| P = 1,5 (Alta)     |
+| US-20          | Garantir compatibilidade com a impressora Epson utilizadas pela empresa.              | 4 | 5 | 4 | 3 | -3| P = 1,3 (Moderada) |
+| US-21          | Suportar uma quantidade de 200 clientes e pedidos cadastrados sem perda de desempenho | 5 | 4 | 5 | 5 | -4| P = 1,5 (Alta)     |
+| US-22          | Garantir funcionamento no sistema Windows 10 e 11.                                    | 5 | 3 | 4 | 4 | -2| P = 1,4 (Moderada) |
 
 ___________________________________________________________________________________
 
@@ -115,6 +116,8 @@ ________________________________________________________________________________
 | US-15          | 5                     | 5                              | 5                         | 5                            | 5                        | 25                 |
 | US-16          | 5                     | 5                              | 5                         | 5                            | 5                        | 25                 |
 | US-17          | 4                     | 4                              | 5                         | 4                            | 4                        | 21                 |
+| US-18          | 5                     | 5                              | 5                         | 5                            | 5                        | 25                 |
+
 
 ___________________________________________________________________________________
 
@@ -139,6 +142,7 @@ ________________________________________________________________________________
 | US-15          | 2                    | 3                         | 4                         | 2                        | 1                        | 12                      |
 | US-16          | 4                    | 2                         | 4                         | 2                        | 1                        | 12                      |
 | US-17          | 4                    | 4                         | 4                         | 4                        | 1                        | 17                      |
+| US-18          | 3                    | 2                         | 2                         | 2                        | 1                        | 10                      |
 
 _________________________________________________________________________________
 
@@ -163,5 +167,6 @@ ________________________________________________________________________________
 | US-15          | Rastrear pedidos por cliente                                                          | 25                 | 12                      | P = 2,08       |
 | US-16          | Consultar histórico de pedidos realizados                                             | 25                 | 12                      | P = 2,08       |
 | US-17          | Filtrar histórico de pedidos por período                                              | 21                 | 17                      | P = 1,23       |
+| US-18          | Filtrar Cardápio por setores                                                          | 25                 | 10                      | P = 2,50       |
 
-___________________________________________________________________________________
+__________________________________________________________________________________

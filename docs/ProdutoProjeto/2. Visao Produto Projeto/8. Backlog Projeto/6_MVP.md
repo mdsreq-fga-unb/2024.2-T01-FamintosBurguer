@@ -25,21 +25,22 @@ ________________________________________________________________________________
 
 ### 8.6.2. MVP
 
-| User Stories | Descrição                                                                 | Prioridade Calculada | Incluso no MVP? |
+| User Stories | Descrição                                                                 | Prioridade Calculada  |  Incluso no MVP? |
 |--------------|---------------------------------------------------------------------------|-----------------------|------------------|
-| **US-1**     | Como atendente, eu quero visualizar o cardápio completo para conhecer todas as opções disponíveis. | P = 2,2 (Alta)  | Sim |
-| **US-15**    | Como atendente, eu quero rastrear pedidos por cliente para compreender melhor seus hábitos de consumo. | P = 2,08 (Alta) | Sim |
-| **US-16**    | Como atendente, eu quero consultar o histórico de pedidos realizados para fins de análise e acompanhamento. | P = 1,92 (Alta) | Sim |
-| **US-09**    | Como atendente, eu quero indicar o status de pagamento do pedido para acompanhar o fluxo financeiro. | P = 1,78 (Alta) | Sim |
-| **US-3**     | Como atendente, eu quero acessar informações detalhadas dos lanches para tomar decisões baseadas nas preferências ou restrições alimentares dos clientes. | P = 1,69 (Alta) | Sim |
-| **US-11**    | Como atendente, eu quero criar hambúrgueres personalizados para adaptar os ingredientes às preferências do cliente. | P = 1,66 (Alta) | Sim |
-| **US-2**     | Como atendente, eu quero ver os lanches mais pedidos para escolher as opções populares. | P = 1,6 (Alta) | Sim |
-| **US-4**     | Como atendente, eu quero cadastrar lanches e ingredientes no cardápio para gerenciar as opções disponíveis aos clientes. | P = 1,56 (Alta) | Sim |
-| **US-5**     | Como atendente, eu quero editar lanches cadastrados para corrigir ou alterar informações conforme necessidade. | P = 1,5 (Alta) | Sim |
-| **US-12**    | Como atendente, eu quero imprimir comandas detalhadas para facilitar o preparo dos pedidos na cozinha. | P = 1,47 (Moderada) | Sim |
-| **US-10**    | Como atendente, eu quero personalizar lanches conforme minhas preferências para criar uma experiência única. | P = 1,35 (Moderada) | Sim |
-| **US-7**     | Como atendente, eu quero consultar pedidos em tempo real para acompanhar o status de preparação e entrega. | P = 1,26 (Moderada) | Sim |
-| **US-17**    | Como atendente, eu quero filtrar o histórico de pedidos por período para realizar análises específicas. | P = 1,23 (Moderada) | Sim |
+|**US-18**    |Como atendente, eu quero visualizar o cardápio por setores entre lanches, bebidas, trios e adicionais para conhecer todas as opções disponíveis.   | P = 2,50 (Alta)  | sim |
+| **US-1**     | Como atendente, eu quero visualizar o cardápio completo para conhecer todas as opções disponíveis. | P = 2,2 (Alta)  | Sim | 
+| **US-15**    | Como atendente, eu quero rastrear pedidos por cliente para compreender melhor seus hábitos de consumo. | P = 2,08 (Alta) | Sim | 
+| **US-16**    | Como atendente, eu quero consultar o histórico de pedidos realizados para fins de análise e acompanhamento. | P = 1,92 (Alta) | Sim | 
+| **US-09**    | Como atendente, eu quero indicar o status de pagamento do pedido para acompanhar o fluxo financeiro. | P = 1,78 (Alta) | Sim | 
+| **US-3**     | Como atendente, eu quero acessar informações detalhadas dos lanches para tomar decisões baseadas nas preferências ou restrições alimentares dos clientes. | P = 1,69 (Alta) | Sim | 
+| **US-11**    | Como atendente, eu quero criar hambúrgueres personalizados para adaptar os ingredientes às preferências do cliente. | P = 1,66 (Alta) | Não | 
+| **US-2**     | Como atendente, eu quero ver os lanches mais pedidos para escolher as opções populares. | P = 1,6 (Alta) | Não | 
+| **US-4**     | Como atendente, eu quero cadastrar lanches e ingredientes no cardápio para gerenciar as opções disponíveis aos clientes. | P = 1,56 (Alta) | Não | 
+| **US-5**     | Como atendente, eu quero editar lanches cadastrados para corrigir ou alterar informações conforme necessidade. | P = 1,5 (Alta) | Não | 
+| **US-12**    | Como atendente, eu quero imprimir comandas detalhadas para facilitar o preparo dos pedidos na cozinha. | P = 1,47 (Moderada) | Não | 
+| **US-10**    | Como atendente, eu quero personalizar lanches conforme minhas preferências para criar uma experiência única. | P = 1,35 (Moderada) | Sim | 
+| **US-7**     | Como atendente, eu quero consultar pedidos em tempo real para acompanhar o status de preparação e entrega. | P = 1,26 (Moderada) | Não | 
+| **US-17**    | Como atendente, eu quero filtrar o histórico de pedidos por período para realizar análises específicas. | P = 1,23 (Moderada) | Sim | 
 | **US-8**     | Como atendente, eu quero cancelar pedidos registrados para corrigir erros ou atender solicitações dos clientes. | P = 0,83 (Baixa) | Não |
 | **US-13**    | Como atendente, eu quero criar combos personalizados para oferecer opções combinadas aos clientes. | P = 0,66 (Baixa) | Não |
 | **US-6**     | Como atendente, eu quero remover lanches e ingredientes do cardápio para manter o cardápio atualizado. | P = 0,62 (Baixa) | Não |

@@ -12,6 +12,7 @@ nav:
       - ProdutoProjeto/1. Videos Apresentação/1_video.md
       - ProdutoProjeto/1. Videos Apresentação/2_video.md
       - ProdutoProjeto/1. Videos Apresentação/3_video.md
+      - ProdutoProjeto/1. Videos Apresentação/4_video.md
     - 2. Visao Produto Projeto:
         - 1. Cenário Atual Do Cliente e Do Negócio: ProdutoProjeto/2. Visao Produto Projeto/1_Cenário.md
         - 2. Solução Proposta: ProdutoProjeto/2. Visao Produto Projeto/2_Solucao.md
@@ -32,10 +33,12 @@ nav:
         - 9. Referências Bibliográficas: ProdutoProjeto/2. Visao Produto Projeto/9_Referências.md
     - 3. Protótipo de Produto: ProdutoProjeto/Prototipo.md
     - 4. Estudos de caso:    
-        - PBB: 'ProdutoProjeto/Estudo de caso/PBB.md'
-        - USM: 'ProdutoProjeto/Estudo de caso/USM.md'
+        - Product Backlog Building: 'ProdutoProjeto/Estudo de caso/PBB.md'
+        - User Story Mapping: 'ProdutoProjeto/Estudo de caso/USM.md'
         - Diagrama de Casos de Uso: 'ProdutoProjeto/Estudo de caso/DCU.md'
-        - Especificações Casos de Uso: 'ProdutoProjeto/Estudo de caso/ECU.md'
+        - Especificações Casos de Uso:
+          - ProdutoProjeto/Estudo de caso/ECU/AgendarConsulta.md
+          - ProdutoProjeto/Estudo de caso/ECU/BuscarServicoSaude.md
     - 5. Lições Aprendidas: ProdutoProjeto/Lições.md
   - Atas Reuniões: Atas
 

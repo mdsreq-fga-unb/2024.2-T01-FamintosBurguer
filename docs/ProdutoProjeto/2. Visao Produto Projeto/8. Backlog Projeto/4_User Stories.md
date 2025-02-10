@@ -33,6 +33,7 @@ ________________________________________________________________________________
 |   E-07  | US-14  |Como atendente, eu quero gerenciar promoções com validade para atrair mais clientes em períodos específicos.                                         |
 |   E-04  | US-15  |Como atendente, eu quero rastrear pedidos por cliente para compreender melhor seus hábitos de consumo.                                               |
 |   E-04  | US-16  |Como atendente, eu quero consultar o histórico de pedidos realizados para fins de análise e acompanhamento.                                          |
-|   E-04  | US-17  |Como atendente, eu quero filtrar o histórico de pedidos por período para realizar análises específicas.                                              |
+|   E-04  | US-17  |Como atendente, eu quero filtrar o histórico de pedidos por período para realizar análises específicas.    
+|   E-02  | US-18   |Como atendente, eu quero visualizar o cardápio por setores entre lanches, bebidas, trios e adicionais para conhecer todas as opções disponíveis.                                           |
 
 ___________________________________________________________________________________
