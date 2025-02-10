@@ -22,13 +22,13 @@ ________________________________________________________________________________
 
 _______________________________
 
-## Personas
-
-### Paciente
-Indivíduo que utiliza a plataforma ConnectCare para acessar serviços de saúde, como agendamento de consultas, localização de unidades de saúde e participação em campanhas comunitárias. Pode ser um morador de comunidades vulneráveis, como a Vila Esperança, que busca atendimento médico de forma rápida e eficiente, mesmo com limitações de infraestrutura e transporte.
+## Personas do Diagrama de Casos de Uso
 
 ### Profissional de Saúde
 Médicos, enfermeiros ou outros especialistas que utilizam a ConnectCare para gerenciar atendimentos, acessar prontuários digitais dos pacientes e atualizar informações médicas em tempo real. Eles garantem um atendimento mais preciso e eficiente, aproveitando os dados disponíveis na plataforma.
+
+### Paciente
+Indivíduo que utiliza a plataforma ConnectCare para acessar serviços de saúde, como agendamento de consultas, localização de unidades de saúde e participação em campanhas comunitárias. Pode ser um morador de comunidades vulneráveis, como a Vila Esperança, que busca atendimento médico de forma rápida e eficiente, mesmo com limitações de infraestrutura e transporte.
 
 ### Administrador do Sistema
 Responsável pela manutenção e operação da ConnectCare. Monitora indicadores de desempenho, corrige problemas técnicos, garante a segurança dos dados e realiza ajustes no sistema, como integração de novos serviços ou atualizações de informações. Também assegura a conformidade com regulamentações de proteção de dados.
