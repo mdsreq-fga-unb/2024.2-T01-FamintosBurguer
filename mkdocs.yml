@@ -39,6 +39,7 @@ nav:
         - Especificações Casos de Uso:
           - ProdutoProjeto/Estudo de caso/ECU/AgendarConsulta.md
           - ProdutoProjeto/Estudo de caso/ECU/BuscarServicoSaude.md
+          - ProdutoProjeto/Estudo de caso/ECU/AvaliarAtendimento.md
     - 5. Lições Aprendidas: ProdutoProjeto/Lições.md
   - Atas Reuniões: Atas
 
