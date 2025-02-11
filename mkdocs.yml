@@ -40,6 +40,7 @@ nav:
           - ProdutoProjeto/Estudo de caso/ECU/AgendarConsulta.md
           - ProdutoProjeto/Estudo de caso/ECU/BuscarServicoSaude.md
           - ProdutoProjeto/Estudo de caso/ECU/AvaliarAtendimento.md
+          - ProdutoProjeto/Estudo de caso/ECU/AtualizarProntuario.md
     - 5. Lições Aprendidas: ProdutoProjeto/Lições.md
   - Atas Reuniões: Atas
 
