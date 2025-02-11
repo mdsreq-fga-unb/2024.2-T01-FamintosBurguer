@@ -15,7 +15,8 @@
     "typecheck": "npm run typecheck:node && npm run typecheck:web",
     "start": "electron-vite preview",
     "dev": "npm run typeorm:run && electron-vite dev",
-    "build": "electron-builder",
+    "build": "electron-vite build",
+    "deploy": "electron-builder",
     "postinstall": "electron-builder install-app-deps",
     "build:unpack": "npm run build && electron-builder --dir",
     "build:win": "npm run build && electron-builder --win",
@@ -72,7 +73,8 @@
     "appId": "com.famintosburguer.app",
     "productName": "Famintos Burguer",
     "win": {
-      "target": "nsis"
+      "target": "nsis",
+      "sign": false
     },
     "mac": {
       "target": "dmg"
