@@ -6,6 +6,12 @@
 
 Bem vindo ao Repositório para apresentação do projeto **Famintos Burguer** realizado pelo grupo **Burger Code** da matéria de **Requisitos de Software** da Unb.
 
+
+## Download
+
+- **Link para download do Famintos Burguer versão linux:** [Drive do arquivo](https://drive.google.com/file/d/1ypfJjDPsE2iXvqTqQyfOAZVO3jgSBbUE/view?usp=sharing)
+
+
 ## 👥 Equipe
 
 Somos formados por 5 estudandates do curso de Engenharia de Software, Conheça a equipe de desenvolvimento abaixo:
