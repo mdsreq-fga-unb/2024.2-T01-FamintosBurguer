@@ -48,14 +48,13 @@ O caso de uso "Agendar Consulta" permite que o Paciente marque uma consulta méd
 
 ## Fluxo Básico de Eventos
 
-1. O caso de uso é iniciado quando o Paciente tenta fazer o agendamento de uma consulta.
-2. O Paciente seleciona a opção de "Agendar consulta".
-3. O sistema verifica se o paciente está cadastrado.
-4. O Paciente seleciona um profissional e um horário desejado.
-5. O sistema verifica se o horário está disponível e se os dados estão completos.
-6. O Paciente confirma o agendamento.
-7. O sistema registra o agendamento e exibe a confirmação.
-8. O fluxo é encerrado com sucesso.
+1. O Paciente seleciona a opção de "Agendar consulta".
+2. O sistema verifica se o paciente está cadastrado.
+3. O Paciente seleciona um profissional e um horário desejado.
+4. O sistema verifica se o horário está disponível e se os dados estão completos.
+5. O Paciente confirma o agendamento.
+6. O sistema registra o agendamento e exibe a confirmação.
+7. O fluxo é encerrado com sucesso.
 
 ---
 
@@ -64,7 +63,7 @@ O caso de uso "Agendar Consulta" permite que o Paciente marque uma consulta méd
 ### FA1 - Paciente não cadastrado
 1. O sistema detecta que o paciente não está cadastrado.
 2. O sistema solicita que o paciente realize o cadastro antes de continuar.
-3. O paciente se cadastra e retorna ao fluxo principal no passo 4.
+3. O paciente se cadastra e retorna ao fluxo principal no passo 3.
 
 ### FA2 - Horário indisponível
 1. O sistema detecta que o horário já está ocupado.
@@ -92,9 +91,6 @@ O caso de uso "Agendar Consulta" permite que o Paciente marque uma consulta méd
 1. Ocorre quando o paciente não seleciona um horário dentro do tempo esperado.
 2. O sistema cancela a operação e exibe uma mensagem de aviso.
 
-### FE3 - Dados incompletos ou inválidos
-1. Ocorre quando o paciente fornece informações incorretas ou incompletas ao tentar agendar uma consulta.
-2. O sistema solicita que o paciente corrija os dados antes de prosseguir.
 
 ---
 
