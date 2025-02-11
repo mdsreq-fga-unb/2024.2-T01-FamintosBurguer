@@ -72,3 +72,28 @@ O USM foi outra técnica central abordada, proporcionando uma visão visual do p
 A combinação de PBB e USM na Unidade 3 trouxe uma nova perspectiva sobre a importância de uma abordagem organizada e centrada no usuário para a construção de produtos. A aplicação dessas técnicas ajudou a melhorar a clareza, eficiência e colaboração na equipe de projeto, garantindo que os esforços estejam sempre alinhados com as necessidades do usuário e os objetivos do negócio.
 
 ___________________________________________________________________________________
+
+## Unidade 4  
+
+## Principais Aprendizados  
+
+Na Unidade 4, o foco principal foi na modelagem de casos de uso e na especificação detalhada dos casos de uso, aplicando esses conceitos ao projeto ConnectCare. Essa etapa foi essencial para estruturar os requisitos do sistema de forma clara e compreensível, garantindo uma base sólida para as próximas fases do desenvolvimento.  
+
+### Modelagem de Casos de Uso  
+A modelagem de casos de uso nos permitiu visualizar como os usuários interagem com o sistema, facilitando a definição das funcionalidades essenciais. Algumas lições importantes aprendidas foram:  
+
+- *Definição clara de atores e interações:* Identificar corretamente os atores e suas interações com o sistema ajudou a compreender melhor os fluxos das funcionalidades.  
+- *Diagrama de Casos de Uso como ferramenta de comunicação:* A representação visual tornou mais fácil alinhar expectativas entre a equipe e os stakeholders.  
+- *Identificação de dependências:* A modelagem nos permitiu perceber a relação entre diferentes funcionalidades e como elas se conectam.  
+
+###  Especificação de Casos de Uso  
+A especificação detalhada foi um passo fundamental para documentar como cada funcionalidade deve se comportar. Entre os principais aprendizados, destacam-se:  
+
+- *Importância dos fluxos alternativos e de exceção*: Antecipar possíveis problemas, como falhas no agendamento ou serviço não encontrado, tornou o sistema mais robusto.  
+- *Uso de pré-condições e pós-condições*: Definir esses critérios ajudou a estabelecer regras claras sobre quando um caso de uso pode ser executado e qual deve ser o resultado esperado.  
+- *Detalhamento equilibrado*: Encontramos um meio-termo entre descrições detalhadas e objetivas para evitar ambiguidades sem sobrecarregar a documentação.  
+ 
+
+## Conclusão  
+
+A *Unidade 4* reforçou a importância da modelagem e especificação de casos de uso como ferramentas essenciais para um desenvolvimento eficiente e bem estruturado. A experiência adquirida nesta fase fortaleceu nossa capacidade de analisar, documentar e validar requisitos, contribuindo para a construção de um sistema mais robusto e alinhado às necessidades dos usuários.
